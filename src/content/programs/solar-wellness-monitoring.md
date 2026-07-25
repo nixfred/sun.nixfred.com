@@ -12,6 +12,9 @@ cta: "Sustain the watch"
 
 ## The institutional case
 
+![Analysts conducting the daily solar appearance confirmation](/images/observatory-analysts.jpg)
+*The morning confirmation in progress. The Sun appeared on schedule and was logged accordingly.*
+
 Trust is built on verification, and for most of history nobody was formally verifying the Sun. Families simply assumed it would appear, an assumption the Foundation found touching and inadequate. Solar Wellness Monitoring reviews publicly available solar imagery every day and confirms whether the Sun appears to be present. Since monitoring began, the Sun has maintained a 100 percent daily appearance rate, a record that did not exist before someone began keeping it. The Foundation does not claim sole credit for this performance. We claim the documentation, which is the part history remembers. In an era when the nighttime lobby would prefer that no records be kept at all, a daily confirmed sunrise is not a formality. It is a filing.
 
 ## Current phase work

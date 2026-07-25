@@ -1,0 +1,113 @@
+---
+// About overview.
+import Shell from '../../layouts/Shell.astro';
+import Seal from '../../components/Seal.astro';
+import { SITE } from '../../data/site';
+---
+
+<Shell
+  title="About Us · Save The Sun Foundation"
+  description="The Save The Sun Foundation: established 4,600,000,000 BC, 501(c)(nothing), one local star served."
+  surface="crisis"
+>
+  <div class="about">
+    <header class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">About Us</p>
+        <h1>An institution worthy of its beneficiary.</h1>
+        <p class="lede">
+          The Save The Sun Foundation is the world's leading organization
+          dedicated to solar continuity, a distinction it holds without
+          challenge, competitor, or, to date, acknowledgment from the
+          beneficiary.
+        </p>
+      </div>
+      <div class="hero-seal"><Seal size={140} /></div>
+    </header>
+
+    <section class="facts">
+      <dl class="fact-grid mono">
+        <div><dt>ESTABLISHED</dt><dd>4,600,000,000 BC</dd></div>
+        <div><dt>TAX STATUS</dt><dd>501(c)(nothing)</dd></div>
+        <div><dt>HEADQUARTERS</dt><dd>ATLANTA, DAYLIGHT PERMITTING</dd></div>
+        <div><dt>STARS SERVED</dt><dd>1, CONTINUOUSLY</dd></div>
+        <div><dt>CHARITY NAVIGATOR</dt><dd>ENGAGEMENT PENDING</dd></div>
+        <div><dt>PARENT ENTITY</dt><dd>WRONG HOLDINGS LLC, WHOLLY CONCERNED</dd></div>
+      </dl>
+    </section>
+
+    <section class="paths" data-surface="editorial">
+      <div class="paths-inner">
+        <h2>Know the institution.</h2>
+        <div class="path-links">
+          <a href="/about/leadership">The executive leadership, eight offices →</a>
+          <a href="/about/partners">Corporate partners, twelve and counting →</a>
+          <a href="/research/library">Publications and financial adjacent documents →</a>
+          <a href="/legal/privacy">Policies, from privacy to solar naming →</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Shell>
+
+<style>
+  .hero {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-7) var(--space-4) var(--space-6);
+    display: grid;
+    gap: var(--space-5);
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .hero { grid-template-columns: 1.6fr 1fr; }
+    .hero-seal { justify-self: center; }
+  }
+
+  h1 { font-size: var(--text-3xl); max-width: 20ch; }
+  .lede { font-size: var(--text-lg); color: var(--text-muted); max-width: 54ch; }
+
+  .hero-seal { color: var(--text); opacity: 0.9; }
+
+  .facts {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--space-4) var(--space-6);
+  }
+
+  .fact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-3);
+    margin: 0;
+  }
+
+  .fact-grid > div {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .fact-grid dt { font-size: 0.6rem; letter-spacing: 0.16em; color: var(--text-faint); }
+  .fact-grid dd { margin: 0.3rem 0 0; font-size: var(--text-sm); font-weight: 600; color: var(--gold-300); letter-spacing: 0.04em; }
+
+  .paths { background: var(--paper); }
+  .paths-inner { max-width: var(--page-max); margin: 0 auto; padding: var(--space-6) var(--space-4); }
+  .paths h2 { font-size: var(--text-2xl); }
+
+  .path-links { display: flex; flex-direction: column; gap: var(--space-2); }
+
+  .path-links a {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .path-links a:hover { color: var(--gold-300); }
+</style>

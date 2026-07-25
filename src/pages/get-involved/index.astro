@@ -1,0 +1,101 @@
+---
+// Get Involved overview. Live pathways link; pathways still in
+// preparation render in character as pending intake, unlinked.
+import Shell from '../../layouts/Shell.astro';
+
+const PATHWAYS = [
+  { title: 'Donate', href: '/donate', live: true, line: 'The direct route. One time or monthly, recorded the same day, reviewed on a schedule.' },
+  { title: 'Corporate Partnerships', href: '/about/partners', live: true, line: 'Join the twelve organizations that put their dependency on the record.' },
+  { title: 'Adopt a Sunspot', href: null, live: false, line: 'Symbolic adoption of temporary solar phenomena. The catalog is in final curation.' },
+  { title: 'Become a Volunteer', href: null, live: false, line: 'Application preparation opens shortly. Travel opportunities remain paused due to heat.' },
+  { title: 'Contact Your Representative', href: null, live: false, line: 'The message builder is in legislative review, which the legislature has not been told about.' },
+  { title: 'Attend an Event', href: null, live: false, line: 'The gala calendar publishes after sunset, so the Sun can rest.' },
+];
+---
+
+<Shell
+  title="Get Involved · Save The Sun Foundation"
+  description="Six pathways to solar commitment. The Sun cannot enroll itself."
+  surface="crisis"
+>
+  <div class="involved">
+    <header class="hero">
+      <p class="eyebrow">Get Involved</p>
+      <h1>The Sun shows up every day. Now it is your turn.</h1>
+      <p class="lede">
+        Every pathway below converts private concern into recorded
+        institutional participation. Choose the one that matches your
+        capacity for commitment, and our intake systems will do the rest,
+        locally, in your browser, as a matter of policy.
+      </p>
+    </header>
+
+    <ol class="pathways">
+      {PATHWAYS.map((p) => (
+        <li class={`pathway${p.live ? '' : ' pending'}`}>
+          {p.live && p.href ? (
+            <a href={p.href}>
+              <span class="p-main">
+                <span class="p-title">{p.title}</span>
+                <span class="p-line">{p.line}</span>
+              </span>
+              <span class="mono p-status live">OPEN</span>
+            </a>
+          ) : (
+            <div>
+              <span class="p-main">
+                <span class="p-title">{p.title}</span>
+                <span class="p-line">{p.line}</span>
+              </span>
+              <span class="mono p-status">PREPARING INTAKE</span>
+            </div>
+          )}
+        </li>
+      ))}
+    </ol>
+  </div>
+</Shell>
+
+<style>
+  .hero {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-7) var(--space-4) var(--space-5);
+  }
+
+  h1 { font-size: var(--text-3xl); max-width: 22ch; }
+  .lede { font-size: var(--text-lg); color: var(--text-muted); max-width: 58ch; }
+
+  .pathways {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--space-4) var(--space-7);
+    list-style: none;
+  }
+
+  .pathway a,
+  .pathway > div {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-2);
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .pathway a:hover .p-title { color: var(--gold-300); }
+  .pathway.pending { opacity: 0.55; }
+
+  .p-main { display: flex; flex-direction: column; gap: 0.2rem; }
+  .p-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700; transition: color var(--dur-fast) var(--ease-out); }
+  .p-line { color: var(--text-muted); font-size: var(--text-sm); }
+  .p-status { font-size: 0.62rem; letter-spacing: 0.14em; color: var(--text-faint); white-space: nowrap; }
+  .p-status.live { color: var(--gold-300); }
+
+  @media (max-width: 640px) {
+    .pathway a, .pathway > div { grid-template-columns: 1fr; }
+    .p-status { display: none; }
+  }
+</style>

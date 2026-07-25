@@ -6,10 +6,12 @@
 
 <section class="story" data-surface="editorial">
   <div class="story-inner">
-    <div class="story-visual" aria-hidden="true">
-      <div class="story-placeholder">
-        <span class="mono">PORTRAIT IN EDITORIAL REVIEW</span>
-      </div>
+    <div class="story-visual">
+      <img
+        src="/images/family-first-light.jpg"
+        alt="A multigenerational family standing together outdoors at first light"
+        loading="lazy"
+      />
     </div>
     <div class="story-copy">
       <p class="eyebrow">Featured story</p>
@@ -49,6 +51,12 @@
     aspect-ratio: 3 / 2;
     border-radius: var(--radius-lg);
     overflow: hidden;
+  }
+
+  .story-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .story-placeholder {

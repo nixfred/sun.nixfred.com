@@ -8,6 +8,9 @@ summary: "The Foundation's governing plan for the remainder of the Sun's main se
 
 ## Executive summary
 
+![The Board of Trustees reviewing the framework](/images/boardroom-review.jpg)
+*The framework under review. Each trustee received a numbered copy, and each copy was accounted for.*
+
 The scientific literature gives the Sun about five billion years of main sequence hydrogen remaining. For planning purposes the Framework uses 4.8 billion years, an organizational estimate ratified by the Board of Trustees, because stewardship demands a margin and deadlines demand a number. This document converts that number into governance. The Framework organizes the remaining solar era into strategic horizons, assigns each horizon an owner, and requires each owner to report, a structure the Foundation believes has never previously been applied to a star. At 120 pages it is the largest planning instrument in the organization's history, of which the first page states the mission and the remainder protects it. No comparable institution has planned this far ahead, chiefly because no comparable institution exists. The Framework does not claim that a plan will save the Sun. It claims the Sun will not be lost for lack of one, and that distinction is where duty lives.
 
 ## Key findings

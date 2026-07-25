@@ -2,6 +2,7 @@
 name: "Gerald Fontaine"
 role: "Vice President for Public Awareness"
 order: 5
+portrait: "/images/portrait-public-awareness.jpg"
 tenure: "With the Foundation since 2015"
 quote: "Awareness of the Sun stands at 100 percent, and my job is making sure it stays there."
 ---

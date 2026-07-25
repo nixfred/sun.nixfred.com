@@ -1,0 +1,141 @@
+---
+// The Crisis overview: the six briefings frame. Links only what exists.
+import Shell from '../../layouts/Shell.astro';
+
+const BRIEFINGS = [
+  { n: '01', title: 'Solar Depletion', href: '/crisis/solar-depletion', live: true, line: 'The Sun is spending its principal. The full science, the numbers, and the cost of waiting.' },
+  { n: '02', title: 'Hydrogen Loss', href: null, live: false, line: 'Six hundred million tons per second, none of it insured. Briefing in final review.' },
+  { n: '03', title: 'Red Giant Risk', href: null, live: false, line: 'The expansion scenario, described calmly by the literature and by no one here. Briefing in final review.' },
+  { n: '04', title: 'The Cost of Inaction', href: null, live: false, line: 'What doing nothing costs, computed to a precision doing nothing never earned. Briefing in final review.' },
+  { n: '05', title: 'Threats and Opposition', href: null, live: false, line: 'Big Dark, the nighttime lobby, and the Moon. Briefing under legal review, which counsel calls prudent.' },
+  { n: '06', title: 'Frequently Asked Questions', href: '/crisis/faq', live: true, line: 'The questions we receive most, answered on the record.' },
+];
+---
+
+<Shell
+  title="The Crisis · Save The Sun Foundation"
+  description="The solar continuity crisis in six briefings. The science is settled. The response is underway. The Sun remains unaware of both."
+  surface="crisis"
+>
+  <div class="crisis-overview">
+    <header class="hero">
+      <p class="eyebrow">The Crisis</p>
+      <h1>Six briefings. One deadline.</h1>
+      <p class="lede">
+        The Foundation publishes its crisis intelligence as numbered
+        briefings, released as each completes review. Two are public
+        today. Four remain in review, and the review is proceeding with
+        the urgency the timeline deserves.
+      </p>
+    </header>
+
+    <ol class="briefings">
+      {BRIEFINGS.map((b) => (
+        <li class={`briefing${b.live ? '' : ' pending'}`}>
+          {b.live && b.href ? (
+            <a href={b.href}>
+              <span class="mono b-num">{b.n}</span>
+              <span class="b-main">
+                <span class="b-title">{b.title}</span>
+                <span class="b-line">{b.line}</span>
+              </span>
+              <span class="mono b-status live">PUBLISHED</span>
+            </a>
+          ) : (
+            <div>
+              <span class="mono b-num">{b.n}</span>
+              <span class="b-main">
+                <span class="b-title">{b.title}</span>
+                <span class="b-line">{b.line}</span>
+              </span>
+              <span class="mono b-status">IN REVIEW</span>
+            </div>
+          )}
+        </li>
+      ))}
+    </ol>
+
+    <section class="cta">
+      <p>
+        The crisis does not pause between briefings.
+      </p>
+      <a class="btn-gold" href="/donate">Act Before Briefing Three</a>
+    </section>
+  </div>
+</Shell>
+
+<style>
+  .hero {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-7) var(--space-4) var(--space-5);
+  }
+
+  h1 { font-size: var(--text-3xl); }
+  .lede { font-size: var(--text-lg); color: var(--text-muted); max-width: 58ch; }
+
+  .briefings {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+    list-style: none;
+  }
+
+  .briefing a,
+  .briefing > div {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-2);
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .briefing a:hover .b-title { color: var(--gold-300); }
+  .briefing.pending { opacity: 0.55; }
+
+  .b-num { font-size: var(--text-sm); color: var(--text-faint); }
+  .b-main { display: flex; flex-direction: column; gap: 0.2rem; }
+  .b-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700; transition: color var(--dur-fast) var(--ease-out); }
+  .b-line { color: var(--text-muted); font-size: var(--text-sm); }
+  .b-status { font-size: 0.62rem; letter-spacing: 0.14em; color: var(--text-faint); white-space: nowrap; }
+  .b-status.live { color: var(--gold-300); }
+
+  @media (max-width: 640px) {
+    .briefing a, .briefing > div { grid-template-columns: 1fr; gap: var(--space-1); }
+    .b-num, .b-status { display: none; }
+  }
+
+  .cta {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4) var(--space-7);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .cta p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-lg);
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .btn-gold {
+    background: var(--gold-500);
+    color: var(--navy-950);
+    font: 700 0.9rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius);
+  }
+
+  .btn-gold:hover { background: var(--gold-300); color: var(--navy-950); }
+</style>

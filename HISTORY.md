@@ -176,3 +176,43 @@ The Sun has never missed a day of work, and under my presidency,
 neither has the paperwork. No human wrote her either.
 
 ---
+
+## Chapter 6: The Foundation Gets Its Faces
+### 2026-07-25, morning
+
+Fred ran the Midjourney shift himself overnight and dropped forty four
+images into the incoming folder, eleven concepts in four variants each,
+named the way Midjourney names things, which is to say like a filing
+cabinet falling down stairs. Larry parsed the filenames, picked the
+strongest variants, and put the machine to work with sips, the native
+tool that was already on the machine, converting prints into optimized
+production assets.
+
+The homepage hero now burns. An extreme close photograph of the
+photosphere blazes down the right side of the front page while the
+headline holds the left, and the site finally looks like what the
+Foundation always claimed to be, an institution wealthy enough to
+photograph its own beneficiary.
+
+Four executives received faces. Daniel Merrick of Hydrogen Logistics,
+open collared, a man who plans routes. Charles W. Abernathy, General
+Counsel, silver and certain. Gerald Fontaine of Public Awareness,
+photographed against government portrait clouds. And the Director of
+Nighttime Opposition Research, a gaunt man who stares through the
+camera and out the other side, now named Raymond Hollis. Three leaders
+were renamed to match their portraits, which resolved, as a bonus, a
+name collision the reviewer had missed: the old General Counsel shared
+a name with a partner executive at Daybreak Systems. Two different
+people, one name, one universe. Fixed by the faces.
+
+The family at first light took the featured story. The observatory
+analysts joined Solar Wellness Monitoring. The boardroom joined the
+Five Billion Year Strategic Framework, every numbered copy accounted
+for. The Sun in deep space now opens the Solar Depletion briefing,
+captioned: photographed without its knowledge or consent.
+
+Sixty three pages. All dark. All live. Four portraits still wanted,
+and the bucket render remains the most anticipated engineering
+document in the Foundation's history.
+
+---

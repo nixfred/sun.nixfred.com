@@ -35,6 +35,17 @@ const STATS = [
 
     <section class="science">
       <div class="inner narrow">
+        <figure class="science-figure">
+          <img
+            src="/images/sun-deep-space.jpg"
+            alt="The Sun suspended against deep space"
+            loading="lazy"
+          />
+          <figcaption class="mono">
+            THE SUBJECT, PHOTOGRAPHED WITHOUT ITS KNOWLEDGE OR CONSENT.
+            IMAGERY REVIEWED BY THE SOLAR WELLNESS MONITORING TEAM.
+          </figcaption>
+        </figure>
         <h2>The Science</h2>
         <p>
           The Sun formed approximately 4.6 billion years ago from the
@@ -199,6 +210,22 @@ const STATS = [
   }
 
   h2 { font-size: var(--text-2xl); margin-bottom: var(--space-4); }
+
+  .science-figure {
+    margin: 0 0 var(--space-5);
+  }
+
+  .science-figure img {
+    border-radius: var(--radius-lg);
+    width: 100%;
+  }
+
+  .science-figure figcaption {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    color: var(--text-faint);
+    margin-top: var(--space-2);
+  }
 
   .science p, .doing p, .waiting p { color: #b9c4d6; line-height: 1.75; }
 

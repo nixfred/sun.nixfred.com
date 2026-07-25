@@ -1,0 +1,106 @@
+---
+// Impact overview.
+import Shell from '../../layouts/Shell.astro';
+
+const HEADLINES = [
+  { value: '365', label: 'consecutive solar appearances since monitoring began' },
+  { value: '0', label: 'extinction events on the Foundation record' },
+  { value: '27', label: 'strategic initiatives currently underway' },
+  { value: '1', label: 'local star served, continuously' },
+];
+---
+
+<Shell
+  title="Impact · Save The Sun Foundation"
+  description="365 consecutive solar appearances. 0 extinction events. The measured impact of the Save The Sun Foundation."
+  surface="crisis"
+>
+  <div class="impact-overview">
+    <header class="hero">
+      <p class="eyebrow">Impact</p>
+      <h1>Results you can verify by going outside.</h1>
+      <p class="lede">
+        The Foundation publishes every metric it produces and produces
+        every metric it can. Independent verification is available daily
+        at dawn, at no charge, in all markets.
+      </p>
+    </header>
+
+    <dl class="headline-grid">
+      {HEADLINES.map((h) => (
+        <div class="headline">
+          <dd class="mono h-value">{h.value}</dd>
+          <dt class="h-label">{h.label}</dt>
+        </div>
+      ))}
+    </dl>
+
+    <section class="paths" data-surface="editorial">
+      <div class="paths-inner">
+        <h2>The full accounting.</h2>
+        <div class="path-links">
+          <a href="/impact/dashboard">The Impact Dashboard, live metrics across four views →</a>
+          <a href="/reports/2026-annual-impact-report">The 2026 Annual Impact Report, 48 pages →</a>
+          <a href="/research/library">Every published report, framework, and methodology →</a>
+          <a href="/donate">Convert concern into measurable commitment →</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Shell>
+
+<style>
+  .hero {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-7) var(--space-4) var(--space-5);
+  }
+
+  h1 { font-size: var(--text-3xl); max-width: 22ch; }
+  .lede { font-size: var(--text-lg); color: var(--text-muted); max-width: 56ch; }
+
+  .headline-grid {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--space-4) var(--space-6);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-5) var(--space-4);
+  }
+
+  .headline { display: flex; flex-direction: column-reverse; }
+
+  .h-value {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 600;
+    color: var(--gold-300);
+    line-height: 1;
+    margin: 0;
+  }
+
+  .h-label { font-size: var(--text-sm); color: var(--text-muted); margin-top: var(--space-2); max-width: 24ch; }
+
+  .paths { background: var(--paper); }
+
+  .paths-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .paths h2 { font-size: var(--text-2xl); }
+
+  .path-links { display: flex; flex-direction: column; gap: var(--space-2); }
+
+  .path-links a {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .path-links a:hover { color: var(--gold-300); }
+</style>

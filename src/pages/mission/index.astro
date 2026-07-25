@@ -1,0 +1,123 @@
+---
+// Our Mission overview. Curation surface: frames the section, links the
+// children (child pages arrive in the next build round; links here are
+// limited to pages that exist so the no-dead-links law holds).
+import Shell from '../../layouts/Shell.astro';
+---
+
+<Shell
+  title="Our Mission · Save The Sun Foundation"
+  description="The Save The Sun Foundation exists to ensure the Sun's service continues. Our mission, our approach, and the 4.8 billion year plan."
+  surface="crisis"
+>
+  <div class="mission">
+    <header class="hero">
+      <p class="eyebrow">Our Mission</p>
+      <h1>The Sun made no succession plan. We are the succession plan.</h1>
+      <p class="lede">
+        For 4.6 billion years the Sun has delivered light, warmth, and
+        agriculture without a contract, a board, or a single documented
+        meeting. The Foundation exists to correct that governance gap
+        before it becomes a governance crisis.
+      </p>
+    </header>
+
+    <section class="pillars">
+      <div class="pillar">
+        <h2>Why the Sun</h2>
+        <p>
+          Of all the stars available to humanity, one has consistently
+          demonstrated commitment to this planet. The Foundation believes
+          loyalty should be repaid, ideally through a structured giving
+          program.
+        </p>
+      </div>
+      <div class="pillar">
+        <h2>Our Approach</h2>
+        <p>
+          We combine vigilance, planning, and awareness into a single
+          integrated framework, then we review the framework. Last year
+          the framework was reviewed 11 times, a record the review
+          committee attributes to discipline.
+        </p>
+      </div>
+      <div class="pillar">
+        <h2>The 4.8 Billion Year Plan</h2>
+        <p>
+          The longest strategic plan in institutional history, ratified by
+          the Board after a two year process that consumed roughly one 2.4
+          billionth of the time it governs. Stewardship demands a margin.
+        </p>
+      </div>
+      <div class="pillar">
+        <h2>Theory of Change</h2>
+        <p>
+          Awareness produces concern. Concern produces commitment.
+          Commitment produces frameworks. Frameworks produce meetings, and
+          the Sun has risen every single morning since the meetings began.
+          The theory is working.
+        </p>
+      </div>
+    </section>
+
+    <section class="proof" data-surface="editorial">
+      <div class="proof-inner">
+        <h2>The work continues.</h2>
+        <div class="proof-links">
+          <a href="/programs">Explore the nine programs →</a>
+          <a href="/impact/dashboard">See the measured impact →</a>
+          <a href="/reports/five-billion-year-strategic-framework">Read the Strategic Framework →</a>
+          <a href="/donate">Underwrite the mission →</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Shell>
+
+<style>
+  .hero {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-7) var(--space-4) var(--space-6);
+  }
+
+  h1 { font-size: var(--text-3xl); max-width: 22ch; }
+  .lede { font-size: var(--text-lg); color: var(--text-muted); max-width: 58ch; }
+
+  .pillars {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--space-4) var(--space-6);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-5) var(--space-5);
+  }
+
+  .pillar { border-top: 2px solid var(--gold-500); padding-top: var(--space-3); }
+  .pillar h2 { font-size: var(--text-xl); }
+  .pillar p { color: var(--text-muted); font-size: var(--text-sm); line-height: 1.7; margin: 0; }
+
+  .proof { background: var(--paper); }
+
+  .proof-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .proof h2 { font-size: var(--text-2xl); }
+
+  .proof-links { display: flex; flex-direction: column; gap: var(--space-2); }
+
+  .proof-links a {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .proof-links a:hover { color: var(--gold-300); }
+</style>

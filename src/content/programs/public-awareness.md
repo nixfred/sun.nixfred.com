@@ -12,6 +12,9 @@ cta: "Raise awareness"
 
 ## The institutional case
 
+![Citizens participating in a Moment of Brightness observance at noon, unprompted and correctly](/images/awareness-noon.jpg)
+*A Moment of Brightness observance, documented by the Office of Public Awareness. Attendance was voluntary and total.*
+
 Millions of people see the Sun every day, yet formal awareness remains dangerously low. The Foundation draws a firm distinction between exposure and awareness, since a citizen can stand in direct sunlight for an entire lifetime without once completing an awareness module. This gap is not the public's fault. It is the predictable result of generations of institutional silence, during which no organization stepped forward to tell people about the thing above them. Meanwhile the Moon enjoys holidays, calendars, and an entire genre of song while producing no light of its own, an imbalance in public attention that the Foundation has raised repeatedly and that lunar interests have declined to address. Awareness is the first phase of every rescue. It is also, at present, the entire operational portfolio, which is why it must be done thoroughly.
 
 ## Current phase work

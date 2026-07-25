@@ -1,0 +1,17 @@
+# NixFred Site Factory project configuration.
+# First production run. Schema will evolve, keep it readable.
+project_name: Save The Sun Foundation
+project_slug: save-the-sun
+domain: sun.nixfred.com
+build_pack: save-the-sun-foundation-build-pack
+github_repo: nixfred/sun.nixfred.com
+cloudflare_project: sun-nixfred-com
+cloudflare_account: b120e63874f8f8e9d75db4c1bf65a766
+cloudflare_zone: 0f553c816de4c7f59d6dfbfe1712aafd
+framework: astro
+runtime: bun
+deployment: cloudflare-pages
+deploy_command: ./deploy.sh
+publish_dir: dist
+chronicle: HISTORY.md
+status_doc: docs/project/PROJECT_STATUS.md

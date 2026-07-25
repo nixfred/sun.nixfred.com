@@ -1,0 +1,175 @@
+---
+// THE INLINE DOCUMENT READER. Every mentioned paper, kit, guide, and
+// framework is read here, in full, on site. There is no download,
+// which the Office of Document Control considers the highest form of
+// distribution control.
+import { getCollection, render } from 'astro:content';
+import Shell from '../../layouts/Shell.astro';
+import Seal from '../../components/Seal.astro';
+import ShareSheet from '../../components/ShareSheet.astro';
+
+export async function getStaticPaths() {
+  const documents = await getCollection('documents');
+  return documents.map((doc) => ({
+    params: { id: doc.id },
+    props: { doc },
+  }));
+}
+
+const { doc } = Astro.props;
+const { Content } = await render(doc);
+---
+
+<Shell
+  title={`${doc.data.title} · Document ${doc.data.docNumber} · Solar Save Foundation`}
+  description={doc.data.summary}
+  surface="crisis"
+>
+  <div class="reader">
+    <nav class="reader-bar mono">
+      <a href="/documents">← Document Register</a>
+      <span class="bar-meta">{doc.data.docNumber} · VIEWING INLINE · NO DOWNLOAD REQUIRED OR OFFERED</span>
+    </nav>
+
+    <article class="paper">
+      <header class="letterhead">
+        <div class="letterhead-org">
+          <Seal size={56} />
+          <div>
+            <p class="org-name">Solar Save Foundation</p>
+            <p class="mono org-sub">OFFICE OF DOCUMENT CONTROL · EST. 4,600,000,000 BC</p>
+          </div>
+        </div>
+        <dl class="doc-meta mono">
+          <div><dt>DOCUMENT</dt><dd>{doc.data.docNumber}</dd></div>
+          <div><dt>CATEGORY</dt><dd>{doc.data.category.toUpperCase()}</dd></div>
+          <div><dt>ISSUED</dt><dd>{doc.data.issued.toUpperCase()}</dd></div>
+          <div><dt>LENGTH</dt><dd>{doc.data.pages} PAGES, ALL PRESENT</dd></div>
+        </dl>
+        <p class="mono classification">{doc.data.classification}</p>
+        <h1>{doc.data.title}</h1>
+      </header>
+
+      <div class="prose">
+        <Content />
+      </div>
+
+      <footer class="doc-end">
+        <p class="mono">END OF DOCUMENT · {doc.data.docNumber} · RETAINED IN FULL ON THIS PAGE</p>
+        <ShareSheet title={doc.data.title} />
+      </footer>
+    </article>
+  </div>
+</Shell>
+
+<style>
+  .reader {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: var(--space-5) var(--space-4) var(--space-7);
+  }
+
+  .reader-bar {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-3);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .reader-bar a { color: var(--text-muted); text-decoration: none; }
+  .reader-bar a:hover { color: var(--accent); }
+  .bar-meta { color: var(--text-faint); }
+
+  .paper {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6) var(--space-5);
+  }
+
+  .letterhead {
+    border-bottom: 2px solid var(--gold-500);
+    padding-bottom: var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+
+  .letterhead-org {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .org-name {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .org-sub {
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    color: var(--text-faint);
+    margin: 0.2rem 0 0;
+  }
+
+  .doc-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-2);
+    margin: 0 0 var(--space-3);
+  }
+
+  .doc-meta div { border-left: 2px solid var(--line); padding-left: var(--space-2); }
+  .doc-meta dt { font-size: 0.55rem; letter-spacing: 0.14em; color: var(--text-faint); }
+  .doc-meta dd { margin: 0.15rem 0 0; font-size: var(--text-xs); font-weight: 600; color: var(--gold-300); letter-spacing: 0.04em; }
+
+  .classification {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--alert-red, #b3261e);
+    border: 1px solid currentColor;
+    padding: 0.25rem 0.7rem;
+    margin-bottom: var(--space-3);
+  }
+
+  h1 { font-size: var(--text-2xl); max-width: 24ch; margin: 0; }
+
+  .prose :global(h2) { font-size: var(--text-xl); margin-top: var(--space-5); }
+  .prose :global(h3) { font-size: var(--text-lg); margin-top: var(--space-4); }
+  .prose :global(p) { color: var(--text-muted); line-height: 1.8; }
+  .prose :global(ol) { color: var(--text-muted); line-height: 1.8; padding-left: 1.4rem; }
+  .prose :global(li) { margin-bottom: 0.6rem; }
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--gold-500);
+    margin: var(--space-4) 0;
+    padding-left: var(--space-4);
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--text);
+  }
+  .prose :global(table) { border-collapse: collapse; width: 100%; margin: var(--space-4) 0; }
+  .prose :global(th), .prose :global(td) {
+    border: 1px solid var(--line);
+    padding: 0.5rem 0.75rem;
+    font-size: var(--text-sm);
+    text-align: left;
+  }
+  .prose :global(th) { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; color: var(--gold-300); }
+
+  .doc-end { margin-top: var(--space-6); }
+  .doc-end p {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    color: var(--text-faint);
+    text-align: center;
+    border-top: 1px dashed var(--line);
+    padding-top: var(--space-3);
+  }
+</style>

@@ -115,6 +115,22 @@ const pages = defineCollection({
   }),
 });
 
+// The document register: every paper, kit, guide, framework, and
+// newsletter issue the site mentions exists here and is read INLINE at
+// /documents/<id>. Nothing is downloaded. Nobody leaves the site.
+const documents = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/documents' }),
+  schema: z.object({
+    title: z.string(),
+    docNumber: z.string(),
+    category: z.enum(['Technical Paper', 'Policy Brief', 'Education', 'Preparedness', 'Media', 'Newsletter']),
+    issued: z.string(),
+    pages: z.number(),
+    classification: z.string().default('PUBLIC RELEASE'),
+    summary: z.string(),
+  }),
+});
+
 const policies = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/policies' }),
   schema: z.object({
@@ -125,4 +141,4 @@ const policies = defineCollection({
   }),
 });
 
-export const collections = { programs, blog, press, reports, leadership, partners, policies, pages };
+export const collections = { programs, blog, press, reports, leadership, partners, policies, pages, documents };

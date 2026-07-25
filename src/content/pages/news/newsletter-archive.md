@@ -35,3 +35,10 @@ The archive is complete and its conclusions are consistent. Critics have suggest
 ## The forward file
 
 Each issue is archived permanently, indexed by date and by outcome, which are at present the same index. Future issues are planned at the current cadence through approximately five billion years, per science, with the 4.8 billion year figure governing internal planning as a matter of prudence. The archive is bound annually and shelved in order of sunrise, and this page summarizes it so that no reader need wonder how any issue concluded. Tomorrow's issue is expected to confirm that the Sun rose, and the Foundation looks forward to being right again.
+
+## Read the Archive
+
+Recent issues of The Daily Confirmation are published in full.
+
+1. [Issue 47, in which the Sun rose, NL-2026-047](/documents/nl-2026-047-daily-confirmation)
+2. [Issue 48, in which the Sun rose again, NL-2026-048](/documents/nl-2026-048-daily-confirmation)

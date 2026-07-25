@@ -30,3 +30,8 @@ The Foundation reports its confidence in the record as High. That level is ratif
 ## Access to the data
 
 The data is available on request to those who know what to request. Requests are reviewed in the order received, against criteria the office considers self evident and has therefore not published. The raw archive itself is not released, out of respect for the Sun's privacy, which the Sun has neither invoked nor waived. Qualified researchers whose requests are granted receive extracts appropriate to their need, along with the methodology's summary volume, which was written to be cited. Summary figures appear throughout this site and are refreshed on a schedule aligned with the record. The Foundation believes sound data practice is a form of stewardship, and stewardship, as with everything else in the record, is confirmed daily.
+
+## From the Document Register
+
+1. [Daily Appearance Confirmation Methodology, Revision Four, TP-2026-005](/documents/tp-2026-005-appearance-methodology)
+2. [Solar Mass Loss Accounting Standard, TP-2025-002](/documents/tp-2025-002-mass-loss-accounting)

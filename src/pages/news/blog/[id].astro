@@ -3,6 +3,7 @@
 // indicator per 08_INTERACTIONS (subtle, honors reduced motion).
 import { getCollection, render } from 'astro:content';
 import Shell from '../../../layouts/Shell.astro';
+import ShareSheet from '../../../components/ShareSheet.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -36,6 +37,7 @@ const fmt = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', ye
     <div class="prose">
       <Content />
     </div>
+    <ShareSheet title={post.data.title} />
     <footer class="post-foot">
       <a class="mono back-link" href="/news/blog">← Foundation Blog</a>
       <a class="btn-gold" href="/donate">Donate Before Dark</a>

@@ -2,6 +2,7 @@
 // The Crisis: Solar Depletion. Built verbatim from the copy deck at
 // docs/copy/crisis-solar-depletion.md (deck v1). Crisis surface.
 import Shell from '../../layouts/Shell.astro';
+import ShareSheet from '../../components/ShareSheet.astro';
 
 const STATS = [
   { value: '600M tons', label: 'Hydrogen the Sun consumes every second', note: 'This rate of loss continues around the clock with no independent oversight.' },
@@ -169,6 +170,7 @@ const STATS = [
         <blockquote>
           Scientists agree that doing nothing will not save the Sun.
         </blockquote>
+        <ShareSheet title="The Sun Is Spending Its Principal" />
       </div>
     </section>
 

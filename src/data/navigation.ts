@@ -151,6 +151,7 @@ export const FOOTER_COLUMNS: { heading: string; items: NavLink[] }[] = [
       { label: 'News', href: '/news' },
       { label: 'Blog', href: '/news/blog' },
       { label: 'Research Library', href: '/research/library' },
+      { label: 'Document Register', href: '/documents' },
       { label: 'FAQ', href: '/crisis/faq' },
       { label: 'Media Center', href: '/news/media-resources' },
     ],

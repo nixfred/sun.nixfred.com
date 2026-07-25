@@ -3,6 +3,7 @@
 // (buttons may open designed HTML report pages).
 import { getCollection, render } from 'astro:content';
 import Shell from '../../layouts/Shell.astro';
+import ShareSheet from '../../components/ShareSheet.astro';
 import Seal from '../../components/Seal.astro';
 
 export async function getStaticPaths() {
@@ -38,6 +39,7 @@ const { Content } = await render(report);
     <div class="report-body">
       <div class="prose">
         <Content />
+        <ShareSheet title={report.data.title} />
       </div>
       <aside class="report-aside">
         <div class="aside-card">

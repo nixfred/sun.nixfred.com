@@ -25,3 +25,8 @@ Support enables the templates, the checklists, the guides, and the drills, which
 ## Forward outlook
 
 The forward plan is generational by necessity and by temperament. Checklist consolidation will continue until every item is essential, a state the committee expects to approach without ever carelessly reaching. The resilience guide will be published, revised, and republished on a cadence calibrated to outlast its readers. The principal obstacle is recorded with the candor our supporters expect, the emergency remains approximately five billion years away, and sustaining institutional urgency across that interval is the true test of this program. The Foundation accepts the test. Every morning the Sun rises, the emergency is postponed one more day, and the Foundation notes with quiet satisfaction that this arrangement has held every single day since our founding. Readiness of that duration is not achieved. It is maintained, morning by morning, by people who showed up before dawn to be certain.
+
+## From the Document Register
+
+1. [Executive Readiness Checklist for Prolonged Darkness, PR-2026-001](/documents/pr-2026-001-executive-readiness)
+2. [The Emergency Flashlight Inventory Framework, PR-2026-002](/documents/pr-2026-002-flashlight-framework)

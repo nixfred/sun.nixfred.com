@@ -3,6 +3,7 @@
 // collection. The vertical slice's representative deep page type.
 import { getCollection, render } from 'astro:content';
 import Shell from '../../layouts/Shell.astro';
+import ShareSheet from '../../components/ShareSheet.astro';
 
 export async function getStaticPaths() {
   const programs = await getCollection('programs');
@@ -37,6 +38,7 @@ const { Content } = await render(program);
         <div class="cta-block">
           <a class="btn-gold" href="/donate">{program.data.cta}</a>
         </div>
+        <ShareSheet title={program.data.title} />
       </div>
 
       <aside class="program-aside">

@@ -2,6 +2,7 @@
 // Press release template. AP wire styling, institutional letterhead feel.
 import { getCollection, render } from 'astro:content';
 import Shell from '../../../layouts/Shell.astro';
+import ShareSheet from '../../../components/ShareSheet.astro';
 
 export async function getStaticPaths() {
   const releases = await getCollection('press');
@@ -33,6 +34,7 @@ const fmt = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', ye
     <div class="prose">
       <Content />
     </div>
+    <ShareSheet title={release.data.title} />
     <footer class="release-foot">
       <p class="mono">###</p>
       <a class="mono back-link" href="/news/press">← All Press Releases</a>

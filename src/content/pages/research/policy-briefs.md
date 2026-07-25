@@ -32,3 +32,10 @@ Solar continuity is not a partisan question, and the Foundation has worked to ke
 ## Readership and effect
 
 Briefs are distributed to legislative offices, agency contacts, and cleared members of the press, and receipt has been confirmed in a number of cases. The office measures effect conservatively. Since the briefing program began, the Sun has risen every single day, and the policy team records that fact in each quarterly report while claiming, in writing, nothing further. Some outcomes speak for themselves, and the office has determined that this one should be permitted to. Supporters who wish to understand the legislative dimension of the crisis are encouraged to begin with the current brief, which was written to be read in one sitting and filed for generations.
+
+## From the Document Register
+
+1. [The Emergency Stellar Preservation Act, Section by Section, PB-2026-001](/documents/pb-2026-001-espa-summary)
+2. [The State Daylight Dependency Index, PB-2026-002](/documents/pb-2026-002-daylight-dependency-index)
+3. [Legislative Scorecard Methodology, PB-2025-003](/documents/pb-2025-003-scorecard-methodology)
+4. [Disclosure Gaps in Nighttime Advocacy, PB-2026-004](/documents/pb-2026-004-nighttime-lobby-disclosure)

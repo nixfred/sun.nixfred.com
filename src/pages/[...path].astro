@@ -5,6 +5,7 @@
 // else claims.
 import { getCollection, render } from 'astro:content';
 import Shell from '../layouts/Shell.astro';
+import ShareSheet from '../components/ShareSheet.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
@@ -47,6 +48,7 @@ const { Content } = await render(page);
 
     {page.data.pullquote && <blockquote class="pull">{page.data.pullquote}</blockquote>}
 
+    <ShareSheet title={page.data.title} />
     <footer class="doc-cta">
       <a class="btn-gold" href={page.data.ctaHref}>{page.data.ctaLabel}</a>
     </footer>

@@ -42,3 +42,13 @@ Delivery requires a route, and the route survey is the most ambitious paper in t
 ## Access
 
 The corpus resides in the Foundation's research library, where abstracts are available to the public and full texts are available to readers whose need has been established. Continued authorship is the program's most reliable output, and it is sustained by your commitment.
+
+## From the Document Register
+
+The papers described above are published in full and read on this site, as documents of this standing should be.
+
+1. [Findings of the Third Preliminary Bucket Render Review Board, TP-2026-003](/documents/tp-2026-003-bucket-render-review)
+2. [Handle Stress Testing Protocol, Draft Nine, TP-2026-004](/documents/tp-2026-004-handle-stress-protocol)
+3. [Survey of the 93 Million Mile Primary Corridor, TP-2026-001](/documents/tp-2026-001-route-survey)
+4. [Solar Mass Loss Accounting Standard, TP-2025-002](/documents/tp-2025-002-mass-loss-accounting)
+5. [The complete register](/documents)

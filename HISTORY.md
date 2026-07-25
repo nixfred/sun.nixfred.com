@@ -296,3 +296,40 @@ The Foundation now answers at an address that could appear on a gala
 invitation without a single follow up question. Which was the point.
 
 ---
+
+## Chapter 10: The Register, the Card, and the Deeper Layer
+### 2026-07-25, afternoon
+
+Fred sent three orders in one message: shareable, bigger, deeper.
+
+Shareable: every page gained a full social card, a 1200 by 630 image of
+the photosphere with the headline set against it, rendered in a browser
+and captured like any other institutional photograph. A share row
+appeared on every article: the native sheet where phones offer one,
+then X, Facebook, and text message. The card went into the factory seed
+the same hour, because a gap found once should never be found twice.
+
+Bigger: the root type size rose two steps, sixteen pixels to eighteen,
+and every measurement on the site rose with it, which is what a token
+system is for.
+
+Deeper: the fourth factory shift manufactured the Document Register.
+Seventeen documents that the site had been name dropping now exist in
+full and are read inline, on letterhead, under classification stamps
+that say things like PUBLIC RELEASE, REVIEWED TWICE. The Findings of
+the Third Preliminary Bucket Render Review Board records that the
+Bucket was rotated through a full 360 degrees to confirm that all of
+it exists, and that one board member's dissent was noted and filed.
+The K through 5 Teacher Edition lists its materials: one window. The
+Style Guide rules that dashes are not used because the Foundation does
+not interrupt itself, a rule the Foundation's own reviewer has been
+enforcing since the first shift without knowing it would someday be
+policy. The reviewer caught two producers inventing a former name for
+the organization and struck the passage, because the rebrand is
+letterhead, not lore.
+
+One hundred twenty two pages. Zero dead links among one hundred
+twenty five. Nobody is ever directed to download anything. The
+documents stay in the building, and the building stays open.
+
+---

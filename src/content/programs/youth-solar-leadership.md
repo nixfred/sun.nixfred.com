@@ -25,3 +25,10 @@ Support enables kits to reach classrooms, councils to convene, and essays to be 
 ## Forward outlook
 
 The forward outlook is the entire point of this program, since the program is about the forward outlook. The first youth council cohort will convene upon ratification of its convening procedures. Essay contest winners will be announced annually, archived permanently, and cited in future strategic frameworks as evidence of momentum. The principal obstacle is disclosed in the interest of candor, the generation this program ultimately serves has not yet been born, and recruitment among them remains impractical. The Foundation therefore prepares their teachers, their materials, and their badges in advance, which is what preparation means. Somewhere, approximately five billion years from now, a young leader will face the crisis directly, and everything ratified today is for them. Tradition is simply foresight that kept its paperwork.
+
+## From the Document Register
+
+Program materials are published in full and read on this site. Classroom use requires no download, no login, and no permission beyond a teacher's judgment.
+
+1. [Local Star Education Kit, Grades K Through 5, Teacher Edition, ED-2026-001](/documents/ed-2026-001-local-star-kit)
+2. [Future Generation Ambassador Badge Requirements, ED-2026-002](/documents/ed-2026-002-ambassador-badge)

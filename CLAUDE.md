@@ -2,14 +2,36 @@
 
 > Design law for this site. Global rules live in `~/.claude/CLAUDE.md`.
 > This file holds only what is specific to sun.nixfred.com.
-> Scaffolded 2026-07-24. Content contract is not settled yet.
+> Scaffolded 2026-07-24. Build pack landed the same night.
 
 ## What this site is
 
-A nixfred.com property at sun.nixfred.com. Public repo. Personal, not work.
-The subject matter arrives as source markdown dropped into this directory by
-Fred. Until that lands, the site is a placeholder and this file is thin on
-purpose. Do not invent a subject, a brand, or a scope for this site.
+The **Save The Sun Foundation**: a large, polished, explorable static website
+for a fictional nonprofit that treats the eventual death of the Sun as an
+urgent present day fundraising crisis. Satire played dead straight. It must
+read like a credible national nonprofit and never wink at the joke anywhere
+except one small line at the very bottom of the global footer.
+
+The full specification is the build pack in
+`save-the-sun-foundation-build-pack/`, 13 documents plus a manifest. Read
+`00_MASTER_BRIEF.md` first, then `11_CLAUDE_CODE_EXECUTION_PLAN.md`. The pack
+is the contract. Do not improvise scope, tone, or palette against it.
+
+## Hard safety rules (non-negotiable, from the brief)
+
+1. Static only. No server side code, no database, no email delivery, no form
+   submission to any third party.
+2. No real payment processing. No Stripe, PayPal, or Square. No card number
+   fields, no CVV fields, no bank information, no passwords, no donor accounts.
+3. Every transaction or form interaction is simulated locally in the browser.
+   The final commitment step reveals an in character status message instead of
+   taking anything. No payment credentials are ever requested.
+4. Local state only, sessionStorage or localStorage, for harmless fictional
+   preferences such as donation tier or adopted sunspot.
+5. One disclaimer, at the absolute bottom of the global footer, nowhere else:
+   "This is a joke. This static site cannot accept money or process donations."
+6. The Foundation is fictional. Do not attach real charities, real people, or
+   real regulators to it.
 
 ## Settled
 
@@ -17,22 +39,24 @@ purpose. Do not invent a subject, a brand, or a scope for this site.
 2. Cloudflare Pages project `sun-nixfred-com`, custom domain sun.nixfred.com.
 3. Deploy is `./deploy.sh` from this directory. Local wrangler, Direct Upload,
    production. Pushing main does not deploy by itself.
-4. Static HTML with no build step until the content proves it needs more.
-5. Dark only. Near black base `#070b14`, panels `#0d1322`, mono for metadata
-   and version, sans for body. Accent is amber `#ffb547`, PROVISIONAL, chosen
-   as a placeholder signature for a site named sun. Fred rules on it once the
-   content is known.
-6. Header links to nixfred.com and to the source repo, nothing else.
+4. Only `site/` is published. Repo docs and the build pack stay out of the
+   deployed site.
+5. The current `site/index.html` is a scaffold placeholder, not the design. The
+   real visual direction is Solar Gold and Deep Space Navy per
+   `07_DESIGN_SYSTEM.md`, editorial serif headlines, neutral sans body.
+6. Header links to nixfred.com and to the source repo. The Foundation site gets
+   its own institutional navigation per the build pack; the nixfred links live
+   in the footer once the real site lands so they never break character.
 7. Version is visible in the footer on every page.
 
 ## Pending Fred
 
-1. What the site is about, from the source markdown.
-2. Whether the amber accent stays.
-3. Whether this becomes a card on the nixfred.com homepage, which is served by
-   the v5 property behind the apex router, and whether it gets an apex alias at
-   nixfred.com/sun. `/sun` is free in `~/Projects/apex-router/table.json` as of
-   2026-07-24, no collision.
+1. Stack ruling before Phase 1. Plain static does not carry a site this size.
+   Recommendation: Astro installed with bun, matching calc.nixfred.com.
+2. Whether this becomes a card on the nixfred.com homepage, which is served by
+   the Pages project `nixfred-com-v5` behind the apex router.
+3. Whether it gets an apex alias at nixfred.com/sun. `/sun` is free in
+   `~/Projects/apex-router/table.json` as of 2026-07-24, no collision.
 
 ## Writing rules
 

@@ -1,18 +1,25 @@
 # sun.nixfred.com
 
-A nixfred.com property. Live at [sun.nixfred.com](https://sun.nixfred.com).
+Home of the **Save The Sun Foundation**, a fictional nonprofit that treats the
+eventual death of the Sun as an urgent present day fundraising crisis. Satire,
+played completely straight. Live at [sun.nixfred.com](https://sun.nixfred.com).
 
-Status: scaffold. Infrastructure is provisioned and serving a placeholder.
-Content is pending.
+It is a static site. It cannot accept money, it processes no payments, and it
+transmits no data anywhere.
+
+Status: scaffold. Infrastructure is provisioned and serving a placeholder. The
+full specification is in `save-the-sun-foundation-build-pack/`, thirteen
+documents plus a manifest. The build has not started.
 
 ## Stack
 
-1. Static HTML, no build step, no framework, no CDN dependencies.
+1. Static, no server side code, no database, no CDN dependencies.
 2. Hosting: Cloudflare Pages project `sun-nixfred-com`.
 3. Custom domain `sun.nixfred.com` on the nixfred.com zone, automatic TLS.
 
-If the content turns out to need many pages, this escalates to Astro installed
-with bun, matching calc.nixfred.com. That decision is not made yet.
+The placeholder is plain HTML. A site the size of the build pack will need a
+generator, most likely Astro installed with bun, matching calc.nixfred.com.
+That call has not been made yet.
 
 ## Deploy
 
@@ -27,10 +34,12 @@ its OAuth login. Pushing to `main` does not deploy on its own. Run the script.
 ## Layout
 
 ```
-index.html    the site
-_headers      Cloudflare Pages response headers
-deploy.sh     production deploy
-CLAUDE.md     design law for this repo, read it before changing anything
+site/                                  everything that gets published
+  index.html                           the site
+  _headers                             Cloudflare Pages response headers
+save-the-sun-foundation-build-pack/    the specification, 13 documents
+deploy.sh                              production deploy
+CLAUDE.md                              design law, read it before changing anything
 ```
 
 ## Repo

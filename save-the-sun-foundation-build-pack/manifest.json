@@ -1,0 +1,21 @@
+{
+  "project": "Save The Sun Foundation",
+  "purpose": "Claude Code planning and content package",
+  "file_count": 13,
+  "files": [
+    "00_MASTER_BRIEF.md",
+    "01_INFORMATION_ARCHITECTURE.md",
+    "02_HOMEPAGE_BLUEPRINT.md",
+    "03_PROGRAMS_AND_CAMPAIGNS.md",
+    "04_STATIC_DONATION_EXPERIENCE.md",
+    "05_COPY_AND_HUMOR_BIBLE.md",
+    "06_CONTENT_MODEL_AND_EDITORIAL.md",
+    "07_DESIGN_SYSTEM.md",
+    "08_INTERACTIONS_AND_FUNCTIONALITY.md",
+    "09_ASSET_AND_LOGO_PLAN.md",
+    "10_QA_AND_ACCEPTANCE.md",
+    "11_CLAUDE_CODE_EXECUTION_PLAN.md",
+    "12_RESEARCH_NOTES.md"
+  ],
+  "safety": "Static only. No payment processing or real data transmission."
+}

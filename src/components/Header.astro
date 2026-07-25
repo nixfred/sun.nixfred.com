@@ -56,6 +56,13 @@ import { SITE } from '../data/site';
   </div>
 
   <nav class="mobile-nav" id="mobile-nav" aria-label="Primary mobile" hidden>
+    <a class="mobile-search" href="/search">
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <circle cx="8.5" cy="8.5" r="6" stroke="currentColor" stroke-width="2"></circle>
+        <path d="M13 13 L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+      </svg>
+      Search the Foundation
+    </a>
     {PRIMARY_NAV.map((section) => (
       <details class="mobile-section">
         <summary>{section.label}</summary>
@@ -144,29 +151,40 @@ import { SITE } from '../data/site';
   .header-inner {
     max-width: var(--page-wide);
     margin: 0 auto;
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-3);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-4);
+    gap: var(--space-2);
     min-height: 72px;
   }
 
+  @media (min-width: 560px) {
+    .header-inner { padding: 0 var(--space-4); gap: var(--space-4); }
+  }
+
+  /* min-width:0 lets the brand yield space instead of pushing the
+     actions off screen; the 320px audit overflowed by 86px without it. */
   .brand {
     display: flex;
     align-items: center;
     gap: 0.7rem;
     text-decoration: none;
     color: #eef1f7;
+    min-width: 0;
+    flex: 0 1 auto;
   }
 
-  .brand-text { display: flex; flex-direction: column; line-height: 1.05; }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.05; min-width: 0; }
 
   .brand-name {
     font-family: var(--font-display);
     font-weight: 700;
     font-size: 1.18rem;
     letter-spacing: 0.01em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .brand-sub {
@@ -275,30 +293,56 @@ import { SITE } from '../data/site';
   /* Actions */
   .header-actions { display: flex; align-items: center; gap: var(--space-3); }
 
-  .search-link { color: #cfd8e6; display: grid; place-items: center; padding: 0.4rem; }
+  /* 14x14 on phones before the audit. The icon stays small, the
+     hit area does not. */
+  .search-link {
+    color: #cfd8e6;
+    display: none;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+  }
+
+  @media (min-width: 560px) {
+    .search-link { display: grid; }
+  }
+
   .search-link:hover { color: var(--gold-300); }
 
   .donate-btn {
     background: var(--gold-500);
     color: var(--navy-950);
-    font: 700 0.86rem var(--font-sans);
+    font: 700 0.78rem var(--font-sans);
     letter-spacing: 0.04em;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 0.62rem 1.15rem;
+    padding: 0.7rem 0.85rem;
     border-radius: var(--radius);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
     transition: background var(--dur-fast) var(--ease-out);
+  }
+
+  @media (min-width: 560px) {
+    .donate-btn { font-size: 0.86rem; padding: 0.62rem 1.15rem; }
   }
 
   .donate-btn:hover { background: var(--gold-300); color: var(--navy-950); }
 
+  /* The most important control on a phone was 32px tall. Now 44. */
   .menu-toggle {
     background: none;
     border: 0;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 4px;
-    padding: 0.5rem;
+    width: 44px;
+    height: 44px;
+    padding: 0;
     cursor: pointer;
   }
 
@@ -326,21 +370,42 @@ import { SITE } from '../data/site';
     .mobile-nav { display: none !important; }
   }
 
+  .mobile-search {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--gold-300);
+    text-decoration: none;
+    font: 600 0.95rem var(--font-sans);
+    padding: 0.85rem 0;
+    border-bottom: 1px solid #22385c;
+    min-height: 44px;
+  }
+
+  @media (min-width: 560px) {
+    .mobile-search { display: none; }
+  }
+
   .mobile-section { border-bottom: 1px solid #22385c; }
 
   .mobile-section summary {
     font: 600 1rem var(--font-sans);
     color: #eef1f7;
-    padding: 0.9rem 0;
+    padding: 0.95rem 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     cursor: pointer;
     list-style: none;
   }
 
-  .mobile-section summary::after { content: '+'; float: right; color: var(--gold-300); }
+  .mobile-section summary::after { content: '+'; color: var(--gold-300); }
   .mobile-section[open] summary::after { content: '−'; }
 
   .mobile-section ul { list-style: none; margin: 0; padding: 0 0 0.9rem; }
-  .mobile-section li { padding: 0.32rem 0; }
+  .mobile-section li { padding: 0; }
+  .mobile-section li a { display: block; padding: 0.62rem 0; }
   .mobile-section a { color: #cfd8e6; text-decoration: none; }
   .mobile-donate { display: inline-block; margin-top: var(--space-3); }
 </style>

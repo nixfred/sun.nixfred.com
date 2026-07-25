@@ -89,7 +89,7 @@ import Shell from '../../layouts/Shell.astro';
     margin: 0 auto;
     padding: 0 var(--space-4) var(--space-6);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: var(--space-5) var(--space-5);
   }
 

@@ -1,55 +1,35 @@
 ---
-// FOUNDATION SCAFFOLD PAGE. Replaced by the full homepage in the
-// vertical slice (02_HOMEPAGE_BLUEPRINT). Runs through Shell so the
-// status bar, mega nav header, and institutional footer render for
-// review on the preview branch.
+// THE HOMEPAGE. All 16 sections of 02_HOMEPAGE_BLUEPRINT.
+// Status bar, header, and footer come from Shell. Sections 3 through 15
+// are the components below, in blueprint order.
 import Shell from '../layouts/Shell.astro';
+import Hero from '../components/home/Hero.astro';
+import UrgencyMetrics from '../components/home/UrgencyMetrics.astro';
+import CampaignStatement from '../components/home/CampaignStatement.astro';
+import ProgramsGrid from '../components/home/ProgramsGrid.astro';
+import ImpactProof from '../components/home/ImpactProof.astro';
+import DonationModule from '../components/home/DonationModule.astro';
+import FeaturedStory from '../components/home/FeaturedStory.astro';
+import CrisisExplainer from '../components/home/CrisisExplainer.astro';
+import SponsorWall from '../components/home/SponsorWall.astro';
+import NewsAndReport from '../components/home/NewsAndReport.astro';
+import NewsletterAndCTA from '../components/home/NewsletterAndCTA.astro';
 ---
 
 <Shell
-  title="Save The Sun Foundation"
-  description="The Sun cannot save itself. The Save The Sun Foundation leads the global response to the solar continuity crisis."
+  title="Save The Sun Foundation · The Sun Cannot Save Itself"
+  description="The Save The Sun Foundation leads the global response to the solar continuity crisis. The Sun has approximately 4.8 billion years remaining. We have already wasted 4.6 billion."
   surface="crisis"
 >
-  <div class="hold">
-    <p class="eyebrow">Save The Sun Foundation</p>
-    <h1>The Sun Cannot Save Itself.</h1>
-    <p class="lede">
-      The full digital headquarters of the Foundation is in final
-      pre&#8209;launch review. Our communications team has confirmed the
-      review is proceeding with appropriate urgency.
-    </p>
-    <p class="mono status">SITE STATUS: PRELIMINARY ALLOCATION REVIEW</p>
-  </div>
-
-  <style>
-    .hold {
-      min-height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      max-width: var(--page-max);
-      margin: 0 auto;
-      padding: var(--space-7) var(--space-4);
-    }
-
-    h1 {
-      font-size: var(--text-hero);
-      max-width: 14ch;
-    }
-
-    .lede {
-      font-size: var(--text-lg);
-      color: var(--text-muted);
-      max-width: 52ch;
-    }
-
-    .status {
-      font-size: var(--text-sm);
-      color: var(--accent);
-      letter-spacing: 0.08em;
-      margin-top: var(--space-4);
-    }
-  </style>
-</Base>
+  <Hero />
+  <UrgencyMetrics />
+  <CampaignStatement />
+  <ProgramsGrid />
+  <ImpactProof />
+  <DonationModule />
+  <FeaturedStory />
+  <CrisisExplainer />
+  <SponsorWall />
+  <NewsAndReport />
+  <NewsletterAndCTA />
+</Shell>

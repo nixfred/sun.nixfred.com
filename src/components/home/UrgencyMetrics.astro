@@ -1,0 +1,107 @@
+---
+// Homepage blueprint section 4. Four urgency metrics with count-up
+// animation on scroll into view.
+const METRICS = [
+  { value: '4.8B', raw: 4.8, suffix: 'B', label: 'years estimated remaining', decimals: 1 },
+  { value: '100%', raw: 100, suffix: '%', label: 'of humanity dependent', decimals: 0 },
+  { value: '4M', raw: 4, suffix: 'M', label: 'metric tons of mass converted every second', decimals: 0 },
+  { value: '0', raw: 0, suffix: '', label: 'replacement Suns secured', decimals: 0 },
+];
+---
+
+<section class="metrics" data-surface="crisis">
+  <div class="metrics-inner">
+    <dl class="metric-grid">
+      {METRICS.map((m) => (
+        <div class="metric">
+          <dd class="mono metric-value" data-target={m.raw} data-suffix={m.suffix} data-decimals={m.decimals}>
+            {m.value}
+          </dd>
+          <dt class="metric-label">{m.label}</dt>
+        </div>
+      ))}
+    </dl>
+    <p class="metric-caption">
+      At the current rate, the Sun has never been closer to extinction.
+    </p>
+  </div>
+</section>
+
+<script>
+  // Count-up on first intersection. Reduced motion renders final values
+  // immediately (they are already server rendered, so no JS path is safe).
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const els = document.querySelectorAll<HTMLElement>('.metric-value');
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target as HTMLElement;
+          io.unobserve(el);
+          const target = parseFloat(el.dataset.target ?? '0');
+          const suffix = el.dataset.suffix ?? '';
+          const decimals = parseInt(el.dataset.decimals ?? '0', 10);
+          const dur = 1400;
+          const start = performance.now();
+          const tick = (now: number) => {
+            const t = Math.min((now - start) / dur, 1);
+            const eased = 1 - Math.pow(1 - t, 3);
+            el.textContent = (target * eased).toFixed(decimals) + suffix;
+            if (t < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        });
+      },
+      { threshold: 0.4 }
+    );
+    els.forEach((el) => io.observe(el));
+  }
+</script>
+
+<style>
+  .metrics {
+    background: var(--navy-950);
+    color: #eef1f7;
+    border-bottom: 1px solid #16233c;
+  }
+
+  .metrics-inner {
+    max-width: var(--page-wide);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-5) var(--space-4);
+    margin: 0;
+  }
+
+  .metric { display: flex; flex-direction: column-reverse; }
+
+  .metric-value {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 600;
+    color: var(--gold-300);
+    line-height: 1;
+    margin: 0;
+  }
+
+  .metric-label {
+    font-size: var(--text-sm);
+    color: #8fa0ba;
+    margin-top: var(--space-2);
+    max-width: 24ch;
+  }
+
+  .metric-caption {
+    margin: var(--space-5) 0 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-lg);
+    color: #b9c4d6;
+    max-width: none;
+  }
+</style>

@@ -103,3 +103,40 @@ The site status line on the preview reads PRELIMINARY ALLOCATION REVIEW.
 The Foundation would approve.
 
 ---
+
+## Chapter 4: The Factory's First Shift
+### 2026-07-25, the small hours
+
+Fred sent word mid build: remember the top mission. The orchestration
+layer is the prize. So the vertical slice did not get hand fed. It got
+manufactured.
+
+Four content agents ran in parallel, each armed with the copy engine law
+and a zod schema: one wrote all eight program pages, one wrote three blog
+posts, one wrote three press releases, one wrote the Solar Depletion copy
+deck. A fifth agent followed behind them checking voice, density, dash
+punctuation, and schema compliance. The first factory agent definitions
+landed in .claude/agents/ the same hour. Every schema validated on the
+first build. The agents also turned out to be funny. "Sunspots appear
+without warning and dissolve without recognition. The Program assigns
+each one a name, a record, and the dignity of being noticed before it
+goes." No human wrote that.
+
+While the agents wrote, Larry built the machinery: sixteen homepage
+sections including a live countdown ticking down from 151 quadrillion
+seconds, count up metrics, a sponsor wall of twelve code built fictional
+brands, and the set piece, a five step donation experience that walks to
+the exact edge of a real transaction and then reveals the truth in its
+own institutional voice: YOUR COMMITMENT HAS BEEN RECORDED. No funds have
+been collected. Status: UNFUNDED.
+
+Browser review earned its keep three times in one night. The crisis
+tokens leaked into the light sections and turned program cards navy on
+navy. The donate page accepted query parameters into state while the
+buttons showed defaults, a lie waiting for the review screen. And
+runtime injected review rows lost their styles because Astro scopes CSS
+at build time. All three were found on screenshots, not in source, fixed,
+redeployed, and verified. Twenty one pages now stand on the preview
+branch. Compiling is not review. Screenshots are review.
+
+---

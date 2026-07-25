@@ -1,0 +1,269 @@
+---
+// The Crisis: Solar Depletion. Built verbatim from the copy deck at
+// docs/copy/crisis-solar-depletion.md (deck v1). Crisis surface.
+import Shell from '../../layouts/Shell.astro';
+
+const STATS = [
+  { value: '600M tons', label: 'Hydrogen the Sun consumes every second', note: 'This rate of loss continues around the clock with no independent oversight.' },
+  { value: '8m 20s', label: 'Time sunlight takes to reach Earth', note: 'A delivery record maintained for billions of years without one written acknowledgment from the recipient.' },
+  { value: '4.6B years', label: 'Time already elapsed', note: 'We have already wasted approximately 4.6 billion years.' },
+  { value: '4.8B years', label: 'Time remaining, organizational planning estimate', note: 'Ratified by the Board of Trustees. Scientific ranges appear in the section above.' },
+  { value: '365', label: 'Confirmed solar appearances last year', note: 'Logged daily by the Office of Solar Continuity against an annual target of 365.' },
+  { value: '0', label: 'Solar extinction events since the Foundation’s founding', note: 'A record the Foundation intends to protect and, where appropriate, cite.' },
+];
+---
+
+<Shell
+  title="Solar Depletion · The Crisis · Save The Sun Foundation"
+  description="Every second, the Sun consumes roughly 600 million tons of hydrogen it can never recover. The Save The Sun Foundation exists because someone had to put the matter in writing."
+  surface="crisis"
+>
+  <article>
+    <header class="crisis-hero">
+      <div class="inner">
+        <p class="eyebrow">The Crisis · Briefing one of six</p>
+        <h1>The Sun Is Spending Its Principal</h1>
+        <p class="lede">
+          Every second, our star consumes roughly 600 million tons of
+          hydrogen that it can never recover. It has kept this pace without
+          oversight, without recognition, and without a succession plan.
+          The Save The Sun Foundation exists because someone had to put the
+          matter in writing.
+        </p>
+      </div>
+    </header>
+
+    <section class="science">
+      <div class="inner narrow">
+        <h2>The Science</h2>
+        <p>
+          The Sun formed approximately 4.6 billion years ago from the
+          gravitational collapse of a cloud of gas and dust, and it has
+          remained in continuous operation ever since. In all that time it
+          has never requested a maintenance window, a work ethic the
+          Foundation regards as admirable and, on the evidence,
+          unsustainable. Today it sits roughly midway through its main
+          sequence lifetime, the long stable period in which a star fuses
+          hydrogen into helium at its core. Midway is a word that reassures
+          many people. The Foundation's Scientific Council has reviewed the
+          word and was not reassured.
+        </p>
+        <p>
+          The physics is not in dispute. At the core, where temperatures
+          reach roughly 15 million degrees Celsius, the Sun converts about
+          600 million tons of hydrogen into helium every second, releasing
+          the energy that arrives here as daylight, harvests, and the
+          modern economy. Roughly four million tons of solar mass simply
+          cease to exist each second, converted to energy under a formula
+          the Sun did not negotiate and has never contested. This is a
+          drawdown of finite reserves. No mainstream astronomer describes
+          it as a renewable arrangement.
+        </p>
+        <p>
+          The scientific consensus is that about five billion years of main
+          sequence hydrogen remain before the Sun enters its red giant
+          phase, expanding past the orbits of Mercury and Venus with
+          consequences for this planet that the literature describes calmly
+          and the Foundation does not. Solar luminosity is already
+          increasing by roughly 1 percent every 100 million years, which
+          means the Sun is working harder each era even as its reserves
+          decline, a pattern familiar to anyone who has watched a family
+          business in its later years. These figures are real, peer
+          reviewed, and freely available. They have been available for
+          decades. Availability has not been the problem.
+        </p>
+        <p>
+          For planning purposes the Foundation uses a figure of 4.8 billion
+          years remaining. This is an organizational planning estimate,
+          adopted by the Board of Trustees after a two year review, and it
+          is deliberately more conservative than the scientific range
+          because stewardship demands a margin. It is not a scientific
+          measurement and is not presented as one. It is presented as a
+          deadline, because institutions do not move for ranges.
+        </p>
+      </div>
+    </section>
+
+    <section class="numbers">
+      <div class="inner">
+        <h2>Depletion by the Numbers</h2>
+        <dl class="stat-grid">
+          {STATS.map((s) => (
+            <div class="stat">
+              <dd class="mono stat-value">{s.value}</dd>
+              <dt class="stat-label">{s.label}</dt>
+              <p class="stat-note">{s.note}</p>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <section class="doing">
+      <div class="inner narrow">
+        <h2>What the Foundation Is Doing</h2>
+        <p>
+          The Foundation's first responsibility is vigilance. Our Solar
+          Wellness Monitoring program confirms the Sun's appearance every
+          morning, logs the finding, and releases it to the public at no
+          charge, because transparency is a family value. Last year this
+          process succeeded 365 times out of a possible 365, a performance
+          the Foundation credits to disciplined procedure and declines to
+          credit to chance.
+        </p>
+        <p>
+          Vigilance alone is not a plan, which is why the Foundation
+          maintains one. The Solar Continuity Strategic Framework has now
+          entered its third phase, with 27 preliminary depletion
+          assessments completed this fiscal year and stakeholder alignment
+          sessions scheduled through the coming quarter. Each assessment
+          brings the crisis into sharper administrative focus. The hydrogen
+          situation has not yet responded to the framework, and the
+          Foundation has budgeted for that patience.
+        </p>
+        <p>
+          Beyond the science, the Foundation defends the Sun where it
+          cannot defend itself, in the arena of public opinion.
+          Organizations that describe 4.8 billion years as plenty of time
+          are well funded, well rested, and active after dark. Our response
+          is measured, lawful, and documented in triplicate. The nighttime
+          lobby has never disclosed its donor list, and the Moon, which
+          produces no light of its own, has offered no comment. The
+          Foundation also continues direct outreach to the Sun itself. The
+          relationship remains unacknowledged, and we have never required
+          gratitude to do our duty.
+        </p>
+      </div>
+    </section>
+
+    <section class="waiting">
+      <div class="inner narrow">
+        <h2>The Cost of Waiting</h2>
+        <p>
+          The Sun loses four million tons of itself every second, and every
+          second of public deliberation is a second the minutes of our
+          meetings faithfully record. At the current rate, the Sun has
+          never been closer to extinction. This is not alarmism. It is
+          arithmetic, and arithmetic does not lobby.
+        </p>
+        <p>
+          We inherited a working star. That is 4.6 billion years of
+          tradition, of harvests, of daylight arriving on schedule, handed
+          down to this generation without an invoice. The question before
+          us is whether the inheritance reaches the next generation, or
+          whether we become the people who received about five billion
+          years of warning and used them to feel unhurried. Complacency is
+          not a plan. It is simply the least expensive way to fail.
+        </p>
+        <blockquote>
+          Scientists agree that doing nothing will not save the Sun.
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="inner">
+        <h2>The Sun Cannot Save Itself</h2>
+        <div class="cta-actions">
+          <a class="btn-gold" href="/donate">Make a Commitment</a>
+          <a class="btn-ghost" href="/mission/the-plan">Read the Strategic Framework</a>
+        </div>
+      </div>
+    </section>
+  </article>
+</Shell>
+
+<style>
+  .inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .inner.narrow { max-width: 820px; }
+
+  .crisis-hero {
+    background:
+      radial-gradient(900px 500px at 82% 0%, rgba(179, 38, 30, 0.18), transparent 60%),
+      radial-gradient(700px 420px at 70% 30%, rgba(224, 163, 46, 0.14), transparent 55%),
+      var(--navy-900);
+    border-bottom: 1px solid #22385c;
+  }
+
+  h1 { font-size: var(--text-hero); max-width: 16ch; }
+
+  .lede {
+    font-size: var(--text-lg);
+    color: #b9c4d6;
+    max-width: 56ch;
+  }
+
+  h2 { font-size: var(--text-2xl); margin-bottom: var(--space-4); }
+
+  .science p, .doing p, .waiting p { color: #b9c4d6; line-height: 1.75; }
+
+  .numbers { background: var(--navy-950); border-top: 1px solid #16233c; border-bottom: 1px solid #16233c; }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-5) var(--space-4);
+    margin: 0;
+  }
+
+  .stat { display: flex; flex-direction: column; }
+
+  .stat-value {
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: 600;
+    color: var(--gold-300);
+    line-height: 1;
+    margin: 0;
+    order: 1;
+  }
+
+  .stat-label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: #eef1f7;
+    margin-top: var(--space-2);
+    order: 2;
+  }
+
+  .stat-note {
+    font-size: var(--text-xs);
+    color: #7a879c;
+    margin: var(--space-1) 0 0;
+    order: 3;
+    max-width: 34ch;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--gold-500);
+    margin: var(--space-5) 0 0;
+    padding-left: var(--space-4);
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-style: italic;
+    color: #eef1f7;
+  }
+
+  .cta { background: var(--navy-950); border-top: 1px solid #16233c; text-align: center; }
+  .cta h2 { font-size: var(--text-3xl); margin-bottom: var(--space-5); }
+  .cta-actions { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+
+  .btn-gold,
+  .btn-ghost {
+    font: 700 0.92rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.9rem 1.6rem;
+    border-radius: var(--radius);
+  }
+
+  .btn-gold { background: var(--gold-500); color: var(--navy-950); }
+  .btn-gold:hover { background: var(--gold-300); color: var(--navy-950); }
+  .btn-ghost { border: 1px solid #3a5580; color: #eef1f7; }
+  .btn-ghost:hover { border-color: var(--gold-300); color: var(--gold-300); }
+</style>

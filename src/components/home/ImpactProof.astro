@@ -1,0 +1,108 @@
+---
+// Homepage blueprint section 7. YOUR SUPPORT IS WORKING. The Foundation
+// takes credit for the sunrise with a polished animated data display.
+const IMPACT = [
+  { value: 365, suffix: '', label: 'successful solar appearances this year' },
+  { value: 0, suffix: '', label: 'extinction events recorded' },
+  { value: 27, suffix: '', label: 'strategic initiatives underway' },
+  { value: 14, suffix: '', label: 'stakeholder meetings completed' },
+  { value: 3, suffix: '', label: 'preliminary bucket renders approved' },
+];
+---
+
+<section class="impact" data-surface="crisis">
+  <div class="impact-inner">
+    <p class="eyebrow">Impact</p>
+    <h2>Your support is working.</h2>
+    <dl class="impact-grid">
+      {IMPACT.map((m) => (
+        <div class="impact-item">
+          <dd class="mono impact-value" data-target={m.value}>{m.value}</dd>
+          <dt class="impact-label">{m.label}</dt>
+        </div>
+      ))}
+    </dl>
+    <a class="impact-link mono" href="/impact/dashboard">View the full impact dashboard →</a>
+  </div>
+</section>
+
+<script>
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const els = document.querySelectorAll<HTMLElement>('.impact-value');
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target as HTMLElement;
+          io.unobserve(el);
+          const target = parseInt(el.dataset.target ?? '0', 10);
+          const dur = 1200;
+          const start = performance.now();
+          const tick = (now: number) => {
+            const t = Math.min((now - start) / dur, 1);
+            const eased = 1 - Math.pow(1 - t, 3);
+            el.textContent = String(Math.round(target * eased));
+            if (t < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        });
+      },
+      { threshold: 0.4 }
+    );
+    els.forEach((el) => io.observe(el));
+  }
+</script>
+
+<style>
+  .impact {
+    background: var(--navy-900);
+    color: #eef1f7;
+    border-top: 1px solid #22385c;
+    border-bottom: 1px solid #22385c;
+  }
+
+  .impact-inner {
+    max-width: var(--page-wide);
+    margin: 0 auto;
+    padding: var(--space-7) var(--space-4);
+  }
+
+  h2 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-5);
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-5) var(--space-4);
+    margin: 0 0 var(--space-5);
+  }
+
+  .impact-item { display: flex; flex-direction: column-reverse; }
+
+  .impact-value {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 600;
+    color: var(--gold-300);
+    line-height: 1;
+    margin: 0;
+  }
+
+  .impact-label {
+    font-size: var(--text-sm);
+    color: #8fa0ba;
+    margin-top: var(--space-2);
+    max-width: 22ch;
+  }
+
+  .impact-link {
+    font-size: var(--text-sm);
+    color: var(--gold-300);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+
+  .impact-link:hover { text-decoration: underline; color: var(--gold-300); }
+</style>

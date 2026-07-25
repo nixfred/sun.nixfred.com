@@ -1,0 +1,513 @@
+---
+// THE STATIC DONATION EXPERIENCE (04_STATIC_DONATION_EXPERIENCE).
+// Five steps, entirely local. The acceptance test for the whole site:
+// a visitor completes a donation journey and only at the final boundary
+// understands no money can be collected.
+//
+// STATIC DEMO ONLY. NO NETWORK REQUESTS. NO PAYMENT DATA.
+// NO FORM SUBMISSION. Nothing on this page calls fetch, posts a form,
+// or persists donor information.
+import Shell from '../layouts/Shell.astro';
+
+const ALLOCATIONS = [
+  'Where needed most',
+  'Hydrogen Replenishment',
+  'Solar Monitoring',
+  'Public Awareness',
+  'Youth Leadership',
+  'Big Dark Accountability',
+];
+---
+
+<Shell
+  title="Donate · Save The Sun Foundation"
+  description="Begin your solar commitment. Every contribution advances the planning frameworks the Sun cannot build for itself."
+  surface="editorial"
+>
+  <div class="donate-page">
+    <header class="donate-head">
+      <p class="eyebrow">Secure your commitment</p>
+      <h1>The Sun is counting on people who count.</h1>
+      <ol class="steps mono" aria-label="Donation progress">
+        <li data-step-marker="1" class="active">Commitment</li>
+        <li data-step-marker="2">Allocation</li>
+        <li data-step-marker="3">Intent</li>
+        <li data-step-marker="4">Review</li>
+        <li data-step-marker="5">Recorded</li>
+      </ol>
+    </header>
+
+    <!-- STEP 1: Choose commitment -->
+    <section class="step" data-step="1">
+      <h2>Choose your commitment</h2>
+      <fieldset class="freq">
+        <legend class="mono legend">Frequency</legend>
+        <label><input type="radio" name="d-freq" value="One time" checked /> One time</label>
+        <label><input type="radio" name="d-freq" value="Monthly" /> Monthly</label>
+      </fieldset>
+      <div class="amounts" role="group" aria-label="Amount">
+        {[10, 25, 50, 100, 250].map((v) => (
+          <button type="button" class={`amount mono${v === 50 ? ' selected' : ''}`} data-amount={v} aria-pressed={v === 50 ? 'true' : 'false'}>${v}</button>
+        ))}
+      </div>
+      <label class="custom-label" for="custom-amount">Custom amount</label>
+      <input class="custom-amount mono" id="custom-amount" type="number" min="1" max="1000000000" placeholder="Enter amount" autocomplete="off" />
+      <div class="toggles">
+        <label><input type="checkbox" id="tribute" /> This commitment honors someone</label>
+        <label><input type="checkbox" id="corporate" /> This is a corporate gift</label>
+      </div>
+      <div class="step-nav">
+        <span></span>
+        <button type="button" class="btn-gold" data-next="2">Continue</button>
+      </div>
+    </section>
+
+    <!-- STEP 2: Allocation -->
+    <section class="step" data-step="2" hidden>
+      <h2>Direct your support</h2>
+      <p class="step-note">
+        Allocation preferences are reviewed by the Resource Prioritization
+        Committee, whose recommendations are advisory, confidential, and
+        scheduled.
+      </p>
+      <div class="allocations" role="group" aria-label="Allocation">
+        {ALLOCATIONS.map((a, i) => (
+          <button type="button" class={`allocation${i === 0 ? ' selected' : ''}`} data-allocation={a} aria-pressed={i === 0 ? 'true' : 'false'}>{a}</button>
+        ))}
+      </div>
+      <div class="step-nav">
+        <button type="button" class="btn-ghost" data-prev="1">Back</button>
+        <button type="button" class="btn-gold" data-next="3">Continue</button>
+      </div>
+    </section>
+
+    <!-- STEP 3: Donor intent (local only, never persisted or transmitted) -->
+    <section class="step" data-step="3" hidden>
+      <h2>Donor intent</h2>
+      <p class="step-note">
+        Your information remains in this browser tab. It is not stored,
+        transmitted, or reviewed, which our Data Stewardship Office
+        considers a best practice it intends to study.
+      </p>
+      <div class="intent-grid">
+        <label>First name <input type="text" id="d-first" autocomplete="off" /></label>
+        <label>Last name <input type="text" id="d-last" autocomplete="off" /></label>
+        <label>Email <input type="email" id="d-email" autocomplete="off" /></label>
+        <label>Country <input type="text" id="d-country" autocomplete="off" value="United States" /></label>
+        <label class="wide">Optional dedication <input type="text" id="d-dedication" autocomplete="off" placeholder="For the Sun, who asked for nothing" /></label>
+      </div>
+      <div class="step-nav">
+        <button type="button" class="btn-ghost" data-prev="2">Back</button>
+        <button type="button" class="btn-gold" data-next="4">Continue</button>
+      </div>
+    </section>
+
+    <!-- STEP 4: Review. No card fields. No billing. No payment logos. -->
+    <section class="step" data-step="4" hidden>
+      <h2>Review your commitment</h2>
+      <dl class="review mono" id="review-list"></dl>
+      <p class="review-impact" id="review-impact"></p>
+      <div class="step-nav">
+        <button type="button" class="btn-ghost" data-prev="3">Back</button>
+        <button type="button" class="btn-gold" id="record-btn">Record My Commitment</button>
+      </div>
+    </section>
+
+    <!-- STEP 5: Completion -->
+    <section class="step step-done" data-step="5" hidden>
+      <p class="eyebrow">Commitment recorded</p>
+      <h2>Your commitment has been recorded.</h2>
+      <p class="done-lede">
+        Your preliminary solar allocation is now under review. No funds
+        have been collected.
+      </p>
+      <dl class="review mono" id="final-summary"></dl>
+      <div class="done-actions">
+        <button type="button" class="btn-gold" id="receipt-btn">Download Symbolic Commitment Receipt</button>
+        <button type="button" class="btn-ghost" id="share-btn">Share Commitment</button>
+        <a class="btn-ghost" href="/impact/dashboard">Return to Impact Dashboard</a>
+      </div>
+      <p class="share-copied mono" id="share-copied" hidden>Commitment statement copied. Share it with someone who still believes the Sun manages itself.</p>
+    </section>
+  </div>
+
+  <!-- Printable receipt. Visible only under @media print. -->
+  <div class="receipt" id="receipt" aria-hidden="true">
+    <h2>Preliminary Solar Commitment Record</h2>
+    <p class="mono">SAVE THE SUN FOUNDATION · 501(c)(nothing)</p>
+    <dl class="mono" id="receipt-fields"></dl>
+    <p class="receipt-status mono">STATUS: UNFUNDED</p>
+    <p class="receipt-note">
+      This record confirms intent only and has no financial or tax value.
+    </p>
+  </div>
+</Shell>
+
+<script>
+  // Entirely local state machine. Nothing leaves this page.
+  const state = {
+    freq: 'One time',
+    amount: 50,
+    allocation: 'Where needed most',
+    first: '',
+    last: '',
+    dedication: '',
+    tribute: false,
+    corporate: false,
+    reference: '',
+  };
+
+  // Honor ?amount= and ?freq= from the homepage module (query only, local).
+  // State AND UI must both reflect the params: browser review caught the
+  // step 1 buttons showing defaults while state carried the query values.
+  const params = new URLSearchParams(location.search);
+  const qAmount = params.get('amount');
+  if (qAmount && qAmount !== 'other') state.amount = parseInt(qAmount, 10) || 50;
+  if (params.get('freq') === 'monthly') state.freq = 'Monthly';
+
+  const syncStepOne = () => {
+    document.querySelectorAll<HTMLButtonElement>('.amount').forEach((b) => {
+      const match = b.dataset.amount === String(state.amount);
+      b.classList.toggle('selected', match);
+      b.setAttribute('aria-pressed', String(match));
+    });
+    const preset = [10, 25, 50, 100, 250].includes(state.amount);
+    if (!preset) {
+      const custom = document.getElementById('custom-amount') as HTMLInputElement | null;
+      if (custom) custom.value = String(state.amount);
+    }
+    document.querySelectorAll<HTMLInputElement>('input[name="d-freq"]').forEach((f) => {
+      f.checked = f.value === state.freq;
+    });
+  };
+  syncStepOne();
+
+  const show = (n: number) => {
+    document.querySelectorAll<HTMLElement>('.step').forEach((s) => {
+      s.hidden = s.dataset.step !== String(n);
+    });
+    document.querySelectorAll<HTMLElement>('[data-step-marker]').forEach((m) => {
+      m.classList.toggle('active', parseInt(m.dataset.stepMarker ?? '0', 10) <= n);
+    });
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  };
+
+  const impactFor = (amount: number) => {
+    if (amount >= 250) return 'Your commitment advances cross generational solar continuity strategy.';
+    if (amount >= 100) return 'Your commitment underwrites a full stakeholder alignment session.';
+    if (amount >= 50) return 'Your commitment supports early stage hydrogen logistics planning.';
+    if (amount >= 25) return 'Your commitment sustains daily solar appearance verification.';
+    return 'Your commitment helps maintain public awareness of the Sun.';
+  };
+
+  // Step 1 wiring
+  document.querySelectorAll<HTMLButtonElement>('.amount').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.amount').forEach((b) => {
+        b.classList.remove('selected');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('selected');
+      btn.setAttribute('aria-pressed', 'true');
+      state.amount = parseInt(btn.dataset.amount ?? '50', 10);
+      const custom = document.getElementById('custom-amount') as HTMLInputElement;
+      if (custom) custom.value = '';
+    });
+  });
+
+  (document.getElementById('custom-amount') as HTMLInputElement | null)?.addEventListener('input', (e) => {
+    const v = parseInt((e.target as HTMLInputElement).value, 10);
+    if (v > 0) {
+      state.amount = v;
+      document.querySelectorAll('.amount').forEach((b) => {
+        b.classList.remove('selected');
+        b.setAttribute('aria-pressed', 'false');
+      });
+    }
+  });
+
+  document.querySelectorAll<HTMLInputElement>('input[name="d-freq"]').forEach((f) =>
+    f.addEventListener('change', () => {
+      state.freq = f.value;
+    })
+  );
+
+  // Step 2 wiring
+  document.querySelectorAll<HTMLButtonElement>('.allocation').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.allocation').forEach((b) => {
+        b.classList.remove('selected');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('selected');
+      btn.setAttribute('aria-pressed', 'true');
+      state.allocation = btn.dataset.allocation ?? state.allocation;
+    });
+  });
+
+  // Navigation
+  document.querySelectorAll<HTMLButtonElement>('[data-next]').forEach((btn) =>
+    btn.addEventListener('click', () => {
+      const next = parseInt(btn.dataset.next ?? '1', 10);
+      if (next === 4) buildReview();
+      show(next);
+    })
+  );
+  document.querySelectorAll<HTMLButtonElement>('[data-prev]').forEach((btn) =>
+    btn.addEventListener('click', () => show(parseInt(btn.dataset.prev ?? '1', 10)))
+  );
+
+  const money = (n: number) => '$' + n.toLocaleString('en-US');
+
+  function buildReview() {
+    state.first = (document.getElementById('d-first') as HTMLInputElement)?.value ?? '';
+    state.last = (document.getElementById('d-last') as HTMLInputElement)?.value ?? '';
+    state.dedication = (document.getElementById('d-dedication') as HTMLInputElement)?.value ?? '';
+    state.tribute = (document.getElementById('tribute') as HTMLInputElement)?.checked ?? false;
+    state.corporate = (document.getElementById('corporate') as HTMLInputElement)?.checked ?? false;
+
+    const rows: [string, string][] = [
+      ['AMOUNT', money(state.amount)],
+      ['FREQUENCY', state.freq.toUpperCase()],
+      ['ALLOCATION', state.allocation.toUpperCase()],
+    ];
+    if (state.tribute) rows.push(['TRIBUTE', 'YES']);
+    if (state.corporate) rows.push(['CORPORATE GIFT', 'YES']);
+    if (state.dedication) rows.push(['DEDICATION', state.dedication.toUpperCase()]);
+
+    const list = document.getElementById('review-list');
+    if (list) {
+      list.innerHTML = rows
+        .map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`)
+        .join('');
+    }
+    const impact = document.getElementById('review-impact');
+    if (impact) impact.textContent = impactFor(state.amount);
+  }
+
+  // Step 4 → 5: record
+  document.getElementById('record-btn')?.addEventListener('click', () => {
+    state.reference = 'STS-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 900000) + 100000);
+    const rows: [string, string][] = [
+      ['REFERENCE', state.reference],
+      ['AMOUNT', money(state.amount)],
+      ['FREQUENCY', state.freq.toUpperCase()],
+      ['ALLOCATION', state.allocation.toUpperCase()],
+      ['STATUS', 'UNFUNDED'],
+    ];
+    const final = document.getElementById('final-summary');
+    if (final) final.innerHTML = rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
+
+    const receipt = document.getElementById('receipt-fields');
+    if (receipt) {
+      const rrows: [string, string][] = [
+        ['REFERENCE NUMBER', state.reference],
+        ['DATE', new Date().toLocaleDateString('en-US')],
+        ['COMMITMENT AMOUNT', money(state.amount)],
+        ['FREQUENCY', state.freq.toUpperCase()],
+        ['PROGRAM DESIGNATION', state.allocation.toUpperCase()],
+      ];
+      receipt.innerHTML = rrows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
+    }
+    show(5);
+  });
+
+  // Receipt: print only, no libraries, no transmission.
+  document.getElementById('receipt-btn')?.addEventListener('click', () => window.print());
+
+  // Share: clipboard only. No network.
+  document.getElementById('share-btn')?.addEventListener('click', async () => {
+    const text = `I recorded a ${state.freq.toLowerCase()} solar commitment of ${money(state.amount)} with the Save The Sun Foundation. The Sun cannot save itself. sun.nixfred.com`;
+    try {
+      await navigator.clipboard.writeText(text);
+      const note = document.getElementById('share-copied');
+      if (note) note.hidden = false;
+    } catch {
+      /* clipboard unavailable: the commitment remains between you and the Sun */
+    }
+  });
+
+  show(qAmount ? 1 : 1);
+</script>
+
+<style>
+  .donate-page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4) var(--space-7);
+  }
+
+  h1 { font-size: var(--text-3xl); max-width: 20ch; }
+
+  .steps {
+    list-style: none;
+    display: flex;
+    gap: var(--space-3);
+    padding: 0;
+    margin: var(--space-4) 0 0;
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    color: var(--gray-500);
+    flex-wrap: wrap;
+  }
+
+  .steps li { text-transform: uppercase; }
+  .steps li.active { color: var(--gold-700); font-weight: 600; }
+  .steps li:not(:last-child)::after { content: ' →'; color: var(--gray-200); }
+
+  .step {
+    background: var(--card-bg);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    margin-top: var(--space-5);
+  }
+
+  .step h2 { font-size: var(--text-xl); margin-bottom: var(--space-4); }
+
+  .step-note { color: var(--gray-700); font-size: var(--text-sm); }
+
+  .legend {
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    padding: 0;
+    margin-bottom: var(--space-2);
+  }
+
+  .freq { border: 0; padding: 0; margin: 0 0 var(--space-4); display: flex; gap: var(--space-4); flex-wrap: wrap; }
+  .freq label { display: flex; gap: 0.45rem; align-items: center; font-weight: 600; cursor: pointer; }
+  .freq input { accent-color: var(--gold-700); }
+
+  .amounts { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: var(--space-2); margin-bottom: var(--space-3); }
+
+  .amount {
+    font-size: var(--text-base);
+    font-weight: 600;
+    padding: 0.8rem 0;
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
+
+  .amount:hover { border-color: var(--gold-500); }
+  .amount.selected { background: var(--navy-900); color: var(--gold-300); border-color: var(--navy-900); }
+
+  .custom-label { font-size: var(--text-sm); color: var(--gray-700); display: block; margin-bottom: var(--space-1); }
+
+  .custom-amount {
+    width: 100%;
+    font-size: var(--text-base);
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    background: var(--paper);
+    margin-bottom: var(--space-3);
+  }
+
+  .toggles { display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-2); }
+  .toggles label { display: flex; gap: 0.5rem; align-items: center; font-size: var(--text-sm); color: var(--gray-700); cursor: pointer; }
+  .toggles input { accent-color: var(--gold-700); }
+
+  .allocations { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-2); }
+
+  .allocation {
+    font: 600 var(--text-sm) var(--font-sans);
+    padding: 0.9rem;
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .allocation:hover { border-color: var(--gold-500); }
+  .allocation.selected { background: var(--navy-900); color: var(--gold-300); border-color: var(--navy-900); }
+
+  .intent-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-3); }
+  .intent-grid label { display: flex; flex-direction: column; gap: 0.35rem; font-size: var(--text-sm); font-weight: 600; }
+  .intent-grid .wide { grid-column: 1 / -1; }
+
+  .intent-grid input {
+    font: 400 var(--text-base) var(--font-sans);
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    background: var(--paper);
+  }
+
+  /* Review rows are injected at runtime, so Astro's scope attribute is
+     absent on them. :global() keeps the styles applying. Browser review
+     caught the rows rendering unstyled without this. */
+  .review { margin: 0 0 var(--space-3); }
+  .review :global(div) { display: flex; justify-content: space-between; gap: var(--space-3); padding: 0.55rem 0; border-bottom: 1px solid var(--gray-200); }
+  .review :global(dt) { font-size: var(--text-xs); letter-spacing: 0.1em; color: var(--gray-500); }
+  .review :global(dd) { margin: 0; font-weight: 600; font-size: var(--text-sm); }
+
+  .review-impact { font-style: italic; color: var(--gray-700); font-size: var(--text-sm); }
+
+  .step-nav { display: flex; justify-content: space-between; margin-top: var(--space-4); gap: var(--space-3); }
+
+  .btn-gold {
+    background: var(--gold-500);
+    color: var(--navy-950);
+    font: 700 0.9rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 0;
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .btn-gold:hover { background: var(--gold-300); color: var(--navy-950); }
+
+  .btn-ghost {
+    background: none;
+    border: 1px solid var(--gray-200);
+    color: var(--ink);
+    font: 700 0.9rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: var(--gold-700); color: var(--gold-700); }
+
+  .step-done .done-lede { font-size: var(--text-lg); color: var(--gray-700); }
+  .done-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4); }
+  .share-copied { font-size: var(--text-xs); color: var(--gold-700); margin-top: var(--space-3); }
+
+  /* Receipt: hidden on screen, alone on print */
+  .receipt { display: none; }
+
+  @media print {
+    /* The receipt lives inside main, so hide the page chrome and the
+       flow explicitly rather than nuking body children. */
+    :global(.status-bar),
+    :global(.site-header),
+    :global(.site-footer),
+    :global(.skip-link),
+    .donate-page { display: none !important; }
+    .receipt {
+      display: block;
+      padding: 2rem;
+      border: 2px solid #000;
+      margin: 2rem;
+      font-family: var(--font-sans);
+    }
+    .receipt h2 { font-family: var(--font-display); }
+    .receipt :global(dl div) { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px solid #ccc; }
+    .receipt :global(dd) { margin: 0; font-weight: 700; }
+    .receipt-status { font-size: 1.2rem; font-weight: 700; letter-spacing: 0.1em; margin-top: 1rem; }
+    .receipt-note { font-size: 0.8rem; }
+  }
+</style>

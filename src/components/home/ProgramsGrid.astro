@@ -1,0 +1,105 @@
+---
+// Homepage blueprint section 6. Six program cards from the collection,
+// each linking to a complete program page. Card surfaces stay editorial.
+import { getCollection } from 'astro:content';
+
+const HOMEPAGE_PROGRAMS = [
+  'hydrogen-replenishment',
+  'sunspot-protection',
+  'solar-wellness-monitoring',
+  'youth-solar-leadership',
+  'government-affairs',
+  'corporate-solar-responsibility',
+];
+
+const all = await getCollection('programs');
+const programs = HOMEPAGE_PROGRAMS.map((id) => all.find((p) => p.id === id)).filter(
+  (p): p is NonNullable<typeof p> => Boolean(p)
+).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="programs" data-surface="editorial">
+  <div class="programs-inner">
+    <p class="eyebrow">Our Work</p>
+    <h2>Programs commensurate with the scale of the problem.</h2>
+    <div class="program-grid">
+      {programs.map((p) => (
+        <a class="program-card" href={`/programs/${p.id}`}>
+          <p class="mono program-phase">{p.data.phase.toUpperCase()}</p>
+          <h3>{p.data.title}</h3>
+          <p class="program-summary">{p.data.summary}</p>
+          <span class="program-link mono">Explore the program →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .programs {
+    background: var(--paper-warm);
+    color: var(--ink);
+  }
+
+  .programs-inner {
+    max-width: var(--page-wide);
+    margin: 0 auto;
+    padding: var(--space-7) var(--space-4);
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+    max-width: 28ch;
+    margin-bottom: var(--space-5);
+  }
+
+  .program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .program-card {
+    background: var(--card-bg);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+  }
+
+  .program-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(27, 26, 23, 0.09);
+    color: var(--ink);
+  }
+
+  .program-phase {
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    color: var(--gold-700);
+    margin: 0;
+  }
+
+  h3 {
+    font-size: var(--text-xl);
+    margin: 0;
+  }
+
+  .program-summary {
+    color: var(--gray-700);
+    font-size: var(--text-sm);
+    flex: 1;
+    margin: 0;
+  }
+
+  .program-link {
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    color: var(--gold-700);
+  }
+</style>

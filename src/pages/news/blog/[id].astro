@@ -1,0 +1,149 @@
+---
+// Blog post template, the slice's editorial page type. Reading progress
+// indicator per 08_INTERACTIONS (subtle, honors reduced motion).
+import { getCollection, render } from 'astro:content';
+import Shell from '../../../layouts/Shell.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const fmt = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+---
+
+<Shell
+  title={`${post.data.title} · Save The Sun Foundation`}
+  description={post.data.excerpt}
+  surface="editorial"
+>
+  <div class="progress" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+
+  <article class="post">
+    <header class="post-head">
+      <p class="mono post-meta">
+        {post.data.category.toUpperCase()} · {fmt.format(post.data.date).toUpperCase()} ·
+        {post.data.readingMinutes} MINUTE READ
+      </p>
+      <h1>{post.data.title}</h1>
+      <p class="post-author">By {post.data.author}</p>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+    <footer class="post-foot">
+      <a class="mono back-link" href="/news/blog">← Foundation Blog</a>
+      <a class="btn-gold" href="/donate">Donate Before Dark</a>
+    </footer>
+  </article>
+</Shell>
+
+<script>
+  const fill = document.getElementById('progress-fill');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (fill && !reduced) {
+    const update = () => {
+      const h = document.documentElement;
+      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      fill.style.width = `${pct}%`;
+    };
+    document.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+</script>
+
+<style>
+  .progress {
+    position: sticky;
+    top: 0;
+    height: 3px;
+    background: transparent;
+    z-index: 60;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 0;
+    background: var(--gold-500);
+  }
+
+  .post {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .post-meta {
+    font-size: var(--text-xs);
+    color: var(--gold-700);
+    letter-spacing: 0.12em;
+  }
+
+  h1 {
+    font-size: var(--text-3xl);
+    margin: var(--space-3) 0;
+  }
+
+  .post-author {
+    color: var(--gray-500);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-5);
+  }
+
+  .prose :global(h2) {
+    font-size: var(--text-xl);
+    margin-top: var(--space-5);
+  }
+
+  .prose :global(p) {
+    color: var(--gray-700);
+    font-size: 1.09rem;
+    line-height: 1.75;
+  }
+
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--gold-500);
+    margin: var(--space-4) 0;
+    padding-left: var(--space-4);
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-style: italic;
+  }
+
+  .post-foot {
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .back-link {
+    color: var(--gray-700);
+    text-decoration: none;
+    font-size: var(--text-sm);
+  }
+
+  .back-link:hover { color: var(--gold-700); }
+
+  .btn-gold {
+    background: var(--gold-500);
+    color: var(--navy-950);
+    font: 700 0.85rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.75rem 1.3rem;
+    border-radius: var(--radius);
+  }
+
+  .btn-gold:hover { background: var(--gold-300); color: var(--navy-950); }
+</style>

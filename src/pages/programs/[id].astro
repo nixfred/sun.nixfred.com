@@ -1,0 +1,173 @@
+---
+// Program page template. One layout renders every program in the
+// collection. The vertical slice's representative deep page type.
+import { getCollection, render } from 'astro:content';
+import Shell from '../../layouts/Shell.astro';
+
+export async function getStaticPaths() {
+  const programs = await getCollection('programs');
+  return programs.map((program) => ({
+    params: { id: program.id },
+    props: { program },
+  }));
+}
+
+const { program } = Astro.props;
+const { Content } = await render(program);
+---
+
+<Shell
+  title={`${program.data.title} · Save The Sun Foundation`}
+  description={program.data.summary}
+  surface="editorial"
+>
+  <article>
+    <header class="program-hero" data-surface="crisis">
+      <div class="hero-inner">
+        <p class="eyebrow">Our Work</p>
+        <h1>{program.data.title}</h1>
+        <p class="tagline">{program.data.tagline}</p>
+        <p class="mono phase">CURRENT PHASE: {program.data.phase.toUpperCase()}</p>
+      </div>
+    </header>
+
+    <div class="program-body">
+      <div class="prose">
+        <Content />
+        <div class="cta-block">
+          <a class="btn-gold" href="/donate">{program.data.cta}</a>
+        </div>
+      </div>
+
+      <aside class="program-aside">
+        <section class="aside-card">
+          <h2 class="mono aside-heading">Completed milestones</h2>
+          <ol>
+            {program.data.milestones.map((m) => (
+              <li>{m}</li>
+            ))}
+          </ol>
+        </section>
+        {program.data.keyObstacle && (
+          <section class="aside-card obstacle">
+            <h2 class="mono aside-heading">Key obstacle</h2>
+            <p>{program.data.keyObstacle}</p>
+          </section>
+        )}
+        <section class="aside-card">
+          <h2 class="mono aside-heading">Program status</h2>
+          <p class="mono status-line">ACTIVE · FUNDED BY PEOPLE LIKE YOU</p>
+        </section>
+      </aside>
+    </div>
+  </article>
+</Shell>
+
+<style>
+  .program-hero {
+    background: var(--navy-900);
+    color: #eef1f7;
+    border-bottom: 1px solid #22385c;
+  }
+
+  .hero-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+  }
+
+  h1 { font-size: var(--text-3xl); max-width: 18ch; }
+
+  .tagline {
+    font-size: var(--text-lg);
+    color: #b9c4d6;
+    max-width: 52ch;
+  }
+
+  .phase {
+    font-size: var(--text-xs);
+    color: var(--gold-300);
+    letter-spacing: 0.14em;
+    margin-top: var(--space-3);
+  }
+
+  .program-body {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 960px) {
+    .program-body { grid-template-columns: 1.7fr 1fr; align-items: start; }
+  }
+
+  .prose :global(h2) {
+    font-size: var(--text-xl);
+    margin-top: var(--space-5);
+  }
+
+  .prose :global(p) { color: var(--gray-700); }
+
+  .cta-block { margin-top: var(--space-5); }
+
+  .btn-gold {
+    display: inline-block;
+    background: var(--gold-500);
+    color: var(--navy-950);
+    font: 700 0.92rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.9rem 1.6rem;
+    border-radius: var(--radius);
+  }
+
+  .btn-gold:hover { background: var(--gold-300); color: var(--navy-950); }
+
+  .program-aside {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    position: sticky;
+    top: var(--space-4);
+  }
+
+  .aside-card {
+    background: var(--card-bg);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+  }
+
+  .aside-heading {
+    font-size: var(--text-xs);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-700);
+    margin: 0 0 var(--space-3);
+  }
+
+  .aside-card ol {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--gray-700);
+    font-size: var(--text-sm);
+  }
+
+  .aside-card li { margin-bottom: 0.5rem; }
+
+  .obstacle p {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    margin: 0;
+  }
+
+  .status-line {
+    font-size: var(--text-xs);
+    color: var(--gray-500);
+    letter-spacing: 0.1em;
+    margin: 0;
+  }
+</style>

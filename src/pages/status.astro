@@ -1,0 +1,141 @@
+---
+// Emergency Solar Status (08_INTERACTIONS). The status bar's View Live
+// Status destination. Timestamp updates locally; everything else is
+// institutional certainty.
+import Shell from '../layouts/Shell.astro';
+
+const READINGS = [
+  { label: 'Operational status', value: 'OPERATIONAL', note: 'The Sun is present and performing its contracted duties.' },
+  { label: 'Surface conditions', value: 'ACTIVE, WITHIN TOLERANCE', note: 'Surface activity remains consistent with a star of this age and workload.' },
+  { label: 'Foundation readiness level', value: 'LEVEL 3, ENGAGED', note: 'Staff are aware of the situation and have discussed it recently.' },
+  { label: 'Risk outlook', value: 'ELEVATED, LONG HORIZON', note: 'The risk has not changed in 4.6 billion years, which the Foundation finds concerning.' },
+  { label: 'Mass loss rate', value: '4M TONS PER SECOND', note: 'Continuing as projected. Projections were not good.' },
+  { label: 'Next scheduled review', value: 'TOMORROW, DAWN', note: 'The review recurs daily and has never once been unnecessary.' },
+];
+---
+
+<Shell
+  title="Emergency Solar Status · Save The Sun Foundation"
+  description="Live operational status of the Sun, monitored daily by the Office of Solar Continuity."
+  surface="crisis"
+>
+  <div class="status-page">
+    <header class="status-head">
+      <p class="eyebrow">Emergency Solar Status</p>
+      <h1>The Sun, As of This Moment</h1>
+      <p class="mono confirm">
+        LAST VISUAL CONFIRMATION: <span id="confirm-time">MOMENTS AGO</span>
+      </p>
+    </header>
+
+    <dl class="readings">
+      {READINGS.map((r) => (
+        <div class="reading">
+          <dt class="mono reading-label">{r.label.toUpperCase()}</dt>
+          <dd>
+            <span class="mono reading-value">{r.value}</span>
+            <span class="reading-note">{r.note}</span>
+          </dd>
+        </div>
+      ))}
+    </dl>
+
+    <p class="record">
+      The Sun has maintained a 100 percent daily appearance rate since
+      monitoring began. The Foundation does not regard this as luck. It
+      regards it as a program result.
+    </p>
+
+    <div class="status-actions">
+      <a class="btn-gold" href="/donate">Sustain the Monitoring</a>
+      <a class="btn-ghost" href="/programs/solar-wellness-monitoring">About Solar Wellness Monitoring</a>
+    </div>
+  </div>
+</Shell>
+
+<script>
+  // Local timestamp only. Updates each minute while the page is open.
+  const el = document.getElementById('confirm-time');
+  const render = () => {
+    if (!el) return;
+    const now = new Date();
+    el.textContent = now
+      .toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
+      .toUpperCase() + ' LOCAL';
+  };
+  render();
+  setInterval(render, 60_000);
+</script>
+
+<style>
+  .status-page {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4) var(--space-7);
+  }
+
+  h1 { font-size: var(--text-3xl); }
+
+  .confirm {
+    font-size: var(--text-sm);
+    color: var(--gold-300);
+    letter-spacing: 0.1em;
+  }
+
+  .readings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-4);
+    margin: var(--space-5) 0;
+  }
+
+  .reading {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+  }
+
+  .reading-label {
+    font-size: var(--text-xs);
+    letter-spacing: 0.16em;
+    color: var(--text-faint);
+  }
+
+  .reading dd { margin: var(--space-2) 0 0; display: flex; flex-direction: column; gap: var(--space-1); }
+
+  .reading-value {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--gold-300);
+    letter-spacing: 0.04em;
+  }
+
+  .reading-note { font-size: var(--text-sm); color: var(--text-muted); }
+
+  .record {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-style: italic;
+    color: var(--text-muted);
+    max-width: 56ch;
+    margin-bottom: var(--space-5);
+  }
+
+  .status-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+  .btn-gold,
+  .btn-ghost {
+    font: 700 0.9rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius);
+  }
+
+  .btn-gold { background: var(--gold-500); color: var(--navy-950); }
+  .btn-gold:hover { background: var(--gold-300); color: var(--navy-950); }
+  .btn-ghost { border: 1px solid #3a5580; color: var(--text); }
+  .btn-ghost:hover { border-color: var(--gold-300); color: var(--gold-300); }
+</style>

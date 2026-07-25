@@ -1,0 +1,253 @@
+---
+// Impact Dashboard (08_INTERACTIONS). Four tabs, animated CSS charts,
+// tooltips via title attributes. No chart libraries, no network.
+import Shell from '../../layouts/Shell.astro';
+
+const TABS = [
+  {
+    id: 'year',
+    label: 'This Year',
+    metrics: [
+      { label: 'Solar appearances', value: 365, max: 365 },
+      { label: 'Strategic initiatives', value: 27, max: 30 },
+      { label: 'Stakeholder meetings', value: 14, max: 20 },
+      { label: 'Policy briefings', value: 9, max: 12 },
+      { label: 'Bucket renders approved', value: 3, max: 3 },
+    ],
+    note: 'The appearance target was met on all 365 occasions. The Foundation set the target.',
+  },
+  {
+    id: 'founding',
+    label: 'Since Founding',
+    metrics: [
+      { label: 'Extinction events', value: 0, max: 1 },
+      { label: 'Awareness campaigns', value: 41, max: 50 },
+      { label: 'Frameworks ratified', value: 12, max: 12 },
+      { label: 'Committees convened', value: 63, max: 70 },
+      { label: 'Local stars served', value: 1, max: 1 },
+    ],
+    note: 'Zero extinction events across the entire reporting period. The record speaks, and the Foundation transcribes it.',
+  },
+  {
+    id: 'program',
+    label: 'By Program',
+    metrics: [
+      { label: 'Hydrogen Replenishment', value: 82, max: 100 },
+      { label: 'Sunspot Protection', value: 74, max: 100 },
+      { label: 'Solar Wellness Monitoring', value: 100, max: 100 },
+      { label: 'Government Affairs', value: 58, max: 100 },
+      { label: 'Youth Solar Leadership', value: 66, max: 100 },
+    ],
+    note: 'Program vitality index, an internal composite the Foundation designed, scored, and approved.',
+  },
+  {
+    id: 'global',
+    label: 'Global',
+    metrics: [
+      { label: 'Continents receiving daylight', value: 7, max: 7 },
+      { label: 'Nations aware of the Sun', value: 195, max: 195 },
+      { label: 'Time zones served', value: 24, max: 24 },
+      { label: 'Hemispheres engaged', value: 2, max: 2 },
+      { label: 'Replacement Suns secured', value: 0, max: 1 },
+    ],
+    note: 'Global daylight coverage remains complete. One metric remains open, and it remains our top priority.',
+  },
+];
+---
+
+<Shell
+  title="Impact Dashboard · Save The Sun Foundation"
+  description="Live institutional metrics from the Save The Sun Foundation. 365 solar appearances. 0 extinction events. The data is unambiguous."
+  surface="crisis"
+>
+  <div class="dash">
+    <header class="dash-head">
+      <p class="eyebrow">Impact</p>
+      <h1>The Numbers Behind the Daylight</h1>
+      <p class="dash-lede">
+        The Foundation measures what matters, publishes what it measures,
+        and schedules quarterly reviews of what publishing accomplished.
+      </p>
+    </header>
+
+    <div class="tabs" role="tablist" aria-label="Impact views">
+      {TABS.map((t, i) => (
+        <button
+          class={`tab mono${i === 0 ? ' active' : ''}`}
+          role="tab"
+          id={`tab-${t.id}`}
+          aria-selected={i === 0 ? 'true' : 'false'}
+          aria-controls={`panel-${t.id}`}
+          data-tab={t.id}
+        >
+          {t.label}
+        </button>
+      ))}
+    </div>
+
+    {TABS.map((t, i) => (
+      <section class="panel" role="tabpanel" id={`panel-${t.id}`} aria-labelledby={`tab-${t.id}`} data-panel={t.id} hidden={i !== 0}>
+        <div class="chart">
+          {t.metrics.map((m) => (
+            <div class="row" title={`${m.label}: ${m.value}`}>
+              <span class="row-label">{m.label}</span>
+              <div class="bar-track">
+                <div class="bar" data-pct={Math.round((m.value / m.max) * 100)} style={`width: 0%`}></div>
+              </div>
+              <span class="mono row-value">{m.value}</span>
+            </div>
+          ))}
+        </div>
+        <p class="panel-note">{t.note}</p>
+      </section>
+    ))}
+
+    <div class="dash-actions">
+      <a class="btn-gold" href="/donate">Fund the Next Measurement</a>
+      <a class="btn-ghost" href="/impact/annual-report">Annual Impact Report</a>
+    </div>
+  </div>
+</Shell>
+
+<script>
+  // Tabs + bar animation on reveal. Reduced motion gets instant bars.
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const animatePanel = (panel: HTMLElement) => {
+    panel.querySelectorAll<HTMLElement>('.bar').forEach((bar, i) => {
+      const pct = bar.dataset.pct ?? '0';
+      if (reduced) {
+        bar.style.width = pct + '%';
+      } else {
+        bar.style.width = '0%';
+        setTimeout(() => {
+          bar.style.width = pct + '%';
+        }, 60 + i * 90);
+      }
+    });
+  };
+
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.tab');
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      document.querySelectorAll<HTMLElement>('.panel').forEach((p) => {
+        const match = p.dataset.panel === tab.dataset.tab;
+        p.hidden = !match;
+        if (match) animatePanel(p);
+      });
+    });
+  });
+
+  const first = document.querySelector<HTMLElement>('.panel:not([hidden])');
+  if (first) animatePanel(first);
+</script>
+
+<style>
+  .dash {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4) var(--space-7);
+  }
+
+  h1 { font-size: var(--text-3xl); }
+
+  .dash-lede { color: var(--text-muted); font-size: var(--text-lg); max-width: 54ch; }
+
+  .tabs {
+    display: flex;
+    gap: var(--space-2);
+    margin: var(--space-5) 0 var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .tab {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: none;
+    color: var(--text-faint);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.55rem 1.1rem;
+    cursor: pointer;
+  }
+
+  .tab:hover { color: var(--gold-300); border-color: var(--gold-300); }
+
+  .tab.active {
+    background: var(--gold-500);
+    color: var(--navy-950);
+    border-color: var(--gold-500);
+  }
+
+  .panel {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+  }
+
+  .chart { display: flex; flex-direction: column; gap: var(--space-3); }
+
+  .row {
+    display: grid;
+    grid-template-columns: minmax(140px, 240px) 1fr 60px;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .row-label { font-size: var(--text-sm); color: var(--text-muted); }
+
+  .bar-track {
+    height: 14px;
+    background: var(--navy-950);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-700), var(--gold-300));
+    border-radius: 999px;
+    transition: width 900ms var(--ease-out);
+  }
+
+  .row-value {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--gold-300);
+    text-align: right;
+  }
+
+  .panel-note {
+    margin: var(--space-4) 0 0;
+    font-size: var(--text-sm);
+    font-style: italic;
+    color: var(--text-faint);
+    max-width: none;
+  }
+
+  .dash-actions { display: flex; gap: var(--space-3); margin-top: var(--space-5); flex-wrap: wrap; }
+
+  .btn-gold,
+  .btn-ghost {
+    font: 700 0.9rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius);
+  }
+
+  .btn-gold { background: var(--gold-500); color: var(--navy-950); }
+  .btn-gold:hover { background: var(--gold-300); color: var(--navy-950); }
+  .btn-ghost { border: 1px solid #3a5580; color: var(--text); }
+  .btn-ghost:hover { border-color: var(--gold-300); color: var(--gold-300); }
+</style>

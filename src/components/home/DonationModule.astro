@@ -1,0 +1,196 @@
+---
+// Homepage blueprint section 8. KEEP THE LIGHT ON. Amount selection with
+// impact language that never promises a measurable scientific result.
+// Selection state is passed to /donate via query params. No network,
+// no payment fields, ever (04_STATIC_DONATION_EXPERIENCE guardrails).
+const AMOUNTS = [
+  { value: 10, impact: '$10 helps maintain public awareness of the Sun.' },
+  { value: 25, impact: '$25 sustains daily solar appearance verification.' },
+  { value: 50, impact: '$50 supports early stage hydrogen logistics planning.' },
+  { value: 100, impact: '$100 underwrites a full stakeholder alignment session.' },
+  { value: 250, impact: '$250 advances cross generational solar continuity strategy.' },
+];
+---
+
+<section class="donate-module" data-surface="editorial">
+  <div class="donate-inner">
+    <div class="donate-copy">
+      <p class="eyebrow">Give today</p>
+      <h2>Keep the light on.</h2>
+      <p>
+        The Sun has never missed a day of work in 4.6 billion years. It has
+        also never received a single contribution toward its future. You
+        can be the difference between those two facts.
+      </p>
+    </div>
+
+    <form class="donate-form" aria-label="Choose your commitment">
+      <!-- STATIC DEMO ONLY. NO NETWORK REQUESTS. NO PAYMENT DATA.
+           NO FORM SUBMISSION. Navigation to /donate carries selection
+           in the query string only. -->
+      <fieldset class="freq">
+        <legend class="sr-only">Frequency</legend>
+        <label><input type="radio" name="freq" value="once" checked /> One time</label>
+        <label><input type="radio" name="freq" value="monthly" /> Monthly</label>
+      </fieldset>
+
+      <div class="amounts" role="group" aria-label="Amount">
+        {AMOUNTS.map((a, i) => (
+          <button
+            type="button"
+            class={`amount mono${i === 2 ? ' selected' : ''}`}
+            data-amount={a.value}
+            data-impact={a.impact}
+            aria-pressed={i === 2 ? 'true' : 'false'}
+          >
+            ${a.value}
+          </button>
+        ))}
+        <button type="button" class="amount mono" data-amount="other" data-impact="Custom commitments receive individualized allocation review." aria-pressed="false">
+          Other
+        </button>
+      </div>
+
+      <p class="impact-line" id="impact-line" aria-live="polite">
+        $50 supports early stage hydrogen logistics planning.
+      </p>
+
+      <a class="btn-gold donate-continue" id="donate-continue" href="/donate?amount=50&freq=once">
+        Continue My Commitment
+      </a>
+    </form>
+  </div>
+</section>
+
+<script>
+  // Local selection state only. Updates impact language and the /donate
+  // link. Nothing is transmitted or stored.
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.amount');
+  const impactLine = document.getElementById('impact-line');
+  const continueBtn = document.getElementById('donate-continue') as HTMLAnchorElement | null;
+  const freqInputs = document.querySelectorAll<HTMLInputElement>('input[name="freq"]');
+
+  let amount = '50';
+  const update = () => {
+    const freq = Array.from(freqInputs).find((f) => f.checked)?.value ?? 'once';
+    if (continueBtn) continueBtn.href = `/donate?amount=${amount}&freq=${freq}`;
+  };
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach((b) => {
+        b.classList.remove('selected');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('selected');
+      btn.setAttribute('aria-pressed', 'true');
+      amount = btn.dataset.amount ?? '50';
+      if (impactLine) impactLine.textContent = btn.dataset.impact ?? '';
+      update();
+    });
+  });
+  freqInputs.forEach((f) => f.addEventListener('change', update));
+</script>
+
+<style>
+  .donate-module {
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .donate-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-7) var(--space-4);
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  @media (min-width: 900px) {
+    .donate-inner { grid-template-columns: 1fr 1.2fr; align-items: center; }
+  }
+
+  h2 { font-size: var(--text-3xl); }
+
+  .donate-copy p:last-child { color: var(--gray-700); }
+
+  .donate-form {
+    background: var(--card-bg);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+  }
+
+  .freq {
+    border: 0;
+    padding: 0;
+    margin: 0 0 var(--space-4);
+    display: flex;
+    gap: var(--space-4);
+    font-weight: 600;
+  }
+
+  .freq label { display: flex; align-items: center; gap: 0.45rem; cursor: pointer; }
+  .freq input { accent-color: var(--gold-700); }
+
+  .amounts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .amount {
+    font-size: var(--text-base);
+    font-weight: 600;
+    padding: 0.8rem 0;
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all var(--dur-fast) var(--ease-out);
+  }
+
+  .amount:hover { border-color: var(--gold-500); }
+
+  .amount.selected {
+    background: var(--navy-900);
+    color: var(--gold-300);
+    border-color: var(--navy-900);
+  }
+
+  .impact-line {
+    min-height: 2.6em;
+    font-size: var(--text-sm);
+    color: var(--gray-700);
+    font-style: italic;
+    max-width: none;
+  }
+
+  .btn-gold {
+    display: block;
+    text-align: center;
+    background: var(--gold-500);
+    color: var(--navy-950);
+    font: 700 0.95rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: var(--radius);
+  }
+
+  .btn-gold:hover { background: var(--gold-300); color: var(--navy-950); }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

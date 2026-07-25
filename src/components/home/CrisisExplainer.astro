@@ -1,0 +1,85 @@
+---
+// Homepage blueprint section 10. Three stages, dead serious.
+const STAGES = [
+  { label: 'Today', text: 'The Sun is actively consuming finite fuel.' },
+  { label: 'Next', text: 'Its output and composition continue to change.' },
+  { label: 'Eventually', text: 'The Sun enters a red giant phase and life as we know it becomes impossible.' },
+];
+---
+
+<section class="explainer" data-surface="crisis">
+  <div class="explainer-inner">
+    <p class="eyebrow">The Crisis</p>
+    <h2>The timeline is not negotiable. Our response is.</h2>
+    <ol class="stages">
+      {STAGES.map((s, i) => (
+        <li class="stage">
+          <span class="mono stage-num">{String(i + 1).padStart(2, '0')}</span>
+          <h3>{s.label}</h3>
+          <p>{s.text}</p>
+        </li>
+      ))}
+    </ol>
+    <a class="btn-ghost" href="/crisis/solar-depletion">Understand the Timeline</a>
+  </div>
+</section>
+
+<style>
+  .explainer {
+    background: var(--navy-950);
+    color: #eef1f7;
+  }
+
+  .explainer-inner {
+    max-width: var(--page-wide);
+    margin: 0 auto;
+    padding: var(--space-7) var(--space-4);
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+    max-width: 26ch;
+    margin-bottom: var(--space-5);
+  }
+
+  .stages {
+    list-style: none;
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .stage {
+    border-top: 2px solid var(--gold-500);
+    padding-top: var(--space-3);
+  }
+
+  .stage-num {
+    font-size: var(--text-xs);
+    color: #7a879c;
+    letter-spacing: 0.14em;
+  }
+
+  h3 {
+    font-size: var(--text-xl);
+    margin: var(--space-1) 0 var(--space-2);
+  }
+
+  .stage p { color: #aab6c9; font-size: var(--text-sm); margin: 0; }
+
+  .btn-ghost {
+    display: inline-block;
+    border: 1px solid #3a5580;
+    color: #eef1f7;
+    font: 700 0.9rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius);
+  }
+
+  .btn-ghost:hover { border-color: var(--gold-300); color: var(--gold-300); }
+</style>

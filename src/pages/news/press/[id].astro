@@ -1,0 +1,87 @@
+---
+// Press release template. AP wire styling, institutional letterhead feel.
+import { getCollection, render } from 'astro:content';
+import Shell from '../../../layouts/Shell.astro';
+
+export async function getStaticPaths() {
+  const releases = await getCollection('press');
+  return releases.map((release) => ({
+    params: { id: release.id },
+    props: { release },
+  }));
+}
+
+const { release } = Astro.props;
+const { Content } = await render(release);
+const fmt = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+---
+
+<Shell
+  title={`${release.data.title} · Press · Save The Sun Foundation`}
+  description={release.data.excerpt}
+  surface="editorial"
+>
+  <article class="release">
+    <header class="release-head">
+      <p class="mono release-tag">FOR IMMEDIATE RELEASE</p>
+      <h1>{release.data.title}</h1>
+      <p class="mono release-meta">
+        {release.data.location} · {fmt.format(release.data.date).toUpperCase()} ·
+        MEDIA CONTACT: {release.data.contact.toUpperCase()}
+      </p>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+    <footer class="release-foot">
+      <p class="mono">###</p>
+      <a class="mono back-link" href="/news/press">← All Press Releases</a>
+    </footer>
+  </article>
+</Shell>
+
+<style>
+  .release {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .release-tag {
+    font-size: var(--text-xs);
+    letter-spacing: 0.2em;
+    color: var(--alert-red);
+    font-weight: 600;
+  }
+
+  h1 { font-size: var(--text-2xl); margin: var(--space-3) 0; }
+
+  .release-meta {
+    font-size: var(--text-xs);
+    color: var(--gray-500);
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-5);
+  }
+
+  .prose :global(p) {
+    color: var(--gray-700);
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+
+  .prose :global(h2) { font-size: var(--text-lg); margin-top: var(--space-4); }
+
+  .release-foot {
+    margin-top: var(--space-5);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .release-foot p { margin: 0; color: var(--gray-500); }
+
+  .back-link { color: var(--gray-700); text-decoration: none; font-size: var(--text-sm); }
+  .back-link:hover { color: var(--gold-700); }
+</style>

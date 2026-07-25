@@ -1,0 +1,130 @@
+---
+// Homepage blueprint section 3. The hero. NASA SDO imagery arrives via
+// Fred's asset drop; until then a deep radial solar glow holds the frame
+// without cartoon styling.
+---
+
+<section class="hero" data-surface="crisis">
+  <div class="hero-inner">
+    <p class="eyebrow">A global emergency 4.8 billion years in the making</p>
+    <h1>The Sun Cannot<br />Save Itself.</h1>
+    <p class="hero-body">
+      The star that gave us light, warmth, weather, food, seasons, and life
+      is consuming a finite supply of hydrogen every second. We have
+      already delayed action for approximately 4.6 billion years.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-gold" href="/donate">Donate Before Dark</a>
+      <a class="btn-ghost" href="/crisis/solar-depletion">See the Science</a>
+    </div>
+    <p class="countdown mono" aria-label="Estimated time remaining">
+      <span class="countdown-label">ESTIMATED TIME REMAINING</span>
+      <span class="countdown-value" id="hero-countdown">151,398,000,000,000,000</span>
+      <span class="countdown-unit">SECONDS · ORGANIZATIONAL PLANNING ESTIMATE</span>
+    </p>
+  </div>
+</section>
+
+<script>
+  // The branded countdown. 4.8 billion years expressed in seconds,
+  // decremented live. Precision against absurd scale is the joke.
+  // Respects reduced motion by simply not ticking.
+  const el = document.getElementById('hero-countdown');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (el && !reduced) {
+    const YEARS = 4.8e9;
+    const SECONDS_PER_YEAR = 31_557_600;
+    let remaining = YEARS * SECONDS_PER_YEAR;
+    const render = () => {
+      el.textContent = Math.floor(remaining).toLocaleString('en-US');
+    };
+    render();
+    setInterval(() => {
+      remaining -= 1;
+      render();
+    }, 1000);
+  }
+</script>
+
+<style>
+  .hero {
+    background:
+      radial-gradient(1100px 640px at 78% 18%, rgba(224, 163, 46, 0.22), transparent 62%),
+      radial-gradient(700px 500px at 85% 10%, rgba(242, 193, 78, 0.14), transparent 55%),
+      var(--navy-900);
+    color: #eef1f7;
+    border-bottom: 1px solid #22385c;
+  }
+
+  .hero-inner {
+    max-width: var(--page-wide);
+    margin: 0 auto;
+    padding: var(--space-7) var(--space-4) var(--space-6);
+  }
+
+  h1 {
+    font-size: var(--text-hero);
+    font-weight: 900;
+    color: #f5f7fb;
+    margin: var(--space-3) 0 var(--space-4);
+  }
+
+  .hero-body {
+    font-size: var(--text-lg);
+    color: #b9c4d6;
+    max-width: 56ch;
+    margin-bottom: var(--space-5);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-6);
+  }
+
+  .countdown {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    border-left: 2px solid var(--gold-500);
+    padding-left: var(--space-3);
+    max-width: none;
+  }
+
+  .countdown-label {
+    font-size: var(--text-xs);
+    letter-spacing: 0.18em;
+    color: #7a879c;
+  }
+
+  .countdown-value {
+    font-size: clamp(1.3rem, 3.4vw, 2.1rem);
+    font-weight: 600;
+    color: var(--gold-300);
+    letter-spacing: 0.03em;
+  }
+
+  .countdown-unit {
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    color: #7a879c;
+  }
+
+  .btn-gold,
+  .btn-ghost {
+    font: 700 0.92rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.9rem 1.6rem;
+    border-radius: var(--radius);
+    transition: all var(--dur-fast) var(--ease-out);
+  }
+
+  .btn-gold { background: var(--gold-500); color: var(--navy-950); }
+  .btn-gold:hover { background: var(--gold-300); color: var(--navy-950); }
+
+  .btn-ghost { border: 1px solid #3a5580; color: #eef1f7; }
+  .btn-ghost:hover { border-color: var(--gold-300); color: var(--gold-300); }
+</style>

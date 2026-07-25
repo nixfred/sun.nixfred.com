@@ -1,0 +1,79 @@
+---
+// Homepage blueprint section 9. Serious editorial layout. The portrait
+// arrives from Fred's Midjourney run (family-generations.png); until
+// then the frame carries an abstract generational gradient.
+---
+
+<section class="story" data-surface="editorial">
+  <div class="story-inner">
+    <div class="story-visual" aria-hidden="true">
+      <div class="story-placeholder">
+        <span class="mono">PORTRAIT IN EDITORIAL REVIEW</span>
+      </div>
+    </div>
+    <div class="story-copy">
+      <p class="eyebrow">Featured story</p>
+      <h2>The Family Planning 143 Million Generations Ahead</h2>
+      <p>
+        The Hendersons of Marietta, Georgia have started an education fund,
+        a trust, and a solar continuity pledge. Their financial advisor
+        described the third as the only one with a truly long horizon, and
+        the only one he was not legally permitted to comment on.
+      </p>
+      <a class="story-link mono" href="/news/donor-stories">Read their story →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .story {
+    background: var(--paper);
+    color: var(--ink);
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .story-inner {
+    max-width: var(--page-wide);
+    margin: 0 auto;
+    padding: var(--space-7) var(--space-4);
+    display: grid;
+    gap: var(--space-5);
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .story-inner { grid-template-columns: 1fr 1fr; }
+  }
+
+  .story-visual {
+    aspect-ratio: 3 / 2;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .story-placeholder {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(600px 300px at 70% 20%, rgba(224, 163, 46, 0.35), transparent 60%),
+      linear-gradient(160deg, var(--navy-800), var(--navy-950));
+    color: #7a879c;
+    font-size: var(--text-xs);
+    letter-spacing: 0.18em;
+  }
+
+  h2 { font-size: var(--text-2xl); max-width: 20ch; }
+
+  .story-copy p { color: var(--gray-700); }
+
+  .story-link {
+    color: var(--gold-700);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    letter-spacing: 0.04em;
+  }
+
+  .story-link:hover { text-decoration: underline; }
+</style>

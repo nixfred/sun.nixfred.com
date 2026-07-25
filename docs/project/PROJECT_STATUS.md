@@ -40,18 +40,24 @@ footer, and nav shell remain, then Stage 3 vertical slice.
 
 ## Active
 
-1. Stage 3, Vertical slice, next up. Testing structure moved into Stage 3
-   where real content exists to test (link check, static safety scan).
+1. Stage 3, Vertical slice: SUBSTANTIALLY COMPLETE on the preview branch,
+   21 pages. Homepage (16 sections, live countdown, count ups), Solar
+   Depletion crisis page, 8 program pages, 3 blog posts + template, 3
+   press releases + template, 5 step donation simulation (end to end
+   browser verified, UNFUNDED boundary correct), impact dashboard with
+   tabs, emergency status page, client side search, sponsor wall.
+2. Content factory workflow ran its first production shift: 4 parallel
+   producers + 1 reviewer. Review results pending fold in.
+3. Remaining for slice close: content review fold in, testing structure
+   (link check + static safety scan), section index pages (/news, /crisis,
+   /mission etc.) or nav trim decision, mobile visual pass.
 
 ## Pending
 
-1. Stage 3, Vertical slice: homepage (16 sections), one crisis page, one
-   program page, one editorial page, impact dashboard, donation simulation,
-   search, seal and logo suite.
-2. Stage 4, Full production: the complete page inventory.
-3. Stage 5, Whole site review.
-4. Stage 6 and 7, Preview then production deploy.
-5. Stage 8, Factory extraction.
+1. Stage 4, Full production: the complete page inventory.
+2. Stage 5, Whole site review.
+3. Stage 6 and 7, Preview then production deploy.
+4. Stage 8, Factory extraction.
 
 ## Fred decisions needed
 

@@ -1,0 +1,141 @@
+---
+// Homepage blueprint sections 12 + 13. Latest news cards from the blog
+// collection, then the annual report promo band.
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const fmt = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+---
+
+<section class="news" data-surface="editorial">
+  <div class="news-inner">
+    <div class="news-head">
+      <div>
+        <p class="eyebrow">News and stories</p>
+        <h2>The latest from the front line of the daytime.</h2>
+      </div>
+      <a class="mono view-all" href="/news">View all news →</a>
+    </div>
+    <div class="news-grid">
+      {posts.map((post) => (
+        <a class="news-card" href={`/news/blog/${post.id}`}>
+          <p class="mono news-meta">
+            {post.data.category.toUpperCase()} · {fmt.format(post.data.date).toUpperCase()}
+          </p>
+          <h3>{post.data.title}</h3>
+          <p class="news-excerpt">{post.data.excerpt}</p>
+          <span class="mono news-read">{post.data.readingMinutes} minute read</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="report-promo" data-surface="crisis">
+  <div class="report-inner">
+    <div>
+      <p class="eyebrow">2026 Annual Impact Report</p>
+      <h2>The Sun rose. We showed up.</h2>
+      <p class="report-lede">
+        A complete accounting of a year in which the Foundation held more
+        meetings than ever before, and the Sun did not go out once.
+      </p>
+    </div>
+    <a class="btn-gold" href="/impact/annual-report">Read the Report</a>
+  </div>
+</section>
+
+<style>
+  .news {
+    background: var(--paper);
+    color: var(--ink);
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .news-inner {
+    max-width: var(--page-wide);
+    margin: 0 auto;
+    padding: var(--space-7) var(--space-4);
+  }
+
+  .news-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+    flex-wrap: wrap;
+  }
+
+  h2 { font-size: var(--text-2xl); margin: 0; max-width: 24ch; }
+
+  .view-all { color: var(--gold-700); text-decoration: none; font-size: var(--text-sm); }
+  .view-all:hover { text-decoration: underline; }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .news-card {
+    background: var(--card-bg);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+  }
+
+  .news-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(27, 26, 23, 0.09);
+    color: var(--ink);
+  }
+
+  .news-meta { font-size: var(--text-xs); color: var(--gold-700); letter-spacing: 0.1em; margin: 0; }
+  .news-card h3 { font-size: var(--text-lg); margin: 0; }
+  .news-excerpt { color: var(--gray-700); font-size: var(--text-sm); flex: 1; margin: 0; }
+  .news-read { font-size: var(--text-xs); color: var(--gray-500); letter-spacing: 0.06em; }
+
+  /* Report promo */
+  .report-promo {
+    background: var(--navy-900);
+    color: #eef1f7;
+  }
+
+  .report-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+  }
+
+  .report-promo h2 { font-size: var(--text-2xl); margin: var(--space-1) 0; }
+  .report-lede { color: #aab6c9; max-width: 48ch; margin: 0; }
+
+  .btn-gold {
+    background: var(--gold-500);
+    color: var(--navy-950);
+    font: 700 0.92rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.9rem 1.6rem;
+    border-radius: var(--radius);
+    white-space: nowrap;
+  }
+
+  .btn-gold:hover { background: var(--gold-300); color: var(--navy-950); }
+</style>

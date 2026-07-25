@@ -1,0 +1,139 @@
+---
+// Homepage blueprint section 11. LEADERS WHO REFUSE TO WAIT.
+// 12 fictional sponsor lockups, code built, each with a distinct
+// typographic recipe so the wall reads like 12 real brands.
+import { SPONSORS } from '../../data/sponsors';
+---
+
+<section class="sponsors" data-surface="editorial">
+  <div class="sponsors-inner">
+    <p class="eyebrow">Corporate partners</p>
+    <h2>Leaders who refuse to wait.</h2>
+    <ul class="sponsor-grid">
+      {SPONSORS.map((s) => (
+        <li class={`sponsor style-${s.style}`}>
+          {s.mark && s.mark !== 'none' && <span class={`mark mark-${s.mark}`} aria-hidden="true"></span>}
+          <span class="sponsor-name">{s.name}</span>
+        </li>
+      ))}
+    </ul>
+    <a class="sponsor-link mono" href="/get-involved/corporate-partnerships">
+      Become a corporate partner →
+    </a>
+  </div>
+</section>
+
+<style>
+  .sponsors {
+    background: var(--paper);
+    color: var(--ink);
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .sponsors-inner {
+    max-width: var(--page-wide);
+    margin: 0 auto;
+    padding: var(--space-7) var(--space-4);
+  }
+
+  h2 { font-size: var(--text-2xl); margin-bottom: var(--space-5); }
+
+  .sponsor-grid {
+    list-style: none;
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-3);
+  }
+
+  .sponsor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 84px;
+    background: var(--card-bg);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    color: var(--gray-700);
+    filter: grayscale(1);
+    opacity: 0.82;
+    transition: all var(--dur-fast) var(--ease-out);
+  }
+
+  .sponsor:hover { filter: grayscale(0); opacity: 1; }
+
+  /* Typographic recipes */
+  .style-serif-caps .sponsor-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+  }
+
+  .style-sans-bold .sponsor-name {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+  }
+
+  .style-sans-light-wide .sponsor-name {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.72rem;
+  }
+
+  .style-mono-tech .sponsor-name {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+  }
+
+  .style-serif-italic .sponsor-name {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .style-sans-stacked .sponsor-name {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    max-width: 8ch;
+    text-align: center;
+    line-height: 1.25;
+  }
+
+  /* Marks */
+  .mark { display: inline-block; flex: none; }
+  .mark-circle { width: 14px; height: 14px; border-radius: 50%; background: currentColor; }
+  .mark-square { width: 12px; height: 12px; background: currentColor; }
+  .mark-triangle {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 14px solid currentColor;
+  }
+  .mark-bar { width: 5px; height: 20px; background: currentColor; }
+  .mark-ring { width: 14px; height: 14px; border-radius: 50%; border: 3px solid currentColor; }
+
+  .sponsor-link {
+    font-size: var(--text-sm);
+    color: var(--gold-700);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+
+  .sponsor-link:hover { text-decoration: underline; }
+</style>

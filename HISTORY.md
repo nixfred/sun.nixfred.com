@@ -333,3 +333,25 @@ twenty five. Nobody is ever directed to download anything. The
 documents stay in the building, and the building stays open.
 
 ---
+
+## Chapter 11: The Address Resolves
+### 2026-07-25, late afternoon
+
+The registry finished its work while the layout pass was underway, and
+a watcher that had been waiting quietly since morning reported the only
+sentence it was built to say: SOLARSAVE.ORG IS LIVE.
+
+Everything answered at once. The apex, the www, the document register,
+the leadership page, all two hundred. A certificate issued at 15:31
+UTC by Google Trust Services, valid into October. The social card
+serving from its own domain at exactly 1200 by 630. The countdown
+ticking down through 151,476,479,999,936,695 seconds, which is fewer
+than it was this morning, as the Foundation has been warning.
+
+The Solar Save Foundation no longer lives at a subdomain of a personal
+site. It has an address, a certificate, a document register, a
+leadership team with faces, and a five step commitment process that
+collects nothing. It looks exactly like what it claims to be, which
+was the entire assignment.
+
+---

@@ -11,9 +11,12 @@ footer, and nav shell remain, then Stage 3 vertical slice.
 
 ## Live URLs
 
-1. Production: https://sun.nixfred.com (scaffold placeholder, v0.1.0)
-2. Preview: https://preview.sun-nixfred-com.pages.dev (Astro foundation)
-3. Repo: https://github.com/nixfred/sun.nixfred.com
+1. PRIMARY: https://solarsave.org (live 2026-07-25, Google Trust
+   Services cert, www included)
+2. Alias: https://sun.nixfred.com (same Pages project; canonicals point
+   at solarsave.org)
+3. Repo: https://github.com/nixfred/sun.nixfred.com (name kept as the
+   infrastructure identity)
 
 ## Completed
 

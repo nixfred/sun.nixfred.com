@@ -5,7 +5,7 @@ phase: "Continuous observation"
 order: 3
 icon: "pulse"
 summary: "Every day the Foundation reviews publicly available imagery and confirms whether the Sun appears present. Since monitoring began, the Sun has maintained a 100 percent daily appearance rate."
-milestones: ["Daily appearance confirmed 412 consecutive times.", "Foundation confidence level ratified at High.", "Review cadence increased from daily to daily, with documentation.", "Overcast contingency protocol drafted."]
+milestones: ["Daily appearance confirmed 365 consecutive times.", "Foundation confidence level ratified at High.", "Review cadence increased from daily to daily, with documentation.", "Overcast contingency protocol drafted."]
 keyObstacle: "Cloud cover periodically interrupts the evidence."
 cta: "Sustain the watch"
 ---
@@ -16,7 +16,7 @@ Trust is built on verification, and for most of history nobody was formally veri
 
 ## Current phase work
 
-Monitoring operates on a continuous observation footing. As of this quarter the daily appearance has been confirmed 412 consecutive times, each confirmation logged, initialed, and archived. The Foundation confidence level currently stands at High, per a methodology ratified by the same office that reports the level. Review cadence was recently increased from daily to daily, with documentation, closing a gap the auditors described as invisible. The dashboard tracks current status, last visual confirmation, surface activity, and the next scheduled review, which is tomorrow, as it has always been. An overcast contingency protocol has been drafted for days when cloud cover interrupts the evidence, under which the Sun is recorded as present pending confirmation, a courtesy it has earned.
+Monitoring operates on a continuous observation footing. As of this quarter the daily appearance has been confirmed 365 consecutive times, each confirmation logged, initialed, and archived. The Foundation confidence level currently stands at High, per a methodology ratified by the same office that reports the level. Review cadence was recently increased from daily to daily, with documentation, closing a gap the auditors described as invisible. The dashboard tracks current status, last visual confirmation, surface activity, and the next scheduled review, which is tomorrow, as it has always been. An overcast contingency protocol has been drafted for days when cloud cover interrupts the evidence, under which the Sun is recorded as present pending confirmation, a courtesy it has earned.
 
 ## What your support enables
 

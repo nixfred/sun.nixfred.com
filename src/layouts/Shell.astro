@@ -1,0 +1,25 @@
+---
+// Shell: Base + status bar + header + footer. Every real site page
+// uses this; Base alone is for special chrome-free pages if ever needed.
+import Base from './Base.astro';
+import StatusBar from '../components/StatusBar.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  surface?: 'editorial' | 'crisis';
+}
+
+const { title, description, surface = 'editorial' } = Astro.props;
+---
+
+<Base title={title} description={description} surface={surface}>
+  <StatusBar />
+  <Header />
+  <main id="main">
+    <slot />
+  </main>
+  <Footer />
+</Base>

@@ -1,0 +1,56 @@
+---
+// The Foundation seal. Code built SVG per decision 0004.
+// Outer ring text, solar disk with one missing segment (the deficit we
+// exist to address), establishment line. Derives: favicon, certificates,
+// report stamps.
+interface Props {
+  size?: number;
+  showRing?: boolean;
+}
+const { size = 64, showRing = true } = Astro.props;
+const uid = 'seal' + Math.random().toString(36).slice(2, 8);
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 120 120"
+  role="img"
+  aria-label="Save The Sun Foundation official seal"
+  class="seal"
+>
+  {showRing && (
+    <>
+      <defs>
+        <path id={`${uid}-ring`} d="M 60,60 m -46,0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0" fill="none"></path>
+      </defs>
+      <circle cx="60" cy="60" r="58" fill="none" stroke="currentColor" stroke-width="2.5"></circle>
+      <circle cx="60" cy="60" r="36" fill="none" stroke="currentColor" stroke-width="1"></circle>
+      <text font-size="10.2" font-weight="700" letter-spacing="2.1" fill="currentColor" font-family="var(--font-sans)">
+        <textPath href={`#${uid}-ring`} startOffset="0%">
+          SAVE THE SUN FOUNDATION · EST. 4,600,000,000 BC ·
+        </textPath>
+      </text>
+    </>
+  )}
+  <!-- Solar disk with one missing segment: 300 degrees present, 60 missing -->
+  <path
+    d="M 60 60 L 60 34 A 26 26 0 1 1 37.5 47 Z"
+    fill="var(--gold-500)"
+  ></path>
+  <!-- The missing segment, outlined only: the unfunded remainder -->
+  <path
+    d="M 60 60 L 37.5 47 A 26 26 0 0 1 60 34 Z"
+    fill="none"
+    stroke="var(--gold-500)"
+    stroke-width="1.2"
+    stroke-dasharray="3 2.4"
+  ></path>
+</svg>
+
+<style>
+  .seal {
+    display: block;
+    color: var(--text);
+  }
+</style>

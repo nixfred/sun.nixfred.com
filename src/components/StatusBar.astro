@@ -1,0 +1,71 @@
+---
+// Emergency solar status bar. Homepage blueprint section 1.
+// Sits above the header on every page. The timestamp updates locally
+// in the slice's status island; here it renders the build-time state.
+import { SITE } from '../data/site';
+---
+
+<div class="status-bar" role="status">
+  <p class="mono">
+    <span class="pulse" aria-hidden="true"></span>
+    CURRENT SOLAR STATUS: <strong>{SITE.status}</strong>
+    <span class="detail">{SITE.statusDetail}</span>
+  </p>
+  <a class="mono status-link" href="/status">View Live Status</a>
+</div>
+
+<style>
+  .status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    background: var(--navy-950);
+    color: #dfe6f2;
+    padding: 0.45rem var(--space-4);
+    font-size: var(--text-xs);
+  }
+
+  .status-bar p {
+    margin: 0;
+    max-width: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    letter-spacing: 0.06em;
+  }
+
+  .status-bar strong {
+    color: var(--gold-300);
+  }
+
+  .detail {
+    color: #8fa0ba;
+    display: none;
+  }
+
+  @media (min-width: 720px) {
+    .detail {
+      display: inline;
+    }
+  }
+
+  .status-link {
+    color: var(--gold-300);
+    white-space: nowrap;
+    letter-spacing: 0.06em;
+  }
+
+  .pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold-300);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+</style>

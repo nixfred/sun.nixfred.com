@@ -1,0 +1,74 @@
+---
+// The 404 believes (Depth Directive).
+import Shell from '../layouts/Shell.astro';
+---
+
+<Shell
+  title="Page Not Located · Save The Sun Foundation"
+  description="The requested resource could not be located. The Foundation has initiated a preliminary review."
+  surface="crisis"
+>
+  <section class="notfound">
+    <p class="eyebrow">Error 404</p>
+    <h1>This page could not be located.</h1>
+    <p class="lede">
+      Like 60 percent of the Sun's remaining hydrogen, the resource you
+      requested has not yet been allocated. Our Office of Digital
+      Continuity has been notified and has scheduled a meeting.
+    </p>
+    <p class="mono ref">INCIDENT REFERENCE: SOL-404-{new Date().getFullYear()}-PENDING</p>
+    <div class="actions">
+      <a class="btn-gold" href="/">Return to Headquarters</a>
+      <a class="btn-ghost" href="/donate">Donate Before Dark</a>
+    </div>
+  </section>
+</Shell>
+
+<style>
+  .notfound {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-7) var(--space-4);
+    min-height: 55vh;
+  }
+
+  h1 {
+    font-size: var(--text-3xl);
+    max-width: 16ch;
+  }
+
+  .lede {
+    font-size: var(--text-lg);
+    color: var(--text-muted);
+    max-width: 52ch;
+  }
+
+  .ref {
+    font-size: var(--text-xs);
+    color: var(--text-faint);
+    letter-spacing: 0.08em;
+    margin: var(--space-4) 0;
+  }
+
+  .actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+  .btn-gold,
+  .btn-ghost {
+    font: 700 0.9rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    padding: 0.8rem 1.4rem;
+    border-radius: var(--radius);
+  }
+
+  .btn-gold { background: var(--gold-500); color: var(--navy-950); }
+  .btn-gold:hover { background: var(--gold-300); color: var(--navy-950); }
+
+  .btn-ghost {
+    border: 1px solid var(--line);
+    color: var(--text);
+  }
+
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+</style>

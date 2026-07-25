@@ -1,16 +1,17 @@
 ---
 // FOUNDATION SCAFFOLD PAGE. Replaced by the full homepage in the
-// vertical slice (02_HOMEPAGE_BLUEPRINT). This exists so the Astro
-// pipeline has a page to build and preview deploys have a root.
-import Base from '../layouts/Base.astro';
+// vertical slice (02_HOMEPAGE_BLUEPRINT). Runs through Shell so the
+// status bar, mega nav header, and institutional footer render for
+// review on the preview branch.
+import Shell from '../layouts/Shell.astro';
 ---
 
-<Base
+<Shell
   title="Save The Sun Foundation"
   description="The Sun cannot save itself. The Save The Sun Foundation leads the global response to the solar continuity crisis."
   surface="crisis"
 >
-  <main id="main" class="hold">
+  <div class="hold">
     <p class="eyebrow">Save The Sun Foundation</p>
     <h1>The Sun Cannot Save Itself.</h1>
     <p class="lede">
@@ -19,18 +20,18 @@ import Base from '../layouts/Base.astro';
       review is proceeding with appropriate urgency.
     </p>
     <p class="mono status">SITE STATUS: PRELIMINARY ALLOCATION REVIEW</p>
-  </main>
+  </div>
 
   <style>
     .hold {
-      min-height: 100vh;
+      min-height: 60vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
       max-width: var(--page-max);
       margin: 0 auto;
-      padding: var(--space-6) var(--space-4);
+      padding: var(--space-7) var(--space-4);
     }
 
     h1 {

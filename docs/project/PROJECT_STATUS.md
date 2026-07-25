@@ -29,11 +29,19 @@ footer, and nav shell remain, then Stage 3 vertical slice.
    (Playfair Display, Public Sans, IBM Plex Mono), 7 content collections
    with schemas, Base layout, first build green, preview deployed and
    browser verified.
+6. 2026-07-25: Stage 2 complete. Navigation data as route contract, code
+   built SVG seal, status bar, mega menu header (click, hover, keyboard,
+   Escape all verified in browser), mobile accordion nav, full
+   institutional footer with trust marks and the single disclaimer, in
+   character 404. One defect found in browser review (hamburger visible on
+   desktop, CSS cascade order) and fixed same session. First factory agent
+   definitions landed: .claude/agents/content-producer.md and
+   visual-reviewer.md.
 
 ## Active
 
-1. Stage 2 remainder: header with mega menu, institutional footer with the
-   single disclaimer, navigation data, 404, testing structure.
+1. Stage 3, Vertical slice, next up. Testing structure moved into Stage 3
+   where real content exists to test (link check, static safety scan).
 
 ## Pending
 

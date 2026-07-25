@@ -1,0 +1,132 @@
+---
+// Report detail template: designed HTML report page per 08_INTERACTIONS
+// (buttons may open designed HTML report pages).
+import { getCollection, render } from 'astro:content';
+import Shell from '../../layouts/Shell.astro';
+import Seal from '../../components/Seal.astro';
+
+export async function getStaticPaths() {
+  const reports = await getCollection('reports');
+  return reports.map((report) => ({
+    params: { id: report.id },
+    props: { report },
+  }));
+}
+
+const { report } = Astro.props;
+const { Content } = await render(report);
+---
+
+<Shell
+  title={`${report.data.title} · Save The Sun Foundation`}
+  description={report.data.summary}
+  surface="editorial"
+>
+  <article class="report">
+    <header class="report-head" data-surface="crisis">
+      <div class="head-inner">
+        <Seal size={64} />
+        <p class="mono report-type">{report.data.type.toUpperCase()} · {report.data.year}</p>
+        <h1>{report.data.title}</h1>
+        <p class="mono report-meta">
+          {report.data.pages} PAGES · OFFICIAL PUBLICATION OF THE SAVE THE SUN FOUNDATION
+          {report.data.program && ` · ${report.data.program.toUpperCase()}`}
+        </p>
+      </div>
+    </header>
+
+    <div class="report-body">
+      <div class="prose">
+        <Content />
+      </div>
+      <aside class="report-aside">
+        <div class="aside-card">
+          <h2 class="mono aside-heading">Document status</h2>
+          <p class="mono status-line">FINAL · RATIFIED · CIRCULATED</p>
+          <p class="aside-note">
+            Print distribution is limited to stakeholders, archives, and
+            one copy reserved for the Sun against future interest.
+          </p>
+        </div>
+        <a class="btn-gold" href="/donate">Fund the Next Edition</a>
+      </aside>
+    </div>
+  </article>
+</Shell>
+
+<style>
+  .report-head {
+    background: var(--navy-900);
+    border-bottom: 4px solid var(--gold-500);
+  }
+
+  .head-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+    color: #eef1f7;
+  }
+
+  .report-type {
+    font-size: var(--text-xs);
+    color: var(--gold-300);
+    letter-spacing: 0.16em;
+    margin-top: var(--space-4);
+  }
+
+  h1 { font-size: var(--text-3xl); max-width: 22ch; }
+
+  .report-meta { font-size: var(--text-xs); color: #7a879c; letter-spacing: 0.1em; }
+
+  .report-body {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 960px) {
+    .report-body { grid-template-columns: 1.8fr 1fr; align-items: start; }
+  }
+
+  .prose :global(h2) { font-size: var(--text-xl); margin-top: var(--space-5); }
+  .prose :global(p) { color: var(--gray-700); line-height: 1.75; }
+  .prose :global(ol) { color: var(--gray-700); line-height: 1.75; padding-left: 1.4rem; }
+  .prose :global(li) { margin-bottom: 0.6rem; }
+
+  .report-aside { position: sticky; top: var(--space-4); display: flex; flex-direction: column; gap: var(--space-4); }
+
+  .aside-card {
+    background: var(--card-bg);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+  }
+
+  .aside-heading {
+    font-size: var(--text-xs);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-700);
+    margin: 0 0 var(--space-2);
+  }
+
+  .status-line { font-size: var(--text-sm); color: var(--ink); font-weight: 600; letter-spacing: 0.06em; }
+  .aside-note { font-size: var(--text-xs); color: var(--gray-500); margin: var(--space-2) 0 0; }
+
+  .btn-gold {
+    display: block;
+    text-align: center;
+    background: var(--gold-500);
+    color: var(--navy-950);
+    font: 700 0.9rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.9rem;
+    border-radius: var(--radius);
+  }
+
+  .btn-gold:hover { background: var(--gold-300); color: var(--navy-950); }
+</style>

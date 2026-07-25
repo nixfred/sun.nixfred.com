@@ -1,0 +1,104 @@
+---
+// Our Work overview: all programs from the collection.
+import { getCollection } from 'astro:content';
+import Shell from '../../layouts/Shell.astro';
+
+const programs = (await getCollection('programs')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Shell
+  title="Our Work · Save The Sun Foundation"
+  description="Eight programs and one active investigation, each commensurate with the scale of a five billion year problem."
+  surface="editorial"
+>
+  <div class="work">
+    <header class="work-head" data-surface="crisis">
+      <div class="head-inner">
+        <p class="eyebrow">Our Work</p>
+        <h1>A portfolio the problem deserves.</h1>
+        <p class="lede">
+          Each program below is active, funded, and staffed. Each produces
+          measurable administrative output on a defined cadence. The Sun
+          has not commented on any of them, and the work continues anyway.
+        </p>
+      </div>
+    </header>
+
+    <div class="program-list">
+      {programs.map((p) => (
+        <a class="program-row" href={`/programs/${p.id}`}>
+          <span class="mono program-order">{String(p.data.order).padStart(2, '0')}</span>
+          <span class="program-main">
+            <span class="program-title">{p.data.title}</span>
+            <span class="program-tagline">{p.data.tagline}</span>
+          </span>
+          <span class="mono program-phase">{p.data.phase.toUpperCase()}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Shell>
+
+<style>
+  .work-head {
+    background: var(--navy-900);
+    border-bottom: 1px solid #22385c;
+  }
+
+  .head-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+  }
+
+  h1 { font-size: var(--text-3xl); }
+  .lede { color: #b9c4d6; font-size: var(--text-lg); max-width: 56ch; }
+
+  .program-list {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-5) var(--space-4) var(--space-7);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .program-row {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-2);
+    border-bottom: 1px solid var(--gray-200);
+    text-decoration: none;
+    color: var(--ink);
+    transition: background var(--dur-fast) var(--ease-out);
+  }
+
+  .program-row:hover { background: var(--card-bg); }
+  .program-row:hover .program-title { color: var(--gold-700); }
+
+  .program-order { font-size: var(--text-sm); color: var(--gray-500); }
+
+  .program-main { display: flex; flex-direction: column; gap: 0.2rem; }
+
+  .program-title {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+
+  .program-tagline { color: var(--gray-700); font-size: var(--text-sm); }
+
+  .program-phase {
+    font-size: 0.62rem;
+    color: var(--gold-700);
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 640px) {
+    .program-row { grid-template-columns: 1fr; gap: var(--space-1); }
+    .program-order, .program-phase { display: none; }
+  }
+</style>

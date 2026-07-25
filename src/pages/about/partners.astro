@@ -1,0 +1,210 @@
+---
+// Corporate partner directory (08_INTERACTIONS): lockup grid, industry
+// and level filters, expandable profiles. Filters are client side.
+import { getCollection, render } from 'astro:content';
+import Shell from '../../layouts/Shell.astro';
+import { SPONSORS } from '../../data/sponsors';
+
+const partners = await getCollection('partners');
+const rendered = await Promise.all(
+  partners.map(async (partner) => ({ partner, Content: (await render(partner)).Content }))
+);
+// Stable ordering: sponsors.ts order is the wall order
+const orderOf = (name: string) => SPONSORS.findIndex((s) => s.name === name);
+rendered.sort((a, b) => orderOf(a.partner.data.name) - orderOf(b.partner.data.name));
+
+const industries = [...new Set(partners.map((p) => p.data.industry))].sort();
+const levels = ['Dawn Circle', 'Zenith Partner', 'Horizon Ally', 'First Light Member'];
+---
+
+<Shell
+  title="Corporate Partners · Save The Sun Foundation"
+  description="The companies that refuse to wait. Corporate partners of the Save The Sun Foundation, by industry and partnership level."
+  surface="editorial"
+>
+  <div class="partners">
+    <header>
+      <p class="eyebrow">Partners</p>
+      <h1>Leaders who refuse to wait.</h1>
+      <p class="lede">
+        Every organization on Earth operates under the Sun. The ones below
+        have chosen to put that dependency on the record, and on the
+        letterhead.
+      </p>
+    </header>
+
+    <div class="filters">
+      <select id="f-industry" aria-label="Filter by industry">
+        <option value="">All industries</option>
+        {industries.map((i) => (
+          <option value={i}>{i}</option>
+        ))}
+      </select>
+      <select id="f-level" aria-label="Filter by partnership level">
+        <option value="">All levels</option>
+        {levels.map((l) => (
+          <option value={l}>{l}</option>
+        ))}
+      </select>
+      <p class="mono filter-count" id="filter-count" aria-live="polite"></p>
+    </div>
+
+    <div class="partner-grid" id="partner-grid">
+      {rendered.map(({ partner, Content }) => (
+        <details class="partner" data-industry={partner.data.industry} data-level={partner.data.level}>
+          <summary>
+            <span class="partner-name">{partner.data.name}</span>
+            <span class="mono partner-meta">
+              {partner.data.industry.toUpperCase()} · {partner.data.level.toUpperCase()} · SINCE {partner.data.yearJoined}
+            </span>
+            <span class="partner-statement">{partner.data.statement}</span>
+          </summary>
+          <div class="partner-body">
+            <div class="prose"><Content /></div>
+            <blockquote>
+              {partner.data.executiveQuote}
+              <cite class="mono">{partner.data.executiveName.toUpperCase()}</cite>
+            </blockquote>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <div class="join">
+      <h2>Your organization also depends on the Sun.</h2>
+      <a class="btn-gold" href="/get-involved/corporate-partnerships">Become a Partner</a>
+    </div>
+  </div>
+</Shell>
+
+<script>
+  const grid = document.getElementById('partner-grid');
+  const fi = document.getElementById('f-industry') as HTMLSelectElement | null;
+  const fl = document.getElementById('f-level') as HTMLSelectElement | null;
+  const count = document.getElementById('filter-count');
+
+  const apply = () => {
+    const industry = fi?.value ?? '';
+    const level = fl?.value ?? '';
+    let visible = 0;
+    grid?.querySelectorAll<HTMLElement>('.partner').forEach((el) => {
+      const show =
+        (!industry || el.dataset.industry === industry) &&
+        (!level || el.dataset.level === level);
+      el.hidden = !show;
+      if (show) visible++;
+    });
+    if (count) {
+      count.textContent =
+        industry || level ? `${visible} PARTNER${visible === 1 ? '' : 'S'} SHOWN` : '';
+    }
+  };
+
+  fi?.addEventListener('change', apply);
+  fl?.addEventListener('change', apply);
+</script>
+
+<style>
+  .partners {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4) var(--space-7);
+  }
+
+  h1 { font-size: var(--text-3xl); }
+  .lede { color: var(--gray-700); font-size: var(--text-lg); max-width: 54ch; }
+
+  .filters {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    margin: var(--space-5) 0 var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .filters select {
+    font: 600 var(--text-sm) var(--font-sans);
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    background: var(--card-bg);
+    color: var(--ink);
+  }
+
+  .filter-count { font-size: var(--text-xs); color: var(--gray-500); letter-spacing: 0.1em; margin: 0; }
+
+  .partner-grid { display: flex; flex-direction: column; gap: var(--space-3); }
+
+  .partner {
+    background: var(--card-bg);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+  }
+
+  .partner summary {
+    list-style: none;
+    cursor: pointer;
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .partner summary::-webkit-details-marker { display: none; }
+  .partner summary::after {
+    content: '+ EXPAND';
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    color: var(--gold-700);
+  }
+  .partner[open] summary::after { content: '− COLLAPSE'; }
+
+  .partner-name { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700; }
+  .partner-meta { font-size: var(--text-xs); color: var(--gold-700); letter-spacing: 0.1em; }
+  .partner-statement { color: var(--gray-700); font-size: var(--text-sm); }
+
+  .partner-body { padding: 0 var(--space-4) var(--space-4); }
+  .prose :global(p) { color: var(--gray-700); font-size: var(--text-sm); line-height: 1.7; }
+
+  .partner-body blockquote {
+    border-left: 3px solid var(--gold-500);
+    margin: var(--space-3) 0 0;
+    padding-left: var(--space-3);
+    font-family: var(--font-display);
+    font-style: italic;
+  }
+
+  .partner-body cite {
+    display: block;
+    font-style: normal;
+    font-size: var(--text-xs);
+    color: var(--gray-500);
+    letter-spacing: 0.1em;
+    margin-top: var(--space-1);
+  }
+
+  .join {
+    margin-top: var(--space-6);
+    text-align: center;
+    padding: var(--space-5);
+    background: var(--paper-warm);
+    border-radius: var(--radius-lg);
+  }
+
+  .join h2 { font-size: var(--text-xl); margin-bottom: var(--space-3); }
+
+  .btn-gold {
+    display: inline-block;
+    background: var(--gold-500);
+    color: var(--navy-950);
+    font: 700 0.9rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius);
+  }
+
+  .btn-gold:hover { background: var(--gold-300); color: var(--navy-950); }
+</style>

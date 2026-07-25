@@ -1,0 +1,135 @@
+---
+// Research Library: the report collection with filters (08_INTERACTIONS).
+import { getCollection } from 'astro:content';
+import Shell from '../../layouts/Shell.astro';
+
+const reports = (await getCollection('reports')).sort((a, b) => b.data.year - a.data.year);
+const years = [...new Set(reports.map((r) => r.data.year))].sort((a, b) => b - a);
+const types = [...new Set(reports.map((r) => r.data.type))];
+---
+
+<Shell
+  title="Research Library · Save The Sun Foundation"
+  description="Reports, frameworks, methodologies, and accountability findings from the Save The Sun Foundation."
+  surface="editorial"
+>
+  <div class="library">
+    <header>
+      <p class="eyebrow">Research</p>
+      <h1>The published record.</h1>
+      <p class="lede">
+        Every document below is complete, reviewed, and paginated. The
+        Foundation regards a finished report as a milestone in itself, and
+        frequently as several.
+      </p>
+    </header>
+
+    <div class="filters">
+      <select id="r-year" aria-label="Filter by year">
+        <option value="">All years</option>
+        {years.map((y) => (
+          <option value={y}>{y}</option>
+        ))}
+      </select>
+      <select id="r-type" aria-label="Filter by type">
+        <option value="">All types</option>
+        {types.map((t) => (
+          <option value={t}>{t}</option>
+        ))}
+      </select>
+    </div>
+
+    <div class="report-grid" id="report-grid">
+      {reports.map((r) => (
+        <a class="report-card" href={`/reports/${r.id}`} data-year={r.data.year} data-type={r.data.type}>
+          <div class="report-cover" aria-hidden="true">
+            <span class="mono cover-type">{r.data.type.toUpperCase()}</span>
+            <span class="cover-title">{r.data.title}</span>
+            <span class="mono cover-year">{r.data.year}</span>
+          </div>
+          <p class="report-summary">{r.data.summary}</p>
+          <span class="mono report-pages">{r.data.pages} PAGES</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Shell>
+
+<script>
+  const fy = document.getElementById('r-year') as HTMLSelectElement | null;
+  const ft = document.getElementById('r-type') as HTMLSelectElement | null;
+  const apply = () => {
+    const y = fy?.value ?? '';
+    const t = ft?.value ?? '';
+    document.querySelectorAll<HTMLElement>('.report-card').forEach((el) => {
+      el.hidden = (Boolean(y) && el.dataset.year !== y) || (Boolean(t) && el.dataset.type !== t);
+    });
+  };
+  fy?.addEventListener('change', apply);
+  ft?.addEventListener('change', apply);
+</script>
+
+<style>
+  .library {
+    max-width: var(--page-wide);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4) var(--space-7);
+  }
+
+  h1 { font-size: var(--text-3xl); }
+  .lede { color: var(--gray-700); max-width: 54ch; }
+
+  .filters { display: flex; gap: var(--space-2); margin: var(--space-5) 0 var(--space-4); flex-wrap: wrap; }
+
+  .filters select {
+    font: 600 var(--text-sm) var(--font-sans);
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    background: var(--card-bg);
+    color: var(--ink);
+  }
+
+  .report-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .report-card {
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .report-cover {
+    aspect-ratio: 3 / 4;
+    border-radius: var(--radius);
+    background: linear-gradient(160deg, var(--navy-800), var(--navy-950));
+    color: #eef1f7;
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    border-bottom: 4px solid var(--gold-500);
+    transition: transform var(--dur-fast) var(--ease-out);
+  }
+
+  .report-card:hover .report-cover { transform: translateY(-4px); }
+
+  .cover-type { font-size: 0.58rem; letter-spacing: 0.16em; color: var(--gold-300); }
+
+  .cover-title {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-top: var(--space-3);
+    flex: 1;
+  }
+
+  .cover-year { font-size: var(--text-sm); color: #7a879c; }
+
+  .report-summary { color: var(--gray-700); font-size: var(--text-sm); flex: 1; margin: 0; }
+  .report-pages { font-size: 0.62rem; color: var(--gray-500); letter-spacing: 0.1em; }
+</style>

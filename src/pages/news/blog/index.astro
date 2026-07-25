@@ -1,0 +1,113 @@
+---
+// Blog index with category filters (08_INTERACTIONS).
+import { getCollection } from 'astro:content';
+import Shell from '../../../layouts/Shell.astro';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const categories = [...new Set(posts.map((p) => p.data.category))];
+const fmt = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+---
+
+<Shell
+  title="Foundation Blog · Save The Sun Foundation"
+  description="Analysis, field reporting, and institutional perspective from the Save The Sun Foundation."
+  surface="editorial"
+>
+  <div class="blog-index">
+    <header>
+      <p class="eyebrow">Foundation Blog</p>
+      <h1>Perspective at scale.</h1>
+    </header>
+
+    <div class="cats" role="group" aria-label="Filter by category">
+      <button class="cat mono active" data-cat="">All</button>
+      {categories.map((c) => (
+        <button class="cat mono" data-cat={c}>{c}</button>
+      ))}
+    </div>
+
+    <div class="post-grid">
+      {posts.map((post) => (
+        <a class="post-card" href={`/news/blog/${post.id}`} data-cat={post.data.category}>
+          <p class="mono card-meta">
+            {post.data.category.toUpperCase()} · {fmt.format(post.data.date).toUpperCase()}
+          </p>
+          <h2>{post.data.title}</h2>
+          <p class="card-excerpt">{post.data.excerpt}</p>
+          <span class="mono card-read">{post.data.readingMinutes} MINUTE READ · {post.data.author.toUpperCase()}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Shell>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.cat');
+  const cards = document.querySelectorAll<HTMLElement>('.post-card');
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat ?? '';
+      cards.forEach((card) => {
+        card.hidden = Boolean(cat) && card.dataset.cat !== cat;
+      });
+    });
+  });
+</script>
+
+<style>
+  .blog-index {
+    max-width: var(--page-wide);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4) var(--space-7);
+  }
+
+  h1 { font-size: var(--text-3xl); }
+
+  .cats { display: flex; gap: var(--space-2); flex-wrap: wrap; margin: var(--space-4) 0 var(--space-5); }
+
+  .cat {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    background: none;
+    border: 1px solid var(--gray-200);
+    color: var(--gray-700);
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+
+  .cat:hover { border-color: var(--gold-500); color: var(--gold-700); }
+  .cat.active { background: var(--navy-900); color: var(--gold-300); border-color: var(--navy-900); }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .post-card {
+    background: var(--card-bg);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+  }
+
+  .post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(27, 26, 23, 0.09);
+  }
+
+  .card-meta { font-size: 0.62rem; color: var(--gold-700); letter-spacing: 0.12em; margin: 0; }
+  h2 { font-size: var(--text-lg); margin: 0; }
+  .card-excerpt { color: var(--gray-700); font-size: var(--text-sm); flex: 1; margin: 0; }
+  .card-read { font-size: 0.62rem; color: var(--gray-500); letter-spacing: 0.08em; }
+</style>

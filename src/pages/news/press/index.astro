@@ -1,0 +1,71 @@
+---
+// Press release index. Wire service styling.
+import { getCollection } from 'astro:content';
+import Shell from '../../../layouts/Shell.astro';
+
+const releases = (await getCollection('press')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const fmt = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+---
+
+<Shell
+  title="Press Releases · Save The Sun Foundation"
+  description="Official announcements from the Save The Sun Foundation's Office of Public Awareness."
+  surface="editorial"
+>
+  <div class="press-index">
+    <header>
+      <p class="eyebrow">Media Center</p>
+      <h1>Official statements, issued with appropriate urgency.</h1>
+      <p class="lede">
+        All releases are distributed by the Office of Public Awareness and
+        remain accurate as of the moment the Sun most recently rose.
+      </p>
+    </header>
+
+    <ol class="release-list">
+      {releases.map((release) => (
+        <li>
+          <a href={`/news/press/${release.id}`}>
+            <span class="mono release-date">{fmt.format(release.data.date).toUpperCase()}</span>
+            <span class="release-title">{release.data.title}</span>
+            <span class="release-excerpt">{release.data.excerpt}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </div>
+</Shell>
+
+<style>
+  .press-index {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4) var(--space-7);
+  }
+
+  h1 { font-size: var(--text-3xl); max-width: 20ch; }
+  .lede { color: var(--gray-700); max-width: 54ch; }
+
+  .release-list { list-style: none; margin: var(--space-5) 0 0; padding: 0; }
+
+  .release-list a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--gray-200);
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .release-list a:hover .release-title { color: var(--gold-700); }
+
+  .release-date { font-size: var(--text-xs); color: var(--gray-500); letter-spacing: 0.12em; }
+  .release-title {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+  .release-excerpt { color: var(--gray-700); font-size: var(--text-sm); }
+</style>

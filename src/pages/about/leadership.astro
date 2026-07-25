@@ -1,0 +1,116 @@
+---
+// Leadership directory. Portrait slots render the seal silhouette until
+// Fred's Midjourney headshots land in the portrait frontmatter field.
+import { getCollection, render } from 'astro:content';
+import Shell from '../../layouts/Shell.astro';
+import Seal from '../../components/Seal.astro';
+
+const leaders = (await getCollection('leadership')).sort((a, b) => a.data.order - b.data.order);
+const rendered = await Promise.all(
+  leaders.map(async (leader) => ({ leader, Content: (await render(leader)).Content }))
+);
+---
+
+<Shell
+  title="Leadership · Save The Sun Foundation"
+  description="The executives leading the global response to the solar continuity crisis."
+  surface="editorial"
+>
+  <div class="leadership">
+    <header class="head">
+      <p class="eyebrow">About Us</p>
+      <h1>Leadership equal to a five billion year problem.</h1>
+      <p class="lede">
+        The Foundation's executive team brings a combined 214 years of
+        institutional experience to a challenge that predates institutions,
+        experience, and years.
+      </p>
+    </header>
+
+    <div class="leader-list">
+      {rendered.map(({ leader, Content }) => (
+        <article class="leader" id={leader.id}>
+          <div class="portrait">
+            {leader.data.portrait ? (
+              <img src={leader.data.portrait} alt={`Portrait of ${leader.data.name}`} loading="lazy" />
+            ) : (
+              <div class="portrait-hold" aria-hidden="true">
+                <Seal size={72} showRing={false} />
+              </div>
+            )}
+          </div>
+          <div class="leader-body">
+            <h2>{leader.data.name}</h2>
+            <p class="mono leader-role">{leader.data.role.toUpperCase()}</p>
+            <p class="mono leader-tenure">{leader.data.tenure}</p>
+            <blockquote>{leader.data.quote}</blockquote>
+            <div class="prose"><Content /></div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</Shell>
+
+<style>
+  .leadership {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4) var(--space-7);
+  }
+
+  h1 { font-size: var(--text-3xl); max-width: 22ch; }
+  .lede { color: var(--gray-700); font-size: var(--text-lg); max-width: 54ch; }
+
+  .leader-list { display: flex; flex-direction: column; gap: var(--space-5); margin-top: var(--space-6); }
+
+  .leader {
+    display: grid;
+    gap: var(--space-4);
+    background: var(--card-bg);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+  }
+
+  @media (min-width: 760px) {
+    .leader { grid-template-columns: 180px 1fr; }
+  }
+
+  .portrait img,
+  .portrait-hold {
+    width: 160px;
+    height: 160px;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+  }
+
+  .portrait-hold {
+    display: grid;
+    place-items: center;
+    background: linear-gradient(160deg, var(--navy-800), var(--navy-950));
+    color: #7a879c;
+  }
+
+  h2 { font-size: var(--text-xl); margin: 0; }
+
+  .leader-role {
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    color: var(--gold-700);
+    margin: var(--space-1) 0 0;
+  }
+
+  .leader-tenure { font-size: var(--text-xs); color: var(--gray-500); margin: 0.2rem 0 var(--space-3); }
+
+  blockquote {
+    border-left: 3px solid var(--gold-500);
+    margin: 0 0 var(--space-3);
+    padding-left: var(--space-3);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-lg);
+  }
+
+  .prose :global(p) { color: var(--gray-700); font-size: var(--text-sm); line-height: 1.7; }
+</style>

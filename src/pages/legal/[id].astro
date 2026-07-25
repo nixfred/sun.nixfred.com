@@ -1,0 +1,73 @@
+---
+// Policy page template. Legal register, numbered clauses, the fine print
+// believes (Depth Directive).
+import { getCollection, render } from 'astro:content';
+import Shell from '../../layouts/Shell.astro';
+
+export async function getStaticPaths() {
+  const policies = await getCollection('policies');
+  return policies.map((policy) => ({
+    params: { id: policy.id },
+    props: { policy },
+  }));
+}
+
+const { policy } = Astro.props;
+const { Content } = await render(policy);
+---
+
+<Shell
+  title={`${policy.data.title} · Save The Sun Foundation`}
+  description={policy.data.summary}
+  surface="editorial"
+>
+  <article class="policy">
+    <header>
+      <p class="eyebrow">Policies and Governance</p>
+      <h1>{policy.data.title}</h1>
+      <p class="mono policy-meta">
+        EFFECTIVE {policy.data.effective.toUpperCase()} · LAST REVIEWED {policy.data.lastReviewed.toUpperCase()}
+      </p>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+    <footer class="policy-foot">
+      <p class="mono">
+        Questions regarding this policy may be directed to the Office of the
+        General Counsel for Interstellar Affairs, which reviews all
+        correspondence in the order the Sun rises.
+      </p>
+    </footer>
+  </article>
+</Shell>
+
+<style>
+  .policy {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+  }
+
+  h1 { font-size: var(--text-3xl); margin: var(--space-2) 0; }
+
+  .policy-meta {
+    font-size: var(--text-xs);
+    color: var(--gray-500);
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-5);
+  }
+
+  .prose :global(h2) { font-size: var(--text-lg); margin-top: var(--space-4); }
+  .prose :global(p) { color: var(--gray-700); line-height: 1.75; }
+  .prose :global(ol) { color: var(--gray-700); line-height: 1.75; padding-left: 1.4rem; }
+  .prose :global(li) { margin-bottom: 0.6rem; }
+
+  .policy-foot {
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .policy-foot p { font-size: var(--text-xs); color: var(--gray-500); max-width: none; }
+</style>

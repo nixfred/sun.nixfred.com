@@ -1,0 +1,114 @@
+---
+// Frequently Asked Questions. Answers verbatim from the Copy and Humor
+// Bible, accessible accordions.
+import Shell from '../../layouts/Shell.astro';
+
+const FAQS = [
+  { q: 'Is 4.8 billion years not a long time?', a: 'That is exactly the complacency that brought us here.' },
+  { q: 'Can humanity move to another star?', a: 'Abandoning the Sun during its time of need is not a solution.' },
+  { q: 'Is my contribution tax deductible?', a: 'Tax treatment varies by jurisdiction, donor profile, planetary location, and the willingness of your accountant to support the Sun.' },
+  { q: 'What happens if we fail?', a: 'Darkness.' },
+  { q: 'Has the Foundation spoken with the Sun?', a: 'The Sun has not responded to repeated outreach attempts.' },
+  { q: 'Does the Sun know it has been adopted?', a: 'The relationship remains unacknowledged.' },
+  { q: 'Why has government not acted?', a: 'Politics.' },
+  { q: 'Can I volunteer on site?', a: 'Travel opportunities remain paused due to heat.' },
+];
+---
+
+<Shell
+  title="Frequently Asked Questions · Save The Sun Foundation"
+  description="Answers to the questions the Foundation receives most often regarding the solar continuity crisis."
+  surface="editorial"
+>
+  <div class="faq">
+    <header>
+      <p class="eyebrow">The Crisis</p>
+      <h1>Frequently Asked Questions</h1>
+      <p class="lede">
+        The Foundation welcomes questions. Each answer below has been
+        reviewed for accuracy, approved for release, and read aloud at a
+        minimum of one meeting.
+      </p>
+    </header>
+
+    <div class="faq-list">
+      {FAQS.map((f) => (
+        <details class="faq-item">
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+
+    <div class="faq-cta">
+      <p>
+        Your question not answered here? It has likely been referred to the
+        appropriate committee.
+      </p>
+      <a class="btn-gold" href="/donate">Ask With a Commitment</a>
+    </div>
+  </div>
+</Shell>
+
+<style>
+  .faq {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4) var(--space-7);
+  }
+
+  h1 { font-size: var(--text-3xl); }
+  .lede { color: var(--gray-700); max-width: 54ch; }
+
+  .faq-list { margin: var(--space-5) 0; }
+
+  .faq-item {
+    background: var(--card-bg);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    margin-bottom: var(--space-2);
+  }
+
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: var(--space-3) var(--space-4);
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 700;
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; float: right; color: var(--gold-700); }
+  .faq-item[open] summary::after { content: '−'; }
+
+  .faq-item p {
+    padding: 0 var(--space-4) var(--space-3);
+    margin: 0;
+    color: var(--gray-700);
+    max-width: none;
+  }
+
+  .faq-cta {
+    text-align: center;
+    padding: var(--space-5);
+    background: var(--paper-warm);
+    border-radius: var(--radius-lg);
+  }
+
+  .faq-cta p { color: var(--gray-700); max-width: none; }
+
+  .btn-gold {
+    display: inline-block;
+    background: var(--gold-500);
+    color: var(--navy-950);
+    font: 700 0.9rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius);
+  }
+
+  .btn-gold:hover { background: var(--gold-300); color: var(--navy-950); }
+</style>

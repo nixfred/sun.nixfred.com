@@ -140,3 +140,39 @@ redeployed, and verified. Twenty one pages now stand on the preview
 branch. Compiling is not review. Screenshots are review.
 
 ---
+
+## Chapter 5: Production, the Purge of the White, and the Second Shift
+### 2026-07-25, before dawn
+
+Fred cut the ribbon himself: why are you doing previews, point it at
+sun.nixfred.com. So production it was. The scaffold was retired with
+honors and the Foundation took the real domain.
+
+Then Fred looked at the live site and issued the shortest design review
+in the project's history: the dark to white pop was almost painful. The
+Off White editorial scheme, chosen in Round 1 and implemented in full,
+died on contact with an actual retina. Decision 0005 recorded the
+reversal and the lesson: color rulings are provisional until the client
+has seen them rendered, and a token layer makes reversal cost twenty
+minutes instead of a rebuild. The site is now two families of dark,
+institutional navy and a softer editorial dark, and the section rhythm
+survived the funeral.
+
+The factory ran its second shift while the lights changed. Six producers
+in parallel: nine more blog posts, five more press releases, eight
+leadership biographies, twelve partner profiles matched name for name to
+the sponsor wall, seven policies including the Solar Naming Policy, six
+reports, and the ninth program, the Big Dark Accountability Project, key
+obstacle: the night keeps returning. Five hundred fifty three thousand
+tokens of institutional certainty. The review agent hit the session
+limit at the finish line, so Larry ran the review inline: zero dash
+violations, zero broken character, zero money implied, every partner
+name matching, every schema green. Fifty seven pages built in 718
+milliseconds and went straight to production.
+
+The Foundation now has a President. Margaret E. Halloran, with the
+Foundation since 2008, its first year of recorded hiring. Her words:
+The Sun has never missed a day of work, and under my presidency,
+neither has the paperwork. No human wrote her either.
+
+---

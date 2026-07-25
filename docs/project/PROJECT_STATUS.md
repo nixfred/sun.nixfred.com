@@ -40,24 +40,34 @@ footer, and nav shell remain, then Stage 3 vertical slice.
 
 ## Active
 
-1. Stage 3, Vertical slice: SUBSTANTIALLY COMPLETE on the preview branch,
-   21 pages. Homepage (16 sections, live countdown, count ups), Solar
-   Depletion crisis page, 8 program pages, 3 blog posts + template, 3
-   press releases + template, 5 step donation simulation (end to end
-   browser verified, UNFUNDED boundary correct), impact dashboard with
-   tabs, emergency status page, client side search, sponsor wall.
-2. Content factory workflow ran its first production shift: 4 parallel
-   producers + 1 reviewer. Review results pending fold in.
-3. Remaining for slice close: content review fold in, testing structure
-   (link check + static safety scan), section index pages (/news, /crisis,
-   /mission etc.) or nav trim decision, mobile visual pass.
+1. Stage 4 in progress, 57 PAGES LIVE IN PRODUCTION at sun.nixfred.com.
+   DARK ONLY per decision 0005. Full inventory: 12 blog, 8 press, 8
+   leadership, 12 partners, 7 policies, 6 reports, 9 programs, plus all
+   slice pages and the new directories (leadership, partners, blog index,
+   press index, research library, report pages, legal pages, programs
+   overview, FAQ, news landing).
+2. Second factory shift complete: 6 producers, 553k tokens. Review agent
+   hit the session limit (resets 3:10am ET); Larry ran the review inline,
+   all checks passed. A follow up reviewer pass can deep read the new
+   copy after reset if desired.
+
+## Remaining for Stage 4
+
+1. Section overview pages: /mission, /crisis, /impact, /research,
+   /get-involved, /about, plus mission/crisis/impact/involvement child
+   pages not yet built (nav links to them exist and currently 404).
+2. Adopt a Sunspot experience (catalog, filters, certificate).
+3. Contact Congress builder, volunteer application, careers, media
+   resources, events, newsletter archive, remaining involvement pages.
+4. Fred's Midjourney assets into portraits, heroes, report covers
+   (docs/assets/incoming/).
+5. Testing structure: link check + static safety scan (Stage 5 gate).
 
 ## Pending
 
-1. Stage 4, Full production: the complete page inventory.
-2. Stage 5, Whole site review.
-3. Stage 6 and 7, Preview then production deploy.
-4. Stage 8, Factory extraction.
+1. Stage 5, Whole site review.
+2. Stage 6 and 7, release tag and notes.
+3. Stage 8, Factory extraction.
 
 ## Fred decisions needed
 

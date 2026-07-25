@@ -34,7 +34,7 @@ summary: "How this site uses cookies, organized into three governed categories w
 ## 5. Third Party Cookies
 
 1. No third party sets cookies through this Site.
-2. Requests from third parties seeking to do so would be declined, archived, and reviewed annually as part of our threat posture, alongside the Moon, which sets nothing of its own and has never explained itself.
+2. Requests from third parties seeking to do so would be declined, archived, and reviewed annually alongside the Moon, which sets nothing of its own and has never explained itself.
 
 ## 6. Managing Your Preferences
 
@@ -45,4 +45,4 @@ summary: "How this site uses cookies, organized into three governed categories w
 ## 7. Changes
 
 1. Updates to this policy will appear on this page with a revised date.
-2. The category structure is expected to serve for the planning horizon of 4.8 billion years, an organizational estimate, reviewed annually.
+2. The category structure is expected to serve for the planning horizon of 4.8 billion years, an organizational estimate.

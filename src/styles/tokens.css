@@ -19,13 +19,17 @@
   --navy-700: #1a3054;
   --navy-600: #274268;
 
-  /* Off White and Warm Gray: editorial surfaces */
-  --paper: #f8f5ef;
-  --paper-warm: #efe9df;
-  --gray-200: #ddd6ca;
-  --gray-500: #8a8478;
-  --gray-700: #57524a;
-  --ink: #1b1a17;
+  /* Editorial surface, DARK ERA (decision 0005: the Off White scheme is
+     retired, Fred's ruling on the live site). Names are historical from
+     the light era, values are dark. Rename debt accepted knowingly:
+     --paper is the editorial base, --ink is TEXT (now light),
+     --gray-200 is LINES on dark, --gray-500/700 are muted text tiers. */
+  --paper: #0b1322;
+  --paper-warm: #101a2e;
+  --gray-200: #223145;
+  --gray-500: #74819a;
+  --gray-700: #a7b2c6;
+  --ink: #e8edf7;
 
   /* Warning Red: crisis alerts only. Do not decorate with it. */
   --alert-red: #b3261e;
@@ -69,7 +73,7 @@
   --dur-slow: 640ms;
 }
 
-/* Editorial surface (default): Off White, ink text */
+/* Editorial surface (default): soft dark, light text (decision 0005) */
 :root,
 [data-surface='editorial'] {
   --bg: var(--paper);
@@ -78,9 +82,9 @@
   --text-muted: var(--gray-700);
   --text-faint: var(--gray-500);
   --line: var(--gray-200);
-  --accent: var(--gold-700);
+  --accent: var(--gold-300);
   --accent-strong: var(--gold-500);
-  --card-bg: #ffffff;
+  --card-bg: #121d33;
 }
 
 /* Crisis surface: Deep Space Navy, used by crisis, science,

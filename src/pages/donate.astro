@@ -352,7 +352,7 @@ const ALLOCATIONS = [
   }
 
   .steps li { text-transform: uppercase; }
-  .steps li.active { color: var(--gold-700); font-weight: 600; }
+  .steps li.active { color: var(--gold-300); font-weight: 600; }
   .steps li:not(:last-child)::after { content: ' →'; color: var(--gray-200); }
 
   .step {
@@ -378,7 +378,7 @@ const ALLOCATIONS = [
 
   .freq { border: 0; padding: 0; margin: 0 0 var(--space-4); display: flex; gap: var(--space-4); flex-wrap: wrap; }
   .freq label { display: flex; gap: 0.45rem; align-items: center; font-weight: 600; cursor: pointer; }
-  .freq input { accent-color: var(--gold-700); }
+  .freq input { accent-color: var(--gold-300); }
 
   .amounts { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: var(--space-2); margin-bottom: var(--space-3); }
 
@@ -393,7 +393,7 @@ const ALLOCATIONS = [
   }
 
   .amount:hover { border-color: var(--gold-500); }
-  .amount.selected { background: var(--navy-900); color: var(--gold-300); border-color: var(--navy-900); }
+  .amount.selected { background: var(--navy-900); color: var(--gold-300); border-color: var(--gold-500); }
 
   .custom-label { font-size: var(--text-sm); color: var(--gray-700); display: block; margin-bottom: var(--space-1); }
 
@@ -409,7 +409,7 @@ const ALLOCATIONS = [
 
   .toggles { display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-2); }
   .toggles label { display: flex; gap: 0.5rem; align-items: center; font-size: var(--text-sm); color: var(--gray-700); cursor: pointer; }
-  .toggles input { accent-color: var(--gold-700); }
+  .toggles input { accent-color: var(--gold-300); }
 
   .allocations { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-2); }
 
@@ -424,7 +424,7 @@ const ALLOCATIONS = [
   }
 
   .allocation:hover { border-color: var(--gold-500); }
-  .allocation.selected { background: var(--navy-900); color: var(--gold-300); border-color: var(--navy-900); }
+  .allocation.selected { background: var(--navy-900); color: var(--gold-300); border-color: var(--gold-500); }
 
   .intent-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-3); }
   .intent-grid label { display: flex; flex-direction: column; gap: 0.35rem; font-size: var(--text-sm); font-weight: 600; }
@@ -480,11 +480,11 @@ const ALLOCATIONS = [
     display: inline-block;
   }
 
-  .btn-ghost:hover { border-color: var(--gold-700); color: var(--gold-700); }
+  .btn-ghost:hover { border-color: var(--gold-300); color: var(--gold-300); }
 
   .step-done .done-lede { font-size: var(--text-lg); color: var(--gray-700); }
   .done-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4); }
-  .share-copied { font-size: var(--text-xs); color: var(--gold-700); margin-top: var(--space-3); }
+  .share-copied { font-size: var(--text-xs); color: var(--gold-300); margin-top: var(--space-3); }
 
   /* Receipt: hidden on screen, alone on print */
   .receipt { display: none; }

@@ -30,22 +30,24 @@ const rendered = await Promise.all(
     <div class="leader-list">
       {rendered.map(({ leader, Content }) => (
         <article class="leader" id={leader.id}>
-          <div class="portrait">
-            {leader.data.portrait ? (
-              <img src={leader.data.portrait} alt={`Portrait of ${leader.data.name}`} loading="lazy" />
-            ) : (
-              <div class="portrait-hold" aria-hidden="true">
-                <Seal size={72} showRing={false} />
-              </div>
-            )}
+          <div class="leader-head">
+            <div class="portrait">
+              {leader.data.portrait ? (
+                <img src={leader.data.portrait} alt={`Portrait of ${leader.data.name}`} loading="lazy" />
+              ) : (
+                <div class="portrait-hold" aria-hidden="true">
+                  <Seal size={56} showRing={false} />
+                </div>
+              )}
+            </div>
+            <div class="leader-id">
+              <h2>{leader.data.name}</h2>
+              <p class="mono leader-role">{leader.data.role.toUpperCase()}</p>
+              <p class="mono leader-tenure">{leader.data.tenure}</p>
+            </div>
           </div>
-          <div class="leader-body">
-            <h2>{leader.data.name}</h2>
-            <p class="mono leader-role">{leader.data.role.toUpperCase()}</p>
-            <p class="mono leader-tenure">{leader.data.tenure}</p>
-            <blockquote>{leader.data.quote}</blockquote>
-            <div class="prose"><Content /></div>
-          </div>
+          <blockquote>{leader.data.quote}</blockquote>
+          <div class="prose"><Content /></div>
         </article>
       ))}
     </div>
@@ -62,27 +64,48 @@ const rendered = await Promise.all(
   h1 { font-size: var(--text-3xl); max-width: 22ch; }
   .lede { color: var(--gray-700); font-size: var(--text-lg); max-width: 54ch; }
 
-  .leader-list { display: flex; flex-direction: column; gap: var(--space-5); margin-top: var(--space-6); }
+  /* Two up cards. Browser audit found the old one-per-row layout left
+     192px of dead gutter beside every bio and ~545px of empty column
+     under each portrait. Portrait now sits in a header row and the bio
+     runs the full card width, so nothing is stranded. */
+  .leader-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin-top: var(--space-5);
+  }
+
+  @media (min-width: 900px) {
+    .leader-list { grid-template-columns: repeat(2, 1fr); }
+  }
 
   .leader {
-    display: grid;
-    gap: var(--space-4);
     background: var(--card-bg);
     border: 1px solid var(--gray-200);
     border-radius: var(--radius-lg);
-    padding: var(--space-5);
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
   }
 
-  @media (min-width: 760px) {
-    .leader { grid-template-columns: 180px 1fr; }
+  .leader-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: var(--space-3);
   }
 
   .portrait img,
   .portrait-hold {
-    width: 160px;
-    height: 160px;
-    border-radius: var(--radius-lg);
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
     object-fit: cover;
+    object-position: center 22%;
+    border: 2px solid var(--gold-500);
+    flex: none;
   }
 
   .portrait-hold {
@@ -92,7 +115,9 @@ const rendered = await Promise.all(
     color: #7a879c;
   }
 
-  h2 { font-size: var(--text-xl); margin: 0; }
+  .leader-id { min-width: 0; }
+
+  h2 { font-size: var(--text-lg); margin: 0; }
 
   .leader-role {
     font-size: var(--text-xs);
@@ -101,7 +126,7 @@ const rendered = await Promise.all(
     margin: var(--space-1) 0 0;
   }
 
-  .leader-tenure { font-size: var(--text-xs); color: var(--gray-500); margin: 0.2rem 0 var(--space-3); }
+  .leader-tenure { font-size: var(--text-xs); color: var(--gray-500); margin: 0.2rem 0 0; }
 
   blockquote {
     border-left: 3px solid var(--gold-500);
@@ -109,8 +134,16 @@ const rendered = await Promise.all(
     padding-left: var(--space-3);
     font-family: var(--font-display);
     font-style: italic;
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
   }
 
-  .prose :global(p) { color: var(--gray-700); font-size: var(--text-sm); line-height: 1.7; }
+  /* max-width none: the card already constrains the measure, and the
+     global 68ch cap was what stranded the gutter. */
+  .prose :global(p) {
+    color: var(--gray-700);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    max-width: none;
+    margin-bottom: 0;
+  }
 </style>

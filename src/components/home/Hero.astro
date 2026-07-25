@@ -106,7 +106,11 @@
   }
 
   .countdown-value {
-    font-size: clamp(1.3rem, 3.4vw, 2.1rem);
+    /* Browser audit: at 390px the 23 char figure overflowed the viewport
+       by 9px. Lower floor plus comma-group breaking keeps it contained
+       without shrinking it on real screens. */
+    font-size: clamp(0.95rem, 3.4vw, 2.1rem);
+    overflow-wrap: anywhere;
     font-weight: 600;
     color: var(--gold-300);
     letter-spacing: 0.03em;

@@ -75,9 +75,17 @@ const IMPACT = [
 
   .impact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(1, 1fr);
     gap: var(--space-5) var(--space-4);
     margin: 0 0 var(--space-5);
+  }
+
+  @media (min-width: 520px) {
+    .impact-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1040px) {
+    .impact-grid { grid-template-columns: repeat(5, 1fr); }
   }
 
   .impact-item { display: flex; flex-direction: column-reverse; }

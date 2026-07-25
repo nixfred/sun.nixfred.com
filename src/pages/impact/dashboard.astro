@@ -196,11 +196,26 @@ const TABS = [
 
   .chart { display: flex; flex-direction: column; gap: var(--space-3); }
 
+  /* Mobile: label above the bar. The three column row squeezed the
+     track to nothing below ~600px (browser audit). */
   .row {
     display: grid;
-    grid-template-columns: minmax(140px, 240px) 1fr 60px;
+    grid-template-columns: 1fr 60px;
+    grid-template-areas: 'label label' 'track value';
     align-items: center;
-    gap: var(--space-3);
+    gap: 0.35rem var(--space-3);
+  }
+
+  .row-label { grid-area: label; }
+  .bar-track { grid-area: track; }
+  .row-value { grid-area: value; }
+
+  @media (min-width: 620px) {
+    .row {
+      grid-template-columns: minmax(140px, 240px) 1fr 60px;
+      grid-template-areas: 'label track value';
+      gap: var(--space-3);
+    }
   }
 
   .row-label { font-size: var(--text-sm); color: var(--text-muted); }

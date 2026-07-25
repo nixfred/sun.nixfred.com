@@ -74,9 +74,13 @@ const METRICS = [
 
   .metric-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-5) var(--space-4);
     margin: 0;
+  }
+
+  @media (min-width: 1040px) {
+    .metric-grid { grid-template-columns: repeat(4, 1fr); }
   }
 
   .metric { display: flex; flex-direction: column-reverse; }

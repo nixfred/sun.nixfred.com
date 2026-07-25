@@ -1,0 +1,45 @@
+---
+// Base layout. Every page on the site passes through here.
+// Fonts self hosted via fontsource, zero CDN dependencies.
+import '@fontsource/playfair-display/700.css';
+import '@fontsource/playfair-display/900.css';
+import '@fontsource/public-sans/400.css';
+import '@fontsource/public-sans/600.css';
+import '@fontsource/public-sans/700.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/600.css';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  surface?: 'editorial' | 'crisis';
+}
+
+const { title, description, surface = 'editorial' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en" data-surface={surface}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Save The Sun Foundation" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='10' fill='%23e0a32e'/><path d='M16 6 A10 10 0 0 1 25.5 13' stroke='%23081426' stroke-width='3.4' fill='none'/></svg>"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <slot />
+  </body>
+</html>

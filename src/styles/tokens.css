@@ -1,0 +1,98 @@
+/* ============================================================
+   SAVE THE SUN FOUNDATION, design tokens
+   Decision 0004: split scheme. Off White editorial surfaces,
+   Deep Space Navy crisis/science/status surfaces, Solar Gold
+   actions, Warning Red for crisis alerts ONLY.
+   Use tokens, never raw hex, anywhere downstream.
+   ============================================================ */
+
+:root {
+  /* Solar Gold ramp: primary action and highlight */
+  --gold-300: #f2c14e;
+  --gold-500: #e0a32e;
+  --gold-700: #b57f16;
+
+  /* Deep Space Navy ramp: institutional seriousness */
+  --navy-950: #050d1c;
+  --navy-900: #081426;
+  --navy-800: #0e1f3a;
+  --navy-700: #1a3054;
+  --navy-600: #274268;
+
+  /* Off White and Warm Gray: editorial surfaces */
+  --paper: #f8f5ef;
+  --paper-warm: #efe9df;
+  --gray-200: #ddd6ca;
+  --gray-500: #8a8478;
+  --gray-700: #57524a;
+  --ink: #1b1a17;
+
+  /* Warning Red: crisis alerts only. Do not decorate with it. */
+  --alert-red: #b3261e;
+  --alert-red-bg: #f9e9e8;
+
+  /* Typography */
+  --font-display: 'Playfair Display', 'Times New Roman', serif;
+  --font-sans: 'Public Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Type scale, editorial */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: clamp(2.4rem, 5vw, 3.4rem);
+  --text-hero: clamp(2.8rem, 7vw, 4.8rem);
+
+  /* Spacing rhythm */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.5rem;
+  --space-6: 4rem;
+  --space-7: 6.5rem;
+
+  /* Layout */
+  --measure: 68ch;
+  --page-max: 1200px;
+  --page-wide: 1400px;
+  --radius: 6px;
+  --radius-lg: 12px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur-med: 320ms;
+  --dur-slow: 640ms;
+}
+
+/* Editorial surface (default): Off White, ink text */
+:root,
+[data-surface='editorial'] {
+  --bg: var(--paper);
+  --bg-alt: var(--paper-warm);
+  --text: var(--ink);
+  --text-muted: var(--gray-700);
+  --text-faint: var(--gray-500);
+  --line: var(--gray-200);
+  --accent: var(--gold-700);
+  --accent-strong: var(--gold-500);
+  --card-bg: #ffffff;
+}
+
+/* Crisis surface: Deep Space Navy, used by crisis, science,
+   status, emergency, and hero sections */
+[data-surface='crisis'] {
+  --bg: var(--navy-900);
+  --bg-alt: var(--navy-800);
+  --text: #eef1f7;
+  --text-muted: #aab6c9;
+  --text-faint: #7a879c;
+  --line: #22385c;
+  --accent: var(--gold-300);
+  --accent-strong: var(--gold-500);
+  --card-bg: var(--navy-800);
+}

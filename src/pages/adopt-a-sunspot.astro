@@ -1,0 +1,376 @@
+---
+// SUNSPOT ADOPTION (03 + 08 specs). Catalog with filters, profiles,
+// symbolic adoption, printable certificate. Everything local:
+// localStorage remembers adoptions (harmless fictional preference per
+// the safety rules). Nothing is transmitted.
+import Shell from '../layouts/Shell.astro';
+import { SUNSPOTS } from '../data/sunspots';
+
+const sizes = ['Compact', 'Standard', 'Executive'];
+const risks = ['Low', 'Moderate', 'Elevated'];
+---
+
+<Shell
+  title="Adopt a Sunspot · Save The Sun Foundation"
+  description="Symbolic adoption of temporary regions of intense solar magnetic activity. Every sunspot deserves the dignity of being noticed before it goes."
+  surface="crisis"
+>
+  <div class="adopt">
+    <header class="adopt-head">
+      <p class="eyebrow">Sunspot Protection Program</p>
+      <h1>Every sunspot deserves a name, a record, and a sponsor.</h1>
+      <p class="lede">
+        Sunspots appear without warning and dissolve without recognition.
+        Symbolic adoption assigns each one what the universe declined to
+        provide: documentation. Select a region below. The Sun has not
+        acknowledged the program, and the program continues.
+      </p>
+    </header>
+
+    <div class="filters">
+      <select id="f-size" aria-label="Filter by size class">
+        <option value="">All size classes</option>
+        {sizes.map((s) => (
+          <option value={s}>{s}</option>
+        ))}
+      </select>
+      <select id="f-risk" aria-label="Filter by risk level">
+        <option value="">All risk levels</option>
+        {risks.map((r) => (
+          <option value={r}>{r}</option>
+        ))}
+      </select>
+      <label class="avail-toggle">
+        <input type="checkbox" id="f-avail" /> Available only
+      </label>
+      <p class="mono f-count" id="f-count" aria-live="polite"></p>
+    </div>
+
+    <div class="spot-grid" id="spot-grid">
+      {SUNSPOTS.map((s) => (
+        <details
+          class="spot"
+          data-size={s.sizeClass}
+          data-risk={s.risk}
+          data-status={s.status}
+          data-designation={s.designation}
+          data-nickname={s.nickname}
+        >
+          <summary>
+            <span class="spot-visual" aria-hidden="true">
+              <span class={`spot-dot dot-${s.sizeClass.toLowerCase()}`}></span>
+            </span>
+            <span class="spot-id">
+              <span class="mono spot-designation">{s.designation}</span>
+              <span class="spot-nickname">{s.nickname}</span>
+            </span>
+            <span class="mono spot-badges">
+              {s.sizeClass.toUpperCase()} · {s.risk.toUpperCase()} RISK ·
+              <span class="spot-status" data-role="status">{s.status.toUpperCase()}</span>
+            </span>
+          </summary>
+          <div class="spot-body">
+            <p class="mono spot-loc">APPROXIMATE LOCATION: {s.location.toUpperCase()}</p>
+            <p class="spot-bio">{s.bio}</p>
+            <p class="mono spot-vis">VISIBILITY: {s.visibility.toUpperCase()} · STATUS HISTORY: PRESENT SINCE LISTING</p>
+            <button class="btn-gold adopt-btn" data-role="adopt">Adopt {s.designation}</button>
+            <p class="mono adopted-note" data-role="note" hidden>
+              ADOPTED · YOUR CERTIFICATE IS READY · THE SUN HAS NOT BEEN INFORMED
+            </p>
+            <button class="btn-ghost cert-btn" data-role="cert" hidden>Print Adoption Certificate</button>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <p class="fine-print">
+      Sunspot appearance, location, size, temperature, and continued
+      existence are not guaranteed. Adoption is symbolic, confers no
+      ownership interest in the Sun or any portion thereof, and cannot be
+      revoked by the sunspot.
+    </p>
+  </div>
+
+  <!-- Printable certificate, print media only -->
+  <div class="certificate" id="certificate" aria-hidden="true">
+    <div class="cert-border">
+      <p class="cert-org mono">SAVE THE SUN FOUNDATION · SUNSPOT PROTECTION PROGRAM</p>
+      <h2>Certificate of Symbolic Adoption</h2>
+      <p class="cert-line">This certifies that a commitment of concern has been recorded for</p>
+      <p class="cert-spot mono" id="cert-spot">AR 0000</p>
+      <p class="cert-nick" id="cert-nick"></p>
+      <p class="cert-line">
+        which shall be observed, documented, and remembered for the full
+        duration of its natural existence, however brief.
+      </p>
+      <dl class="cert-fields mono">
+        <div><dt>DATE OF ADOPTION</dt><dd id="cert-date"></dd></div>
+        <div><dt>REGISTRY REFERENCE</dt><dd id="cert-ref"></dd></div>
+        <div><dt>STATUS</dt><dd>SYMBOLIC · UNFUNDED · SINCERE</dd></div>
+      </dl>
+      <p class="cert-foot">
+        The Sun has not acknowledged this adoption. This certificate has
+        no financial value and confers no rights, which the Foundation
+        notes is also true of most certificates.
+      </p>
+    </div>
+  </div>
+</Shell>
+
+<script>
+  // Local adoption registry. localStorage only, harmless preference,
+  // nothing transmitted anywhere, per the static safety rules.
+  const KEY = 'stsf-adopted-sunspots';
+  const load = (): string[] => {
+    try {
+      return JSON.parse(localStorage.getItem(KEY) ?? '[]');
+    } catch {
+      return [];
+    }
+  };
+  const save = (list: string[]) => {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(list));
+    } catch {
+      /* private browsing: adoption remains in the heart */
+    }
+  };
+
+  const spots = document.querySelectorAll<HTMLElement>('.spot');
+
+  const markAdopted = (spot: HTMLElement) => {
+    spot.dataset.status = 'Adopted by You';
+    const status = spot.querySelector<HTMLElement>('[data-role="status"]');
+    if (status) status.textContent = 'ADOPTED BY YOU';
+    spot.querySelector<HTMLElement>('[data-role="adopt"]')!.hidden = true;
+    spot.querySelector<HTMLElement>('[data-role="note"]')!.hidden = false;
+    spot.querySelector<HTMLElement>('[data-role="cert"]')!.hidden = false;
+  };
+
+  const adopted = load();
+  spots.forEach((spot) => {
+    if (adopted.includes(spot.dataset.designation ?? '')) markAdopted(spot);
+
+    spot.querySelector('[data-role="adopt"]')?.addEventListener('click', () => {
+      const list = load();
+      const d = spot.dataset.designation ?? '';
+      if (!list.includes(d)) {
+        list.push(d);
+        save(list);
+      }
+      markAdopted(spot);
+      fillCertificate(spot);
+    });
+
+    spot.querySelector('[data-role="cert"]')?.addEventListener('click', () => {
+      fillCertificate(spot);
+      window.print();
+    });
+  });
+
+  const fillCertificate = (spot: HTMLElement) => {
+    const set = (id: string, v: string) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = v;
+    };
+    set('cert-spot', spot.dataset.designation ?? '');
+    set('cert-nick', `"${spot.dataset.nickname ?? ''}"`);
+    set('cert-date', new Date().toLocaleDateString('en-US'));
+    set('cert-ref', 'SPP-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 900000) + 100000));
+  };
+
+  // Filters
+  const fSize = document.getElementById('f-size') as HTMLSelectElement | null;
+  const fRisk = document.getElementById('f-risk') as HTMLSelectElement | null;
+  const fAvail = document.getElementById('f-avail') as HTMLInputElement | null;
+  const fCount = document.getElementById('f-count');
+
+  const applyFilters = () => {
+    const size = fSize?.value ?? '';
+    const risk = fRisk?.value ?? '';
+    const availOnly = fAvail?.checked ?? false;
+    let visible = 0;
+    spots.forEach((spot) => {
+      const show =
+        (!size || spot.dataset.size === size) &&
+        (!risk || spot.dataset.risk === risk) &&
+        (!availOnly || spot.dataset.status === 'Available');
+      spot.hidden = !show;
+      if (show) visible++;
+    });
+    if (fCount) {
+      fCount.textContent =
+        size || risk || availOnly ? `${visible} REGION${visible === 1 ? '' : 'S'} SHOWN` : '';
+    }
+  };
+
+  fSize?.addEventListener('change', applyFilters);
+  fRisk?.addEventListener('change', applyFilters);
+  fAvail?.addEventListener('change', applyFilters);
+</script>
+
+<style>
+  .adopt {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4) var(--space-7);
+  }
+
+  h1 { font-size: var(--text-3xl); max-width: 24ch; }
+  .lede { font-size: var(--text-lg); color: var(--text-muted); max-width: 58ch; }
+
+  .filters {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    margin: var(--space-5) 0 var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .filters select {
+    font: 600 var(--text-sm) var(--font-sans);
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--card-bg);
+    color: var(--text);
+  }
+
+  .avail-toggle {
+    display: flex;
+    gap: 0.45rem;
+    align-items: center;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+
+  .avail-toggle input { accent-color: var(--gold-500); }
+
+  .f-count { font-size: var(--text-xs); color: var(--text-faint); letter-spacing: 0.1em; margin: 0; }
+
+  .spot-grid { display: flex; flex-direction: column; gap: var(--space-2); }
+
+  .spot {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+  }
+
+  .spot summary {
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .spot summary::-webkit-details-marker { display: none; }
+
+  .spot-visual {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #f2c14e, #b57f16 55%, #7a5410);
+    display: grid;
+    place-items: center;
+  }
+
+  .spot-dot { border-radius: 50%; background: #241505; }
+  .dot-compact { width: 7px; height: 7px; }
+  .dot-standard { width: 12px; height: 12px; }
+  .dot-executive { width: 18px; height: 18px; }
+
+  .spot-id { display: flex; flex-direction: column; }
+  .spot-designation { font-size: var(--text-xs); color: var(--gold-300); letter-spacing: 0.12em; }
+  .spot-nickname { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700; }
+
+  .spot-badges { font-size: 0.6rem; color: var(--text-faint); letter-spacing: 0.1em; text-align: right; }
+  .spot-status { color: var(--gold-300); }
+
+  .spot-body { padding: 0 var(--space-4) var(--space-4); }
+  .spot-loc, .spot-vis { font-size: 0.62rem; color: var(--text-faint); letter-spacing: 0.1em; }
+  .spot-bio { color: var(--text-muted); max-width: 64ch; }
+
+  .btn-gold {
+    background: var(--gold-500);
+    color: var(--navy-950);
+    font: 700 0.85rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 0;
+    padding: 0.75rem 1.3rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
+
+  .btn-gold:hover { background: var(--gold-300); }
+
+  .btn-ghost {
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--text);
+    font: 700 0.85rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.75rem 1.3rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    margin-top: var(--space-2);
+  }
+
+  .btn-ghost:hover { border-color: var(--gold-300); color: var(--gold-300); }
+
+  .adopted-note {
+    font-size: var(--text-xs);
+    color: var(--gold-300);
+    letter-spacing: 0.1em;
+    margin: var(--space-2) 0 0;
+  }
+
+  .fine-print {
+    margin-top: var(--space-5);
+    font-size: var(--text-xs);
+    color: var(--text-faint);
+    max-width: 72ch;
+  }
+
+  @media (max-width: 640px) {
+    .spot summary { grid-template-columns: 44px 1fr; }
+    .spot-badges { display: none; }
+  }
+
+  /* Certificate: print only */
+  .certificate { display: none; }
+
+  @media print {
+    :global(.status-bar),
+    :global(.site-header),
+    :global(.site-footer),
+    :global(.skip-link),
+    .adopt { display: none !important; }
+
+    .certificate { display: block; padding: 1rem; }
+
+    .cert-border {
+      border: 3px double #000;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      font-family: var(--font-sans);
+    }
+
+    .cert-org { font-size: 0.7rem; letter-spacing: 0.2em; }
+    .certificate h2 { font-family: var(--font-display); font-size: 2rem; margin: 1rem 0; }
+    .cert-line { max-width: none; }
+    .cert-spot { font-size: 1.8rem; font-weight: 700; margin: 0.5rem 0 0; }
+    .cert-nick { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; margin: 0 0 1rem; }
+
+    .cert-fields { margin: 1.5rem auto; max-width: 420px; text-align: left; }
+    .cert-fields div { display: flex; justify-content: space-between; border-bottom: 1px solid #999; padding: 0.4rem 0; }
+    .cert-fields dd { margin: 0; font-weight: 700; }
+
+    .cert-foot { font-size: 0.75rem; margin-top: 1.5rem; }
+  }
+</style>

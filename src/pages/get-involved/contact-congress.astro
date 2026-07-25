@@ -1,0 +1,166 @@
+---
+// CONTACT CONGRESS (03 + 08 specs). State selection is local, message
+// is generated locally and copyable. No personal information is
+// requested or transmitted. Ever.
+import Shell from '../../layouts/Shell.astro';
+
+const STATES = [
+  'Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia',
+  'Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland',
+  'Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey',
+  'New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina',
+  'South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming',
+];
+---
+
+<Shell
+  title="Contact Your Representative · Save The Sun Foundation"
+  description="Demand action on the Emergency Stellar Preservation Act. Your representative receives daylight and should be reminded of it."
+  surface="crisis"
+>
+  <div class="congress">
+    <header>
+      <p class="eyebrow">Government Affairs</p>
+      <h1>Your representative benefits from the Sun daily.</h1>
+      <p class="lede">
+        The Emergency Stellar Preservation Act awaits the urgency it
+        deserves. Select your state, and the Foundation will prepare a
+        message calibrated to your delegation's documented relationship
+        with daylight. You deliver it yourself, which counsel advises is
+        both more effective and the only option.
+      </p>
+    </header>
+
+    <div class="builder">
+      <label class="state-label" for="state">Your state</label>
+      <select id="state">
+        <option value="">Select a state</option>
+        {STATES.map((s) => (
+          <option value={s}>{s}</option>
+        ))}
+      </select>
+
+      <div class="message-wrap" id="message-wrap" hidden>
+        <p class="mono message-head" id="message-head"></p>
+        <blockquote class="message" id="message"></blockquote>
+        <button class="btn-gold" id="copy-message">Copy the Message</button>
+        <p class="mono copied" id="copied" hidden>
+          COPIED. DELIVERY IS NOW BETWEEN YOU, YOUR REPRESENTATIVE, AND THE SUN.
+        </p>
+      </div>
+    </div>
+
+    <section class="scorecard">
+      <h2>Legislative scorecard</h2>
+      <p>
+        The Foundation tracks every vote taken on solar continuity. To
+        date there have been none, and the scorecard reflects this with
+        the clarity it deserves.
+      </p>
+      <dl class="scores mono">
+        <div><dt>VOTES HELD ON STELLAR PRESERVATION</dt><dd>0</dd></div>
+        <div><dt>LEGISLATORS RECEIVING DAYLIGHT</dt><dd>535 OF 535</dd></div>
+        <div><dt>HEARINGS REQUESTED BY THE FOUNDATION</dt><dd>14</dd></div>
+        <div><dt>HEARINGS SCHEDULED</dt><dd>PENDING</dd></div>
+      </dl>
+    </section>
+  </div>
+</Shell>
+
+<script>
+  const stateSel = document.getElementById('state') as HTMLSelectElement | null;
+  const wrap = document.getElementById('message-wrap');
+  const head = document.getElementById('message-head');
+  const msg = document.getElementById('message');
+
+  stateSel?.addEventListener('change', () => {
+    const state = stateSel.value;
+    if (!state || !wrap || !head || !msg) return;
+    wrap.hidden = false;
+    head.textContent = `PREPARED FOR THE ${state.toUpperCase()} CONGRESSIONAL DELEGATION`;
+    msg.textContent =
+      `Dear Representative, I am writing as a constituent of ${state} to demand immediate bipartisan action regarding the projected death of the Sun. ` +
+      `The State of ${state} has received daylight without interruption since before its founding, an arrangement currently defended by no statute. ` +
+      `We cannot afford another 4.8 billion years of political gridlock. I urge you to support the Emergency Stellar Preservation Act, ` +
+      `to request hearings, and to enter into the record that the Sun rose over ${state} again this morning without a single federal official present. ` +
+      `Respectfully, A Constituent Who Goes Outside.`;
+  });
+
+  document.getElementById('copy-message')?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(msg?.textContent ?? '');
+      const c = document.getElementById('copied');
+      if (c) c.hidden = false;
+    } catch {
+      /* clipboard unavailable; the message remains prepared */
+    }
+  });
+</script>
+
+<style>
+  .congress {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4) var(--space-7);
+  }
+
+  h1 { font-size: var(--text-3xl); max-width: 22ch; }
+  .lede { font-size: var(--text-lg); color: var(--text-muted); max-width: 56ch; }
+
+  .builder {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    margin: var(--space-5) 0;
+  }
+
+  .state-label { display: block; font-size: var(--text-sm); font-weight: 600; margin-bottom: var(--space-1); }
+
+  #state {
+    font: 600 var(--text-base) var(--font-sans);
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--paper);
+    color: var(--text);
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .message-wrap { margin-top: var(--space-4); }
+
+  .message-head { font-size: var(--text-xs); color: var(--gold-300); letter-spacing: 0.12em; }
+
+  .message {
+    border-left: 3px solid var(--gold-500);
+    margin: var(--space-3) 0 var(--space-4);
+    padding-left: var(--space-4);
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .btn-gold {
+    background: var(--gold-500);
+    color: var(--navy-950);
+    font: 700 0.9rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 0;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
+
+  .btn-gold:hover { background: var(--gold-300); }
+
+  .copied { font-size: var(--text-xs); color: var(--gold-300); letter-spacing: 0.1em; margin-top: var(--space-2); }
+
+  .scorecard h2 { font-size: var(--text-xl); }
+  .scorecard p { color: var(--text-muted); max-width: 56ch; }
+
+  .scores { margin: var(--space-4) 0 0; }
+  .scores div { display: flex; justify-content: space-between; gap: var(--space-3); padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
+  .scores dt { font-size: var(--text-xs); color: var(--text-faint); letter-spacing: 0.1em; }
+  .scores dd { margin: 0; font-weight: 600; color: var(--gold-300); font-size: var(--text-sm); }
+</style>

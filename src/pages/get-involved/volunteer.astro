@@ -1,0 +1,257 @@
+---
+// VOLUNTEER APPLICATION (08 spec). Multi step, entirely local. Final
+// state: application prepared but not submitted, with a copyable
+// summary. Nothing is transmitted or stored.
+import Shell from '../../layouts/Shell.astro';
+
+const ROLES = [
+  'Dawn Verification Observer',
+  'Community Awareness Ambassador',
+  'Event Support, Evenings Only',
+  'Youth Program Mentor',
+  'Wherever the Sun Needs Me',
+];
+
+const AVAILABILITY = ['Mornings', 'Daylight hours', 'Weekends', 'Seasonally', 'For the duration of the crisis'];
+---
+
+<Shell
+  title="Become a Volunteer · Save The Sun Foundation"
+  description="Volunteer with the Save The Sun Foundation. Applications are prepared with care and held with equal care."
+  surface="crisis"
+>
+  <div class="vol">
+    <header>
+      <p class="eyebrow">Get Involved</p>
+      <h1>Service in the light.</h1>
+      <p class="lede">
+        Foundation volunteers verify sunrises, staff awareness events, and
+        model solar citizenship for the next 143 million generations.
+        Travel opportunities remain paused due to heat.
+      </p>
+    </header>
+
+    <!-- STEP 1 -->
+    <section class="vstep" data-vstep="1">
+      <h2>Area of service</h2>
+      <div class="roles" role="group" aria-label="Volunteer role">
+        {ROLES.map((r, i) => (
+          <button type="button" class={`role${i === 0 ? ' selected' : ''}`} data-role-name={r} aria-pressed={i === 0 ? 'true' : 'false'}>{r}</button>
+        ))}
+      </div>
+      <div class="vnav">
+        <span></span>
+        <button type="button" class="btn-gold" data-vnext="2">Continue</button>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="vstep" data-vstep="2" hidden>
+      <h2>Availability</h2>
+      <div class="roles" role="group" aria-label="Availability">
+        {AVAILABILITY.map((a, i) => (
+          <button type="button" class={`role${i === 1 ? ' selected' : ''}`} data-avail={a} aria-pressed={i === 1 ? 'true' : 'false'}>{a}</button>
+        ))}
+      </div>
+      <label class="motivation-label" for="motivation">
+        In one sentence, describe your relationship with the Sun.
+      </label>
+      <input id="motivation" type="text" autocomplete="off" placeholder="Longstanding, one sided, grateful" />
+      <div class="vnav">
+        <button type="button" class="btn-ghost" data-vprev="1">Back</button>
+        <button type="button" class="btn-gold" data-vnext="3">Prepare Application</button>
+      </div>
+    </section>
+
+    <!-- STEP 3: Prepared, not submitted -->
+    <section class="vstep" data-vstep="3" hidden>
+      <p class="eyebrow">Application prepared</p>
+      <h2>Your application has been prepared.</h2>
+      <p class="prepared-lede">
+        It has not been submitted. Applications are currently being held
+        for future generational review, and yours has been formatted to
+        survive it. You may copy the summary below for your records,
+        which are now more complete than ours.
+      </p>
+      <pre class="mono summary" id="v-summary"></pre>
+      <div class="vnav">
+        <button type="button" class="btn-gold" id="copy-btn">Copy Application Summary</button>
+        <a class="btn-ghost" href="/get-involved">Return to Get Involved</a>
+      </div>
+      <p class="mono copied" id="copied-note" hidden>COPIED. THE APPLICATION REMAINS PREPARED.</p>
+    </section>
+  </div>
+</Shell>
+
+<script>
+  // Local only. Nothing leaves the page.
+  let role = 'Dawn Verification Observer';
+  let avail = 'Daylight hours';
+
+  const show = (n: number) => {
+    document.querySelectorAll<HTMLElement>('.vstep').forEach((s) => {
+      s.hidden = s.dataset.vstep !== String(n);
+    });
+    window.scrollTo({ top: 0 });
+  };
+
+  document.querySelectorAll<HTMLButtonElement>('[data-role-name]').forEach((btn) =>
+    btn.addEventListener('click', () => {
+      btn.closest('.roles')?.querySelectorAll('.role').forEach((b) => {
+        b.classList.remove('selected');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('selected');
+      btn.setAttribute('aria-pressed', 'true');
+      role = btn.dataset.roleName ?? role;
+    })
+  );
+
+  document.querySelectorAll<HTMLButtonElement>('[data-avail]').forEach((btn) =>
+    btn.addEventListener('click', () => {
+      btn.closest('.roles')?.querySelectorAll('.role').forEach((b) => {
+        b.classList.remove('selected');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('selected');
+      btn.setAttribute('aria-pressed', 'true');
+      avail = btn.dataset.avail ?? avail;
+    })
+  );
+
+  document.querySelectorAll<HTMLButtonElement>('[data-vnext]').forEach((btn) =>
+    btn.addEventListener('click', () => {
+      const next = parseInt(btn.dataset.vnext ?? '1', 10);
+      if (next === 3) buildSummary();
+      show(next);
+    })
+  );
+  document.querySelectorAll<HTMLButtonElement>('[data-vprev]').forEach((btn) =>
+    btn.addEventListener('click', () => show(parseInt(btn.dataset.vprev ?? '1', 10)))
+  );
+
+  const buildSummary = () => {
+    const motivation = (document.getElementById('motivation') as HTMLInputElement)?.value || 'Not stated, which the Foundation respects';
+    const ref = 'VOL-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 900000) + 100000);
+    const summary = [
+      'SAVE THE SUN FOUNDATION · VOLUNTEER APPLICATION',
+      `REFERENCE: ${ref}`,
+      `PREPARED: ${new Date().toLocaleDateString('en-US')}`,
+      `AREA OF SERVICE: ${role.toUpperCase()}`,
+      `AVAILABILITY: ${avail.toUpperCase()}`,
+      `RELATIONSHIP WITH THE SUN: ${motivation.toUpperCase()}`,
+      'STATUS: PREPARED, NOT SUBMITTED',
+      'DISPOSITION: HELD FOR FUTURE GENERATIONAL REVIEW',
+    ].join('\n');
+    const el = document.getElementById('v-summary');
+    if (el) el.textContent = summary;
+  };
+
+  document.getElementById('copy-btn')?.addEventListener('click', async () => {
+    const text = document.getElementById('v-summary')?.textContent ?? '';
+    try {
+      await navigator.clipboard.writeText(text);
+      const note = document.getElementById('copied-note');
+      if (note) note.hidden = false;
+    } catch {
+      /* clipboard unavailable; the application remains prepared */
+    }
+  });
+</script>
+
+<style>
+  .vol {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4) var(--space-7);
+  }
+
+  h1 { font-size: var(--text-3xl); }
+  .lede { font-size: var(--text-lg); color: var(--text-muted); max-width: 54ch; }
+
+  .vstep {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    margin-top: var(--space-5);
+  }
+
+  .vstep h2 { font-size: var(--text-xl); margin-bottom: var(--space-4); }
+
+  .roles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-2); margin-bottom: var(--space-4); }
+
+  .role {
+    font: 600 var(--text-sm) var(--font-sans);
+    padding: 0.9rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--text);
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .role:hover { border-color: var(--gold-500); }
+  .role.selected { background: var(--navy-950); color: var(--gold-300); border-color: var(--gold-500); }
+
+  .motivation-label { display: block; font-size: var(--text-sm); font-weight: 600; margin-bottom: var(--space-1); }
+
+  #motivation {
+    width: 100%;
+    font: 400 var(--text-base) var(--font-sans);
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--paper);
+    color: var(--text);
+  }
+
+  .vnav { display: flex; justify-content: space-between; gap: var(--space-3); margin-top: var(--space-4); flex-wrap: wrap; }
+
+  .btn-gold {
+    background: var(--gold-500);
+    color: var(--navy-950);
+    font: 700 0.9rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 0;
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
+
+  .btn-gold:hover { background: var(--gold-300); }
+
+  .btn-ghost {
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--text);
+    font: 700 0.9rem var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: var(--gold-300); color: var(--gold-300); }
+
+  .prepared-lede { color: var(--text-muted); }
+
+  .summary {
+    background: var(--navy-950);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+    font-size: var(--text-xs);
+    line-height: 1.8;
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  .copied { font-size: var(--text-xs); color: var(--gold-300); letter-spacing: 0.1em; margin-top: var(--space-2); }
+</style>

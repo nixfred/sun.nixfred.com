@@ -4,10 +4,10 @@ import Shell from '../../layouts/Shell.astro';
 
 const BRIEFINGS = [
   { n: '01', title: 'Solar Depletion', href: '/crisis/solar-depletion', live: true, line: 'The Sun is spending its principal. The full science, the numbers, and the cost of waiting.' },
-  { n: '02', title: 'Hydrogen Loss', href: null, live: false, line: 'Six hundred million tons per second, none of it insured. Briefing in final review.' },
-  { n: '03', title: 'Red Giant Risk', href: null, live: false, line: 'The expansion scenario, described calmly by the literature and by no one here. Briefing in final review.' },
-  { n: '04', title: 'The Cost of Inaction', href: null, live: false, line: 'What doing nothing costs, computed to a precision doing nothing never earned. Briefing in final review.' },
-  { n: '05', title: 'Threats and Opposition', href: null, live: false, line: 'Big Dark, the nighttime lobby, and the Moon. Briefing under legal review, which counsel calls prudent.' },
+  { n: '02', title: 'Hydrogen Loss', href: '/crisis/hydrogen-loss', live: true, line: 'Six hundred million tons per second, none of it insured.' },
+  { n: '03', title: 'Red Giant Risk', href: '/crisis/red-giant-risk', live: true, line: 'The expansion scenario, described calmly by the literature and by no one here.' },
+  { n: '04', title: 'The Cost of Inaction', href: '/crisis/cost-of-inaction', live: true, line: 'What doing nothing costs, computed to a precision doing nothing never earned.' },
+  { n: '05', title: 'Threats and Opposition', href: '/crisis/threats-and-opposition', live: true, line: 'Big Dark, the nighttime lobby, and the Moon. Cleared by counsel, reluctantly.' },
   { n: '06', title: 'Frequently Asked Questions', href: '/crisis/faq', live: true, line: 'The questions we receive most, answered on the record.' },
 ];
 ---
@@ -23,9 +23,9 @@ const BRIEFINGS = [
       <h1>Six briefings. One deadline.</h1>
       <p class="lede">
         The Foundation publishes its crisis intelligence as numbered
-        briefings, released as each completes review. Two are public
-        today. Four remain in review, and the review is proceeding with
-        the urgency the timeline deserves.
+        briefings, released as each completes review. All six are public,
+        which the Office of Public Awareness records as a completed
+        milestone in the crisis itself.
       </p>
     </header>
 
@@ -59,7 +59,7 @@ const BRIEFINGS = [
       <p>
         The crisis does not pause between briefings.
       </p>
-      <a class="btn-gold" href="/donate">Act Before Briefing Three</a>
+      <a class="btn-gold" href="/donate">Act Before Briefing Seven</a>
     </section>
   </div>
 </Shell>

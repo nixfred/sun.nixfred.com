@@ -72,25 +72,47 @@ import { SITE } from '../data/site';
 </header>
 
 <script>
-  // Mega menu click toggling + Escape + outside click. Hover still works
-  // via CSS for mouse users; this makes click and keyboard first-class.
+  // Mega menu with hover intent. Browser review found the pure CSS
+  // hover unstable: the pointer crossing between trigger and panel, or
+  // wobbling a few pixels diagonally, dropped :hover and slammed the
+  // panel shut. JS now owns the open state everywhere: hover opens with
+  // a 260ms close grace timer, click toggles, Escape and outside click
+  // close, keyboard focus keeps working via focus-within CSS.
   const items = document.querySelectorAll<HTMLLIElement>('.nav-item');
+  let closeTimer: number | undefined;
+  const hoverCapable = window.matchMedia('(hover: hover)').matches;
+
   const closeAll = () =>
     items.forEach((i) => {
       i.classList.remove('open');
       i.querySelector('.nav-trigger')?.setAttribute('aria-expanded', 'false');
     });
 
+  const open = (item: HTMLLIElement) => {
+    window.clearTimeout(closeTimer);
+    closeAll();
+    item.classList.add('open');
+    item.querySelector('.nav-trigger')?.setAttribute('aria-expanded', 'true');
+  };
+
   items.forEach((item) => {
     const trigger = item.querySelector<HTMLButtonElement>('.nav-trigger');
+
     trigger?.addEventListener('click', () => {
       const isOpen = item.classList.contains('open');
       closeAll();
-      if (!isOpen) {
-        item.classList.add('open');
-        trigger.setAttribute('aria-expanded', 'true');
-      }
+      if (!isOpen) open(item);
     });
+
+    if (hoverCapable) {
+      // The panel is a DOM child of the li, so entering it keeps us
+      // inside the li; the grace timer covers the pixels in between.
+      item.addEventListener('mouseenter', () => open(item));
+      item.addEventListener('mouseleave', () => {
+        window.clearTimeout(closeTimer);
+        closeTimer = window.setTimeout(closeAll, 260);
+      });
+    }
   });
 
   document.addEventListener('keydown', (e) => {
@@ -166,14 +188,24 @@ import { SITE } from '../data/site';
     margin: 0;
     padding: 0;
     gap: 0.25rem;
+    align-items: stretch;
+    height: 72px;
   }
 
+  .nav-item {
+    display: flex;
+  }
+
+  /* Trigger fills the full header height so the hover zone is flush
+     with the panel's top edge. No dead pixels between them. */
   .nav-trigger {
     background: none;
     border: 0;
     color: #cfd8e6;
     font: 600 0.86rem var(--font-sans);
-    padding: 1.6rem 0.65rem;
+    padding: 0 0.65rem;
+    display: flex;
+    align-items: center;
     cursor: pointer;
     letter-spacing: 0.01em;
   }
@@ -182,6 +214,7 @@ import { SITE } from '../data/site';
   .nav-item.open .nav-trigger,
   .nav-trigger:focus-visible {
     color: var(--gold-300);
+    box-shadow: inset 0 -2px 0 var(--gold-500);
   }
 
   .mega-panel {
@@ -195,7 +228,8 @@ import { SITE } from '../data/site';
     box-shadow: 0 24px 48px rgba(3, 8, 18, 0.45);
   }
 
-  .nav-item:hover .mega-panel,
+  /* JS owns hover state (.open) so the grace timer works; focus-within
+     keeps keyboard navigation panel-capable without JS. */
   .nav-item.open .mega-panel,
   .nav-item:focus-within .mega-panel {
     display: block;

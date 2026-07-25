@@ -91,6 +91,30 @@ const partners = defineCollection({
   }),
 });
 
+// Institutional article pages. File id IS the route: pages/mission/why-the-sun.md
+// renders at /mission/why-the-sun via src/pages/[...path].astro. Explicit
+// routes always win over the catch-all, so built pages are never shadowed.
+const pages = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
+  schema: z.object({
+    title: z.string(),
+    eyebrow: z.string(),
+    description: z.string(),
+    stats: z
+      .array(
+        z.object({
+          value: z.string(),
+          label: z.string(),
+          note: z.string().optional(),
+        })
+      )
+      .optional(),
+    pullquote: z.string().optional(),
+    ctaLabel: z.string().default('Make a Commitment'),
+    ctaHref: z.string().default('/donate'),
+  }),
+});
+
 const policies = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/policies' }),
   schema: z.object({
@@ -101,4 +125,4 @@ const policies = defineCollection({
   }),
 });
 
-export const collections = { programs, blog, press, reports, leadership, partners, policies };
+export const collections = { programs, blog, press, reports, leadership, partners, policies, pages };

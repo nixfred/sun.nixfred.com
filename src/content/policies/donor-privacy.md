@@ -7,7 +7,7 @@ summary: "The Foundation's safeguards for supporter information, administered to
 
 ## 1. Commitment to Supporters
 
-1. The Save The Sun Foundation holds the privacy of its supporters to the same standard as its beneficiary's schedule, which has not slipped in 4,600,000,000 years.
+1. The Solar Save Foundation holds the privacy of its supporters to the same standard as its beneficiary's schedule, which has not slipped in 4,600,000,000 years.
 2. This policy governs all donor information in the Foundation's possession, and the Foundation governs it closely, continuously, and in committee.
 
 ## 2. Information Practices

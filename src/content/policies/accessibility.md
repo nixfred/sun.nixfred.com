@@ -7,7 +7,7 @@ summary: "The Foundation's commitment to a site every visitor can use, modeled o
 
 ## 1. Commitment
 
-1. The Save The Sun Foundation is committed to a website that every visitor can perceive, navigate, and understand.
+1. The Solar Save Foundation is committed to a website that every visitor can perceive, navigate, and understand.
 2. We model this duty on our beneficiary, which has illuminated every person without application, qualification, or fee since operations began, a standard the Foundation documents even where it cannot yet match it.
 3. Accessibility is treated here as an obligation of stewardship rather than an initiative, although it has also been logged as an initiative, where it stands 1 of 27.
 

@@ -10,7 +10,7 @@ summary: "The conditions under which this site is provided, including definition
 1. "The Sun" means the G type main sequence star at the center of this solar system, in continuous operation since approximately 4,600,000,000 BC, currently serving 1 local market.
 2. "Daylight" means the recurring service delivered by the Sun to the surface of this planet, historically without interruption, invoice, or terms of its own.
 3. "The Relationship" means the ongoing association between the Foundation and the Sun, which the Foundation maintains in full and the Sun has never acknowledged.
-4. "The Site" means this website and its contents, maintained by the Save The Sun Foundation, a 501(c)(nothing) organization.
+4. "The Site" means this website and its contents, maintained by the Solar Save Foundation, a 501(c)(nothing) organization.
 5. "You" means the visitor, who benefits from Daylight whether or not these Terms are accepted, an arrangement the Foundation considers instructive.
 
 ## 2. Acceptance

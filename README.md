@@ -1,6 +1,6 @@
 # sun.nixfred.com
 
-Home of the **Save The Sun Foundation**, a fictional nonprofit that treats the
+Home of the **Solar Save Foundation**, a fictional nonprofit that treats the
 eventual death of the Sun as an urgent present day fundraising crisis. Satire,
 played completely straight. Live at [sun.nixfred.com](https://sun.nixfred.com).
 

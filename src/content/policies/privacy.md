@@ -7,7 +7,7 @@ summary: "The Foundation collects no personal data anywhere on this site, an out
 
 ## 1. Purpose
 
-1. This Privacy Policy describes how the Save The Sun Foundation collects, uses, and safeguards personal information on this website.
+1. This Privacy Policy describes how the Solar Save Foundation collects, uses, and safeguards personal information on this website.
 2. The Foundation collects no personal information on this website, and the remainder of this document describes that achievement in the detail it has earned.
 3. This standard was reaffirmed at all 14 stakeholder meetings held this fiscal year, each time unanimously, each time in the minutes.
 

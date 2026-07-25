@@ -17,7 +17,7 @@ pullquote: "The Foundation was founded at the moment the Sun ignited. Paperwork 
 
 ## Founded 4,600,000,000 BC
 
-The Save The Sun Foundation was founded in 4,600,000,000 BC, a date the board established retroactively and unanimously. The reasoning was straightforward. An institution devoted to the Sun's entire lifespan could not, in good conscience, claim to have missed most of it. The founding is therefore recorded as concurrent with the ignition of the Sun itself, making the Foundation and its mission the same age, an arrangement our materials describe as alignment. Incorporation came considerably later, at the earliest practical opportunity, once the necessary legal instruments, office space, and personnel became available.
+The Solar Save Foundation was founded in 4,600,000,000 BC, a date the board established retroactively and unanimously. The reasoning was straightforward. An institution devoted to the Sun's entire lifespan could not, in good conscience, claim to have missed most of it. The founding is therefore recorded as concurrent with the ignition of the Sun itself, making the Foundation and its mission the same age, an arrangement our materials describe as alignment. Incorporation came considerably later, at the earliest practical opportunity, once the necessary legal instruments, office space, and personnel became available.
 
 ## The founding insight
 

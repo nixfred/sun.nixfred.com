@@ -8,7 +8,7 @@ contact: "Office of Public Awareness"
 
 FOR IMMEDIATE RELEASE
 
-ATLANTA, June 16, 2026. The Board of Trustees of the Save The Sun Foundation has voted unanimously to approve the Preliminary Hydrogen Replenishment Concept, advancing the most ambitious engineering undertaking since engineering began. The centerpiece of the approval is the completed preliminary render of the bucket.
+ATLANTA, June 16, 2026. The Board of Trustees of the Solar Save Foundation has voted unanimously to approve the Preliminary Hydrogen Replenishment Concept, advancing the most ambitious engineering undertaking since engineering began. The centerpiece of the approval is the completed preliminary render of the bucket.
 
 The render, produced after a disciplined period of review, depicts a vessel suitable in principle for the transport of hydrogen. Engineers describe it as a foundational milestone, in that everything else remains to be done.
 
@@ -22,6 +22,6 @@ One obstacle was formally entered into the record during proceedings, the Sun re
 
 The Moon, which has contributed no hydrogen to date, declined to comment.
 
-## About the Save The Sun Foundation
+## About the Solar Save Foundation
 
-The Save The Sun Foundation is the world's leading nonprofit devoted to the continued operation of the Sun, a responsibility no other organization has been willing to claim. Since monitoring began, the Foundation has overseen 365 consecutive solar appearances and 0 extinction events, a record it declines to call a coincidence. From its headquarters in Atlanta, the Foundation coordinates 27 initiatives and convenes the meetings at which those initiatives are discussed. The Sun has not acknowledged the relationship. The Save The Sun Foundation is a Wholly Concerned Subsidiary of Wrong Holdings LLC.
+The Solar Save Foundation is the world's leading nonprofit devoted to the continued operation of the Sun, a responsibility no other organization has been willing to claim. Since monitoring began, the Foundation has overseen 365 consecutive solar appearances and 0 extinction events, a record it declines to call a coincidence. From its headquarters in Atlanta, the Foundation coordinates 27 initiatives and convenes the meetings at which those initiatives are discussed. The Sun has not acknowledged the relationship. The Solar Save Foundation is a Wholly Concerned Subsidiary of Wrong Holdings LLC.

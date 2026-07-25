@@ -8,7 +8,7 @@ contact: "Office of Public Awareness"
 
 FOR IMMEDIATE RELEASE
 
-ATLANTA, July 21, 2026. The Save The Sun Foundation today released the findings of its Annual Solar Operational Review, confirming that the Sun remains fully operational. The finding follows a year in which the Foundation was continuously active.
+ATLANTA, July 21, 2026. The Solar Save Foundation today released the findings of its Annual Solar Operational Review, confirming that the Sun remains fully operational. The finding follows a year in which the Foundation was continuously active.
 
 Reviewers logged 365 solar appearances against 365 scheduled opportunities, an appearance rate of 100 percent. The Foundation notes that correlation does not establish causation, and that nothing in the review disproves it either.
 
@@ -22,6 +22,6 @@ The report also documents headwinds. Nighttime occurred on all 365 days of the r
 
 The full review has been distributed to stakeholders, and meetings to discuss its findings are already underway, ensuring the findings do not go unexamined. The Sun received an advance copy as a professional courtesy and has not acknowledged receipt.
 
-## About the Save The Sun Foundation
+## About the Solar Save Foundation
 
-The Save The Sun Foundation is the world's leading nonprofit devoted to the continued operation of the Sun, a responsibility no other organization has been willing to claim. Since monitoring began, the Foundation has overseen 365 consecutive solar appearances and 0 extinction events, a record it declines to call a coincidence. From its headquarters in Atlanta, the Foundation coordinates 27 initiatives and convenes the meetings at which those initiatives are discussed. The Sun has not acknowledged the relationship. The Save The Sun Foundation is a Wholly Concerned Subsidiary of Wrong Holdings LLC.
+The Solar Save Foundation is the world's leading nonprofit devoted to the continued operation of the Sun, a responsibility no other organization has been willing to claim. Since monitoring began, the Foundation has overseen 365 consecutive solar appearances and 0 extinction events, a record it declines to call a coincidence. From its headquarters in Atlanta, the Foundation coordinates 27 initiatives and convenes the meetings at which those initiatives are discussed. The Sun has not acknowledged the relationship. The Solar Save Foundation is a Wholly Concerned Subsidiary of Wrong Holdings LLC.

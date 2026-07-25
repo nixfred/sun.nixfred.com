@@ -8,7 +8,7 @@ contact: "Office of Public Awareness"
 
 FOR IMMEDIATE RELEASE
 
-ATLANTA, October 14, 2025. The Save The Sun Foundation today announced the Five Billion Year Strategic Framework, believed to be the longest planning document ever ratified by a nonprofit board. The framework covers the entire remaining service life of the Sun, with time reserved at the end for evaluation.
+ATLANTA, October 14, 2025. The Solar Save Foundation today announced the Five Billion Year Strategic Framework, believed to be the longest planning document ever ratified by a nonprofit board. The framework covers the entire remaining service life of the Sun, with time reserved at the end for evaluation.
 
 The plan adopts the Foundation's planning horizon of 4.8 billion years, an organizational estimate deliberately more conservative than the scientific figure of about five billion, because stewardship demands a margin. Within that horizon, the Foundation's 27 strategic initiatives have been organized into 12 epochs, the first of which is scheduled to conclude within 18 months. Scheduling the remaining 11 epochs has been formally designated a deliverable of the first.
 
@@ -22,6 +22,6 @@ The Foundation acknowledged that certain organizations continue to describe 4.8 
 
 A courtesy copy of the framework was delivered to the Sun through standard channels. Receipt has not been acknowledged, and the framework contains language anticipating this.
 
-## About the Save The Sun Foundation
+## About the Solar Save Foundation
 
-The Save The Sun Foundation is the world's leading nonprofit devoted to the continued operation of the Sun, a responsibility no other organization has been willing to claim. Since monitoring began, the Foundation has overseen 365 consecutive solar appearances and 0 extinction events, a record it declines to call a coincidence. From its headquarters in Atlanta, the Foundation coordinates 27 initiatives and convenes the meetings at which those initiatives are discussed. The Sun has not acknowledged the relationship. The Save The Sun Foundation is a Wholly Concerned Subsidiary of Wrong Holdings LLC.
+The Solar Save Foundation is the world's leading nonprofit devoted to the continued operation of the Sun, a responsibility no other organization has been willing to claim. Since monitoring began, the Foundation has overseen 365 consecutive solar appearances and 0 extinction events, a record it declines to call a coincidence. From its headquarters in Atlanta, the Foundation coordinates 27 initiatives and convenes the meetings at which those initiatives are discussed. The Sun has not acknowledged the relationship. The Solar Save Foundation is a Wholly Concerned Subsidiary of Wrong Holdings LLC.

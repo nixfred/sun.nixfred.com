@@ -43,4 +43,4 @@ All Foundation spokespeople are available before dusk. After sunset the organiza
 
 The following language is approved for use in full and without revision.
 
-The Save The Sun Foundation is a 501(c)(nothing) organization dedicated to the long term continuity of the Sun. Serving a relationship established in approximately 4,600,000,000 BC, the Foundation coordinates 27 strategic initiatives, has convened 14 stakeholder meetings, and maintains a verified record of 365 consecutive solar appearances and 0 extinction events on behalf of 1 local star. The Sun has not acknowledged the relationship. The work continues.
+The Solar Save Foundation is a 501(c)(nothing) organization dedicated to the long term continuity of the Sun. Serving a relationship established in approximately 4,600,000,000 BC, the Foundation coordinates 27 strategic initiatives, has convened 14 stakeholder meetings, and maintains a verified record of 365 consecutive solar appearances and 0 extinction events on behalf of 1 local star. The Sun has not acknowledged the relationship. The work continues.

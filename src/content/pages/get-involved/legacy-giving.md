@@ -27,7 +27,7 @@ The Foundation discusses mortality plainly, because stewardship requires it. Of 
 
 Donors frequently ask how a solar bequest should be worded. The following language has completed internal review and may be furnished to your attorney.
 
-1. "I give and bequeath to the Save The Sun Foundation, 501(c)(nothing), my enduring support, to be applied to the general purposes of the Sun."
+1. "I give and bequeath to the Solar Save Foundation, 501(c)(nothing), my enduring support, to be applied to the general purposes of the Sun."
 2. "I direct that my descendants, to the 143 millionth generation, be reminded periodically of the position I took."
 
 No bequest is recorded, received, or processed by the Foundation, which keeps the arrangement where it belongs: between you, your estate, and a star that has not asked about either.

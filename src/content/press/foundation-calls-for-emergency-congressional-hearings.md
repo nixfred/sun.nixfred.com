@@ -8,7 +8,7 @@ contact: "Office of Public Awareness"
 
 FOR IMMEDIATE RELEASE
 
-ATLANTA, March 17, 2026. The Save The Sun Foundation today formally called on Congress to convene emergency hearings on solar depletion, citing a deadline of 4.8 billion years and a legislative calendar that does not mention it. The petition was hand delivered to all 535 congressional offices during daylight hours, for emphasis.
+ATLANTA, March 17, 2026. The Solar Save Foundation today formally called on Congress to convene emergency hearings on solar depletion, citing a deadline of 4.8 billion years and a legislative calendar that does not mention it. The petition was hand delivered to all 535 congressional offices during daylight hours, for emphasis.
 
 The petition asks Congress to take three actions.
 
@@ -24,6 +24,6 @@ The Foundation's transmittal also documents the opposition's head start. The nig
 
 No hearing has yet been scheduled. The Foundation has nevertheless prepared opening statements for 14 prospective witnesses, several of whom have not yet been identified. The Sun has been offered the opportunity to testify remotely and has not responded.
 
-## About the Save The Sun Foundation
+## About the Solar Save Foundation
 
-The Save The Sun Foundation is the world's leading nonprofit devoted to the continued operation of the Sun, a responsibility no other organization has been willing to claim. Since monitoring began, the Foundation has overseen 365 consecutive solar appearances and 0 extinction events, a record it declines to call a coincidence. From its headquarters in Atlanta, the Foundation coordinates 27 initiatives and convenes the meetings at which those initiatives are discussed. The Sun has not acknowledged the relationship. The Save The Sun Foundation is a Wholly Concerned Subsidiary of Wrong Holdings LLC.
+The Solar Save Foundation is the world's leading nonprofit devoted to the continued operation of the Sun, a responsibility no other organization has been willing to claim. Since monitoring began, the Foundation has overseen 365 consecutive solar appearances and 0 extinction events, a record it declines to call a coincidence. From its headquarters in Atlanta, the Foundation coordinates 27 initiatives and convenes the meetings at which those initiatives are discussed. The Sun has not acknowledged the relationship. The Solar Save Foundation is a Wholly Concerned Subsidiary of Wrong Holdings LLC.

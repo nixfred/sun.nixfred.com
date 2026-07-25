@@ -18,7 +18,7 @@ const { Content } = await render(report);
 ---
 
 <Shell
-  title={`${report.data.title} · Save The Sun Foundation`}
+  title={`${report.data.title} · Solar Save Foundation`}
   description={report.data.summary}
   surface="editorial"
 >
@@ -29,7 +29,7 @@ const { Content } = await render(report);
         <p class="mono report-type">{report.data.type.toUpperCase()} · {report.data.year}</p>
         <h1>{report.data.title}</h1>
         <p class="mono report-meta">
-          {report.data.pages} PAGES · OFFICIAL PUBLICATION OF THE SAVE THE SUN FOUNDATION
+          {report.data.pages} PAGES · OFFICIAL PUBLICATION OF THE SOLAR SAVE FOUNDATION
           {report.data.program && ` · ${report.data.program.toUpperCase()}`}
         </p>
       </div>

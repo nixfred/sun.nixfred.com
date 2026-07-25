@@ -1,9 +1,9 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// Save The Sun Foundation. Static output, Cloudflare Pages, no adapters.
+// Solar Save Foundation. Static output, Cloudflare Pages, no adapters.
 export default defineConfig({
-  site: 'https://sun.nixfred.com',
+  site: 'https://solarsave.org',
   output: 'static',
   trailingSlash: 'never',
   build: {

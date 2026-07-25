@@ -8,7 +8,7 @@ contact: "Office of Public Awareness"
 
 FOR IMMEDIATE RELEASE
 
-ATLANTA, April 28, 2026. The Save The Sun Foundation today condemned the continued silence of lunar advocacy organizations on the solar depletion crisis, a silence that has now persisted through all 14 of the Foundation's stakeholder meetings, to each of which they were invited. Foundation records show no lunar organization has ever issued a statement of concern for the Sun, and the Foundation keeps records.
+ATLANTA, April 28, 2026. The Solar Save Foundation today condemned the continued silence of lunar advocacy organizations on the solar depletion crisis, a silence that has now persisted through all 14 of the Foundation's stakeholder meetings, to each of which they were invited. Foundation records show no lunar organization has ever issued a statement of concern for the Sun, and the Foundation keeps records.
 
 The Moon has received reflected sunlight without interruption for more than 4 billion years under an arrangement with no written terms. In all that time it has produced no light of its own, an operating model the Foundation describes as fully dependent and wholly unexamined.
 
@@ -22,6 +22,6 @@ The Foundation therefore calls on lunar advocacy groups to disclose their daytim
 
 Lunar organizations contacted in advance of this release did not respond by press time, which the Foundation notes is consistent. The Sun, informed that a condemnation had been issued on its behalf, has not acknowledged it.
 
-## About the Save The Sun Foundation
+## About the Solar Save Foundation
 
-The Save The Sun Foundation is the world's leading nonprofit devoted to the continued operation of the Sun, a responsibility no other organization has been willing to claim. Since monitoring began, the Foundation has overseen 365 consecutive solar appearances and 0 extinction events, a record it declines to call a coincidence. From its headquarters in Atlanta, the Foundation coordinates 27 initiatives and convenes the meetings at which those initiatives are discussed. The Sun has not acknowledged the relationship. The Save The Sun Foundation is a Wholly Concerned Subsidiary of Wrong Holdings LLC.
+The Solar Save Foundation is the world's leading nonprofit devoted to the continued operation of the Sun, a responsibility no other organization has been willing to claim. Since monitoring began, the Foundation has overseen 365 consecutive solar appearances and 0 extinction events, a record it declines to call a coincidence. From its headquarters in Atlanta, the Foundation coordinates 27 initiatives and convenes the meetings at which those initiatives are discussed. The Sun has not acknowledged the relationship. The Solar Save Foundation is a Wholly Concerned Subsidiary of Wrong Holdings LLC.

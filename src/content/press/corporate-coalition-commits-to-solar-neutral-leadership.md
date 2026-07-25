@@ -8,7 +8,7 @@ contact: "Office of Public Awareness"
 
 FOR IMMEDIATE RELEASE
 
-ATLANTA, January 22, 2026. The Save The Sun Foundation today announced the formation of the Solar Neutral Leadership Coalition, a group of 23 companies across 11 sectors pledging to conduct their operations without hastening the depletion of the Sun. Independent verification confirms that every signatory already meets the standard, a running start the Foundation attributes to early engagement.
+ATLANTA, January 22, 2026. The Solar Save Foundation today announced the formation of the Solar Neutral Leadership Coalition, a group of 23 companies across 11 sectors pledging to conduct their operations without hastening the depletion of the Sun. Independent verification confirms that every signatory already meets the standard, a running start the Foundation attributes to early engagement.
 
 Under the pledge, member companies commit to three obligations.
 
@@ -26,6 +26,6 @@ The Foundation extended a membership invitation to the nighttime lobby as a matt
 
 The coalition's first joint meeting has been scheduled, and its minutes will be archived in perpetuity. The Sun was notified of the pledge made in its interest and has not acknowledged the notification.
 
-## About the Save The Sun Foundation
+## About the Solar Save Foundation
 
-The Save The Sun Foundation is the world's leading nonprofit devoted to the continued operation of the Sun, a responsibility no other organization has been willing to claim. Since monitoring began, the Foundation has overseen 365 consecutive solar appearances and 0 extinction events, a record it declines to call a coincidence. From its headquarters in Atlanta, the Foundation coordinates 27 initiatives and convenes the meetings at which those initiatives are discussed. The Sun has not acknowledged the relationship. The Save The Sun Foundation is a Wholly Concerned Subsidiary of Wrong Holdings LLC.
+The Solar Save Foundation is the world's leading nonprofit devoted to the continued operation of the Sun, a responsibility no other organization has been willing to claim. Since monitoring began, the Foundation has overseen 365 consecutive solar appearances and 0 extinction events, a record it declines to call a coincidence. From its headquarters in Atlanta, the Foundation coordinates 27 initiatives and convenes the meetings at which those initiatives are discussed. The Sun has not acknowledged the relationship. The Solar Save Foundation is a Wholly Concerned Subsidiary of Wrong Holdings LLC.

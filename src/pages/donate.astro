@@ -20,7 +20,7 @@ const ALLOCATIONS = [
 ---
 
 <Shell
-  title="Donate · Save The Sun Foundation"
+  title="Donate · Solar Save Foundation"
   description="Begin your solar commitment. Every contribution advances the planning frameworks the Sun cannot build for itself."
   surface="editorial"
 >
@@ -134,7 +134,7 @@ const ALLOCATIONS = [
   <!-- Printable receipt. Visible only under @media print. -->
   <div class="receipt" id="receipt" aria-hidden="true">
     <h2>Preliminary Solar Commitment Record</h2>
-    <p class="mono">SAVE THE SUN FOUNDATION · 501(c)(nothing)</p>
+    <p class="mono">SOLAR SAVE FOUNDATION · 501(c)(nothing)</p>
     <dl class="mono" id="receipt-fields"></dl>
     <p class="receipt-status mono">STATUS: UNFUNDED</p>
     <p class="receipt-note">
@@ -317,7 +317,7 @@ const ALLOCATIONS = [
 
   // Share: clipboard only. No network.
   document.getElementById('share-btn')?.addEventListener('click', async () => {
-    const text = `I recorded a ${state.freq.toLowerCase()} solar commitment of ${money(state.amount)} with the Save The Sun Foundation. The Sun cannot save itself. sun.nixfred.com`;
+    const text = `I recorded a ${state.freq.toLowerCase()} solar commitment of ${money(state.amount)} with the Solar Save Foundation. The Sun cannot save itself. solarsave.org`;
     try {
       await navigator.clipboard.writeText(text);
       const note = document.getElementById('share-copied');

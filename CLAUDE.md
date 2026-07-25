@@ -6,7 +6,7 @@
 
 ## What this site is
 
-The **Save The Sun Foundation**: a large, polished, explorable static website
+The **Solar Save Foundation**: a large, polished, explorable static website
 for a fictional nonprofit that treats the eventual death of the Sun as an
 urgent present day fundraising crisis. Satire played dead straight. It must
 read like a credible national nonprofit and never wink at the joke anywhere

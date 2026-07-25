@@ -274,3 +274,25 @@ The Foundation was the first production run. The factory is the
 product. Site number two begins with a folder and a sentence.
 
 ---
+
+## Chapter 9: A Name of Its Own
+### 2026-07-25, afternoon
+
+Fred registered solarsave.org, and the organization completed the most
+delicate procedure in nonprofit life: a rebrand. Save The Sun
+Foundation became the Solar Save Foundation in ninety nine places at
+once, the seal re-engraved, the receipts restamped, the volunteer
+applications reheaded, while every instance of the phrase save the Sun
+in running copy stayed exactly where it was, because the mission never
+changed, only the letterhead.
+
+The domain went on in one pass: zone already active courtesy of the
+registrar, apex and www attached to the Pages project, proxied records
+created, certificates queued. The only wait was the oldest kind on the
+internet, a fresh registration crossing the registry, which no
+foundation has ever successfully lobbied to accelerate.
+
+The Foundation now answers at an address that could appear on a gala
+invitation without a single follow up question. Which was the point.
+
+---

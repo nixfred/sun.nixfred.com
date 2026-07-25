@@ -18,7 +18,7 @@ The Foundation welcomes correspondence from supporters, researchers, and the gen
 
 ## Postal Address
 
-Direct all correspondence to The Save The Sun Foundation, Office of Correspondence, Atlanta, Daylight Permitting. No street number is published, as the building is easiest to find while the Sun is out, which we regard as the mission working. Packages are accepted with gratitude and logged with suspicion, per a protocol adopted after consultation with the Office of Nighttime Opposition Research. Letters addressed directly to the Sun are received, recorded, and forwarded through the appropriate channel, which remains under construction at a scale we ask correspondents to appreciate.
+Direct all correspondence to The Solar Save Foundation, Office of Correspondence, Atlanta, Daylight Permitting. No street number is published, as the building is easiest to find while the Sun is out, which we regard as the mission working. Packages are accepted with gratitude and logged with suspicion, per a protocol adopted after consultation with the Office of Nighttime Opposition Research. Letters addressed directly to the Sun are received, recorded, and forwarded through the appropriate channel, which remains under construction at a scale we ask correspondents to appreciate.
 
 ## Media Inquiries
 

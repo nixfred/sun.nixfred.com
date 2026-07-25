@@ -1,10 +1,10 @@
 // Foundation constants. One place for institutional truth.
 export const SITE = {
-  name: 'Save The Sun Foundation',
+  name: 'Solar Save Foundation',
   shortName: 'STSF',
   tagline: 'The Sun Cannot Save Itself.',
   description:
-    'The Save The Sun Foundation leads the global response to the solar continuity crisis through awareness, planning, and sustained institutional engagement.',
+    'The Solar Save Foundation leads the global response to the solar continuity crisis through awareness, planning, and sustained institutional engagement.',
   established: 'EST. 4,600,000,000 BC',
   status: 'OPERATIONAL',
   statusDetail: 'Mass loss continues at the expected rate.',

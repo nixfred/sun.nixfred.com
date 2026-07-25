@@ -8,7 +8,7 @@ contact: "Office of Public Awareness"
 
 FOR IMMEDIATE RELEASE
 
-ATLANTA, December 9, 2025. A national survey commissioned by the Save The Sun Foundation finds that the public overwhelmingly takes its local star for granted, confirming concerns the Foundation has long held on the public's behalf. The poll surveyed 2,204 adults between November 3 and November 19 and carries a margin of error of plus or minus 3.1 percentage points, a margin considerably smaller than the one the public extends to the Sun.
+ATLANTA, December 9, 2025. A national survey commissioned by the Solar Save Foundation finds that the public overwhelmingly takes its local star for granted, confirming concerns the Foundation has long held on the public's behalf. The poll surveyed 2,204 adults between November 3 and November 19 and carries a margin of error of plus or minus 3.1 percentage points, a margin considerably smaller than the one the public extends to the Sun.
 
 Key findings include the following.
 
@@ -25,6 +25,6 @@ The Foundation notes that the public it surveyed is served by exactly 1 local st
 
 The findings have been referred to the Office of Public Awareness, which has scheduled meetings. The Sun was briefed on the results as a courtesy and has not acknowledged the briefing.
 
-## About the Save The Sun Foundation
+## About the Solar Save Foundation
 
-The Save The Sun Foundation is the world's leading nonprofit devoted to the continued operation of the Sun, a responsibility no other organization has been willing to claim. Since monitoring began, the Foundation has overseen 365 consecutive solar appearances and 0 extinction events, a record it declines to call a coincidence. From its headquarters in Atlanta, the Foundation coordinates 27 initiatives and convenes the meetings at which those initiatives are discussed. The Sun has not acknowledged the relationship. The Save The Sun Foundation is a Wholly Concerned Subsidiary of Wrong Holdings LLC.
+The Solar Save Foundation is the world's leading nonprofit devoted to the continued operation of the Sun, a responsibility no other organization has been willing to claim. Since monitoring began, the Foundation has overseen 365 consecutive solar appearances and 0 extinction events, a record it declines to call a coincidence. From its headquarters in Atlanta, the Foundation coordinates 27 initiatives and convenes the meetings at which those initiatives are discussed. The Sun has not acknowledged the relationship. The Solar Save Foundation is a Wholly Concerned Subsidiary of Wrong Holdings LLC.

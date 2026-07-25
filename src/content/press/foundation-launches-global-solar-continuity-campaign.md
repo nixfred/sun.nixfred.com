@@ -1,5 +1,5 @@
 ---
-title: "Save The Sun Foundation Launches Global Solar Continuity Campaign"
+title: "Solar Save Foundation Launches Global Solar Continuity Campaign"
 date: 2026-05-04
 location: "ATLANTA"
 excerpt: "The Foundation announces the first coordinated effort in recorded history to secure the continued operation of the Sun, beginning with a full schedule of meetings."
@@ -8,7 +8,7 @@ contact: "Office of Public Awareness"
 
 FOR IMMEDIATE RELEASE
 
-ATLANTA, May 4, 2026. The Save The Sun Foundation today announced the launch of its Global Solar Continuity Campaign, the first coordinated effort in recorded history to secure the continued operation of the Sun. The campaign arrives at a critical moment, as the Sun has never been closer to extinction than it is today.
+ATLANTA, May 4, 2026. The Solar Save Foundation today announced the launch of its Global Solar Continuity Campaign, the first coordinated effort in recorded history to secure the continued operation of the Sun. The campaign arrives at a critical moment, as the Sun has never been closer to extinction than it is today.
 
 The multiyear effort will concentrate public attention on awareness, readiness, coordination, and the frameworks that make future frameworks possible. Independent observers confirmed that the Sun rose on the morning of the announcement, an outcome the Foundation was proud to oversee.
 
@@ -20,6 +20,6 @@ Foundation leadership also addressed the resistance the campaign expects to meet
 
 The Sun was notified of the campaign through standard channels and has not responded.
 
-## About the Save The Sun Foundation
+## About the Solar Save Foundation
 
-The Save The Sun Foundation is the world's leading nonprofit devoted to the continued operation of the Sun, a responsibility no other organization has been willing to claim. Since monitoring began, the Foundation has overseen 365 consecutive solar appearances and 0 extinction events, a record it declines to call a coincidence. From its headquarters in Atlanta, the Foundation coordinates 27 initiatives and convenes the meetings at which those initiatives are discussed. The Sun has not acknowledged the relationship. The Save The Sun Foundation is a Wholly Concerned Subsidiary of Wrong Holdings LLC.
+The Solar Save Foundation is the world's leading nonprofit devoted to the continued operation of the Sun, a responsibility no other organization has been willing to claim. Since monitoring began, the Foundation has overseen 365 consecutive solar appearances and 0 extinction events, a record it declines to call a coincidence. From its headquarters in Atlanta, the Foundation coordinates 27 initiatives and convenes the meetings at which those initiatives are discussed. The Sun has not acknowledged the relationship. The Solar Save Foundation is a Wholly Concerned Subsidiary of Wrong Holdings LLC.

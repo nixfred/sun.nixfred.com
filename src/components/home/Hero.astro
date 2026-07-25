@@ -28,21 +28,26 @@
 <script>
   // The branded countdown. 4.8 billion years expressed in seconds,
   // decremented live. Precision against absurd scale is the joke.
-  // Respects reduced motion by simply not ticking.
+  //
+  // BigInt is mandatory here: 151,476,480,000,000,000 sits ~17x beyond
+  // Number.MAX_SAFE_INTEGER, where a float64's spacing is 32. As a
+  // double, `remaining -= 1` is a NO-OP and the counter freezes. The
+  // remaining lifetime of the Sun is literally too large for JavaScript
+  // numbers to tick by seconds. Caught live, of course.
+  //
+  // Anchored to the Board's countdown ratification epoch so every
+  // visitor sees the same authoritative number and refreshes agree.
   const el = document.getElementById('hero-countdown');
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (el && !reduced) {
-    const YEARS = 4.8e9;
-    const SECONDS_PER_YEAR = 31_557_600;
-    let remaining = YEARS * SECONDS_PER_YEAR;
+    const TOTAL = 4_800_000_000n * 31_557_600n; // 151,476,480,000,000,000
+    const EPOCH_MS = Date.UTC(2026, 6, 25, 0, 0, 0); // ratified 2026-07-25
     const render = () => {
-      el.textContent = Math.floor(remaining).toLocaleString('en-US');
+      const elapsed = BigInt(Math.max(0, Math.floor((Date.now() - EPOCH_MS) / 1000)));
+      el.textContent = (TOTAL - elapsed).toLocaleString('en-US');
     };
     render();
-    setInterval(() => {
-      remaining -= 1;
-      render();
-    }, 1000);
+    setInterval(render, 1000);
   }
 </script>
 

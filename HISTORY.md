@@ -251,3 +251,26 @@ acceptance test from the build pack now reads less like a goal and more
 like a description.
 
 ---
+
+## Chapter 8: The Machine That Builds the Next One
+### 2026-07-25, afternoon
+
+Fred called the site the bottom goal and asked the only question that
+ever mattered: where is the orchestration engine?
+
+So the factory was extracted. Everything this build proved, pulled out
+of the sun repo and installed at the system level where every future
+session can reach it. The bootstrap script that stands up a repository,
+a Pages project, a first deploy, a domain, and DNS in one run, built
+from commands that shipped this site twice. A seed project that
+installs, builds, and passes both gates in under ten seconds. The
+producer and reviewer agent templates, parameterized. And the runbook,
+seven stages carrying every scar: the color scheme that died on contact
+with a retina, the countdown too large for floating point to grieve,
+the menus that learned forgiveness, the reviewer that wrote a missing
+page itself and reported it in a table.
+
+The Foundation was the first production run. The factory is the
+product. Site number two begins with a folder and a sentence.
+
+---

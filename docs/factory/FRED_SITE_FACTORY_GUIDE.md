@@ -12,6 +12,31 @@ work across specialist agents, reviews the rendered result in a real browser,
 shows you a preview, and ships to $newsite.nixfred.com. Each run makes the
 factory better because the process gets extracted from what actually worked.
 
+## THE FACTORY IS EXTRACTED (2026-07-25)
+
+It now lives at `~/.claude/skills/SiteFactory/`, available in every
+Larry session, in any project directory:
+
+1. `SKILL.md`: the orchestration runbook, 7 compressed stages carrying
+   every lesson from this build (the token reversal, the hover intent
+   fix, the BigInt countdown, the variant mining, the reviewer pattern).
+2. `bootstrap.sh <slug> <domain>`: seeds a fresh project and stands up
+   repo, Pages project, first deploy, domain, and DNS in one run.
+3. `seed/`: a buildable Astro skeleton with the token design system
+   pattern, both gates, deploy script, and the docs discipline
+   (CLAUDE.md, HISTORY.md, PROJECT_STATUS.md, decisions/) pre-wired.
+4. `agents/`: the content-producer and visual-reviewer templates,
+   parameterized for any project.
+
+Your workflow for site number two: make `~/Projects/<name>`, drop the
+build pack in, tell Larry to run the site factory. Larry does intake,
+runs bootstrap, and manufactures.
+
+Smoke tested 2026-07-25: seed installs, builds, and passes both gates
+in a scratch directory with zero placeholder residue. The full
+end-to-end (bootstrap against real GitHub and Cloudflare) runs for the
+first time on site number two; every command in it shipped sun twice.
+
 ## What exists so far
 
 1. `factory.config.yaml`: one small file that names the project, domain,

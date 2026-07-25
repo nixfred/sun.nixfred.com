@@ -51,17 +51,20 @@ footer, and nav shell remain, then Stage 3 vertical slice.
    all checks passed. A follow up reviewer pass can deep read the new
    copy after reset if desired.
 
-## Remaining for Stage 4
+## Stage 4: COMPLETE 2026-07-25
 
-1. Section overview pages: /mission, /crisis, /impact, /research,
-   /get-involved, /about, plus mission/crisis/impact/involvement child
-   pages not yet built (nav links to them exist and currently 404).
-2. Adopt a Sunspot experience (catalog, filters, certificate).
-3. Contact Congress builder, volunteer application, careers, media
-   resources, events, newsletter archive, remaining involvement pages.
-4. Fred's Midjourney assets into portraits, heroes, report covers
-   (docs/assets/incoming/).
-5. Testing structure: link check + static safety scan (Stage 5 gate).
+104 pages live. Every nav route resolves: zero dead links (gate
+enforced), static safety clean (gate enforced). Mega menu hover intent
+fixed and browser verified. Adopt a Sunspot, Volunteer, and Contact
+Congress interactive experiences live. Third factory shift: 7 producers
++ reviewer, 38 article pages, 12 review fixes + 1 route gap the
+reviewer caught and filled itself (/impact/annual-report). Midjourney
+first drop integrated (hero, 4 portraits, 6 scene placements).
+
+## Remaining inputs from Fred
+
+1. 4 portraits (Halloran, Okafor, Nakamura, Kwan) + bucket render +
+   gala, specs in docs/assets/MIDJOURNEY_PROMPTS.md.
 
 ## Pending
 

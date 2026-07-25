@@ -14,9 +14,9 @@ The Foundation's advocacy is measured, lawful, and documented, and it is conduct
 
 ## The Documented Interests
 
-1. The nighttime lobby. It has never disclosed its donor list, never registered its advocacy, and never once been observed operating in daylight. Its message, that darkness is natural, is repeated every evening with a discipline our communications office frankly envies.
+1. The nighttime lobby. Its donor list remains sealed, its advocacy remains unregistered, and it has never once been observed operating in daylight. Its message, that darkness is natural, is repeated every evening with a discipline our communications office frankly envies.
 
-2. Lunar interests. The Moon produces no light of its own and has never apologized for it. On 2 to 5 documented occasions each year it positions itself directly between Earth and the Sun, an event astronomy calls an eclipse and our counsel advises us to also call an eclipse. The standing dossier grows regardless.
+2. Lunar interests. The Moon has produced no light at any point in its history and files nothing to explain the shortfall. On 2 to 5 documented occasions each year it positions itself directly between Earth and the Sun, an event astronomy calls an eclipse and our counsel advises us to also call an eclipse. The standing dossier grows regardless.
 
 3. Artificial illumination manufacturers. Their revenues peak precisely when the Sun is unavailable, a pattern their trade association describes as a coincidence and our researchers describe as a correlation. The industry has declined to support solar continuity at any level, including the level of returning calls.
 

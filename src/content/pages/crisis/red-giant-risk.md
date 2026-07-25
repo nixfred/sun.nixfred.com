@@ -16,7 +16,7 @@ Mercury and Venus sit inside the projected expansion zone, and the peer reviewed
 
 ## A Question of Ownership
 
-No government agency, multilateral body, or standards institute has accepted responsibility for red giant planning. Executive Vice President Theodore Nakamura's office wrote to the relevant authorities requesting the name of the official who holds the expansion portfolio, and each reply received referred the question to another authority, several of which do not exist. Chief Solar Resilience Officer Everett Kwan therefore retains the file on an interim basis, an arrangement that has now outlasted three of the agencies consulted. The matter has been raised at 14 stakeholder meetings this cycle, minuted at all of them, and resolved at none, which the Foundation reports plainly because accountability begins with attendance figures.
+No government agency, multilateral body, or standards institute has accepted responsibility for red giant planning. Executive Vice President Theodore Nakamura's office wrote to the relevant authorities requesting the name of the official who holds the expansion portfolio, and each reply received referred the question to another authority, several of which do not exist. Chief Scientific Relationship Officer Everett Kwan therefore retains the file on an interim basis, an arrangement that has now outlasted three of the agencies consulted. The matter has been raised at 14 stakeholder meetings this cycle, minuted at all of them, and resolved at none, which the Foundation reports plainly because accountability begins with attendance figures.
 
 ## Planning at the Speed of Prudence
 

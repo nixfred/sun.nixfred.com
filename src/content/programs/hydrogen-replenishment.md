@@ -5,7 +5,7 @@ phase: "Concept validation"
 order: 1
 icon: "hydrogen"
 summary: "The Sun spends approximately 600 million tons of hydrogen every second and has never once asked for help. The Initiative is building the framework through which that help could one day be formally offered."
-milestones: ["Hydrogen identified as a priority material.", "Preliminary bucket render approved.", "Handle stress testing scheduled.", "Potential transportation corridors discussed.", "Delivery classification question referred to counsel."]
+milestones: ["Hydrogen identified as a priority material.", "Three preliminary bucket renders approved.", "Handle stress testing scheduled.", "Potential transportation corridors discussed.", "Delivery classification question referred to counsel."]
 keyObstacle: "The Sun remains hot."
 cta: "Fund the next phase"
 ---
@@ -16,7 +16,7 @@ Every second, the Sun converts approximately 600 million tons of hydrogen into l
 
 ## Current phase work
 
-The Initiative is in concept validation, the phase in which concepts are validated. Hydrogen was formally identified as a priority material following a competitive review of the elements, which it won. The preliminary bucket render passed design review on its second submission and now hangs in the boardroom. Handle stress testing has been scheduled, moved once for scope reasons, and remains firmly on the calendar. A corridor working group has narrowed the candidate transportation routes to the region of space between Earth and the Sun. Counsel is separately reviewing whether delivered hydrogen would constitute a gift, a loan, or a restoration, since each carries different reporting obligations. The Sun has been asked for its delivery preferences and has not responded.
+The Initiative is in concept validation, the phase in which concepts are validated. Hydrogen was formally identified as a priority material following a competitive review of the elements, which it won. The first preliminary bucket render passed design review on its second submission and now hangs in the boardroom, where two approved successors have since joined it. Handle stress testing has been scheduled, moved once for scope reasons, and remains firmly on the calendar. A corridor working group has narrowed the candidate transportation routes to the region of space between Earth and the Sun. Counsel is separately reviewing whether delivered hydrogen would constitute a gift, a loan, or a restoration, since each carries different reporting obligations. The Sun has been asked for its delivery preferences and has not responded.
 
 ## What your support enables
 

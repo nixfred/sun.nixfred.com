@@ -216,3 +216,38 @@ and the bucket render remains the most anticipated engineering
 document in the Foundation's history.
 
 ---
+
+## Chapter 7: The Sweep
+### 2026-07-25, midday
+
+Fred filed two complaints in one breath: the menus fought his mouse,
+and the site still had holes. Both were fair. The mega menu died every
+time a pointer crossed the dead pixels between button and panel, so the
+buttons grew to fill the header and a 260 millisecond grace timer
+taught the menu forgiveness. The failure path was walked deliberately
+in a real browser afterward, and the panel held.
+
+Then the third factory shift ran, the largest yet. Seven producers,
+thirty eight institutional pages, every route in the navigation
+contract. The reviewer followed behind and earned its keep in twelve
+edits: it caught an executive holding a title that was not his, a
+byline that had fused the President with the Director of Nighttime
+Opposition Research, a program page claiming one bucket render when
+canon holds three, and seven jokes that had quietly duplicated
+themselves across files. Then it found a route with no page behind it,
+wrote the page itself in house style, and reported the whole affair in
+a verdict table. The factory is no longer a metaphor.
+
+Three experiences were built by hand the same hour. Twelve sunspots
+went up for adoption, each with a name, a record, and the dignity of
+being noticed before it goes. The volunteer application now prepares
+itself faithfully and is never submitted. And any citizen can generate
+a letter reminding their delegation that the Sun rose over their state
+again this morning without a single federal official present.
+
+One hundred four pages. One hundred seven internal links, zero dead,
+enforced by a gate that will never let one die quietly again. The
+acceptance test from the build pack now reads less like a goal and more
+like a description.
+
+---

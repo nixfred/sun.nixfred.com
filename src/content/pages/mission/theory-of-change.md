@@ -25,7 +25,7 @@ Serious institutions do not merely act. They explain, in advance and in a diagra
 2. Concern. Awareness matures into concern, typically within days. Concern is measurable, and the Foundation measures it, and reports the measurements, which generates further awareness, reinforcing stage one.
 3. Commitment. The concerned make a commitment. A commitment costs nothing to record and is recorded at no cost, and each one is filed under momentum.
 4. Frameworks. Commitments are aggregated into frameworks, the load bearing documents through which individual intent becomes institutional structure.
-5. Meetings. Frameworks require alignment, and alignment occurs in meetings. Fourteen stakeholder meetings have been convened to date, each producing the consensus that the next was warranted.
+5. Meetings. Frameworks require alignment, and alignment occurs in meetings. Fourteen stakeholder meetings have been convened to date, and every question raised in them has been resolved, referred, or scheduled, the three outcomes the Foundation recognizes.
 6. Sunrise. The following morning, the Sun rises. It has done so after every completed chain, 365 consecutive times, without a single exception on record.
 
 ## On the question of audits

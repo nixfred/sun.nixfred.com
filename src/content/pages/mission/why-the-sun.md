@@ -29,7 +29,7 @@ Of the estimated 200 billion stars in this galaxy, exactly one maintains a verif
 
 ## Loyalty as policy
 
-Alternatives have been proposed, and the Foundation has studied each with the seriousness proposals deserve, which is a subcommittee. Proxima Centauri sits four light years away, a commute our analysts scored as unworkable for daylight purposes. Abandoning a proven star for an unproven one is exactly the kind of short term thinking the Foundation was retroactively established to prevent. The Sun has never once threatened to leave, a loyalty the nighttime lobby would prefer went unrewarded. It has also never acknowledged us, which the board has voted to interpret as steadiness.
+Alternatives have been proposed, and the Foundation has studied each with the seriousness proposals deserve, which is a subcommittee. Proxima Centauri sits four light years away, a commute our analysts scored as unworkable for daylight purposes. Abandoning a proven star for an unproven one is exactly the kind of short term thinking the Foundation was retroactively established to prevent. The Sun has never once threatened to leave, a loyalty the nighttime lobby would prefer went unrewarded. It has also never acknowledged us, which the board has resolved to record as steadiness.
 
 ## Our answer
 

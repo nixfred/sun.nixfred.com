@@ -1,3 +1,2 @@
-# Alias routes. The homepage promo links /impact/annual-report; the
-# report lives in the reports collection.
-/impact/annual-report /reports/2026-annual-impact-report 302
+# Alias routes. (Empty of active rules: /impact/annual-report became a
+# real page in the pages collection, reviewer's call, better UX.)

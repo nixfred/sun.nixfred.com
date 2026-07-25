@@ -2,7 +2,7 @@
 title: "The Moon Has Remained Silent Long Enough."
 category: "Big Dark Watch"
 date: 2026-06-09
-author: "Ruth Halloran, Director of Nighttime Opposition Research"
+author: "Raymond Hollis, Director of Nighttime Opposition Research"
 excerpt: "After a review of the complete public record, this office can confirm that the Moon has issued no statement on solar continuity at any point in recorded history. We examine the pattern, and the questions it raises."
 featured: true
 readingMinutes: 4

@@ -25,11 +25,11 @@ The rooftop station opened at 6:41 a.m. and confirmed sunrise at 6:52 a.m., well
 
 ## Dispatch from Sturgeon Bay, Wisconsin
 
-The awareness booth at the county fair operated for nine hours, all of them daylight, in accordance with policy. Volunteers fielded forty one questions, of which two concerned the Sun, a ratio the Office of Public Awareness has characterized as directionally encouraging. A retired dairy farmer told the booth captain he had trusted the Sun for seventy years without any paperwork, and the captain assured him the paperwork had now been started on his behalf. One attendee asked whether the Sun truly needs saving, and was thanked for engaging with the material. Vice President Gerald Fontaine called the fair a strong showing for awareness, and awareness, by every measure the Foundation keeps, was shown.
+The awareness booth at the county fair operated for nine hours, all of them daylight, in accordance with policy. Volunteers fielded forty one questions, of which two concerned the Sun, a ratio the Office of Public Awareness has assessed as consistent with a public still in stage one. A retired dairy farmer told the booth captain he had trusted the Sun for seventy years without any paperwork, and the captain assured him the paperwork had now been started on his behalf. One attendee asked whether the Sun truly needs saving, and was thanked for engaging with the material. Vice President Gerald Fontaine called the fair a strong showing for awareness, and awareness, by every measure the Foundation keeps, was shown.
 
 ## Dispatch from Flagstaff, Arizona
 
-Cloud cover obscured the morning appearance, and the station activated the overcast contingency protocol, under which the Sun is recorded as present pending confirmation, a courtesy extended to no other star. At 2:17 p.m. the clouds parted, the pending status was upgraded to confirmed, and the station chief credited the readiness of the paperwork rather than the weather, which cleared on its own initiative. No dispatch from Flagstaff has ever ended in a downgrade. The nighttime lobby offered no comment on the cloud formation, which the Foundation has noted for the file.
+Cloud cover obscured the morning appearance, and the station activated the overcast contingency protocol, logging the Sun as present pending confirmation, a courtesy extended to no other star. At 2:17 p.m. the clouds parted, the pending status was upgraded to confirmed, and the station chief credited the readiness of the paperwork rather than the weather, which cleared on its own initiative. No dispatch from Flagstaff has ever ended in a downgrade. The nighttime lobby offered no comment on the cloud formation, which the Foundation has noted for the file.
 
 ## Reporting standards
 

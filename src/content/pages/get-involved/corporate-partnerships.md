@@ -37,4 +37,4 @@ First Light Member, Horizon Ally, Zenith Partner, and Dawn Circle. Each tier ref
 
 ## Begin the conversation
 
-Prospective partners are invited to open discussions with the Office of Corporate Solar Responsibility. Correspondence is reviewed in the order the Sun rises, and initial responses are issued within one business epoch. Organizations that wait are reminded that their competitors receive the same daylight and may act on it first.
+Prospective partners are invited to open discussions with the Office of Corporate Solar Responsibility. Preliminary tier assessment is complimentary and begins with a review of your organization's daylight dependence, a finding that has never once come back negative. Organizations that wait are reminded that their competitors receive the same daylight and may act on it first.

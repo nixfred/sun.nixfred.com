@@ -5,18 +5,11 @@
 > photosphere hero, the family, the observatory, the boardroom, the
 > sunrise city, the noon crowd, and the Sun in deep space.
 >
-> STILL WANTED, 4 portraits to match existing named leaders (roster
-> names are already published, so the faces must fit):
-> 1. Margaret E. Halloran, President and Chief Solar Officer: woman,
->    60s, silver hair, commanding, dark suit, gold accent.
-> 2. Rosalind Okafor, Chief Development Officer: Black woman, 50s,
->    warm authority, pearl or gold jewelry.
-> 3. Theodore Nakamura, EVP Long Horizon Strategy: Japanese American
->    man, 60s, contemplative, rimless glasses.
-> 4. Everett Kwan, Chief Scientific Relationship Officer: Chinese
->    American man, 50s, academic bearing, subtle lapel pin.
-> Use the same base prompt as the first four so the set stays
-> consistent. Also still open: the hydrogen bucket CAD render (the
+> PORTRAITS COMPLETE 2026-07-25: all 8 leaders now have faces, filled
+> entirely from the first drop's variants. Three more surnames adjusted
+> to match faces (Whitmore, Ainsworth, Marsh). Unused strong variants
+> remain in incoming/ and are earmarked for the Board of Trustees page.
+> Still open: the hydrogen bucket CAD render (the
 > comedy centerpiece, prompt 2 below) and the gala (prompt 6).
 
 > Paste ready. Run each, pick winners, drop results into

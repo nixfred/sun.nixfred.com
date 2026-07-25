@@ -2,6 +2,7 @@
 name: "Margaret E. Halloran"
 role: "President and Chief Solar Officer"
 order: 1
+portrait: "/images/portrait-president.jpg"
 tenure: "With the Foundation since 2008, its first year of recorded hiring"
 quote: "The Sun has never missed a day of work, and under my presidency, neither has the paperwork."
 ---

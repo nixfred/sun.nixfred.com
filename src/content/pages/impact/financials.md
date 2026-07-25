@@ -21,7 +21,7 @@ Because existing sector metrics failed to capture the Foundation's model, the fi
 
 ## Regulatory standing
 
-The Foundation operates under 501(c)(nothing) status, a designation that reflects our position within the regulatory landscape with complete accuracy. We file nothing late. Chief Development Officer Rosalind Okafor reviews the compliance calendar quarterly, and the calendar has been found clear at every review. Supporters frequently ask whether contributions are tax deductible, and the Foundation's guidance has not changed: tax treatment varies by jurisdiction, donor profile, and the willingness of your accountant to support the Sun.
+The Foundation operates under 501(c)(nothing) status, a designation that reflects our position within the regulatory landscape with complete accuracy. We file nothing late. Chief Development Officer Rosalind Whitmore reviews the compliance calendar quarterly, and the calendar has been found clear at every review. Supporters frequently ask whether contributions are tax deductible, and the Foundation's guidance has not changed: tax treatment varies by jurisdiction, donor profile, and the willingness of your accountant to support the Sun.
 
 ## The fraud record in full
 

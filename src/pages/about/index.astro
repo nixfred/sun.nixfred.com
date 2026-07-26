@@ -36,6 +36,77 @@ import { SITE } from '../../data/site';
       </dl>
     </section>
 
+    <section class="story">
+      <div class="story-inner">
+        <h2>How the Foundation came to exist.</h2>
+        <p>
+          The Sun has been operating without oversight since before the
+          formation of the Earth, an arrangement that went unquestioned
+          for 4.6 billion years because no one was present to question
+          it. The Foundation was established to close that gap. Our
+          charter dates our founding to the Sun's own ignition, on the
+          reasoning that the need existed from the first moment and only
+          the institution was late.
+        </p>
+        <p>
+          Incorporation followed considerably more recently. The
+          intervening period is described in our records as the
+          preparatory era, during which the Foundation did not exist and
+          the Sun rose anyway, a coincidence our Scientific Council has
+          examined and declined to explain.
+        </p>
+        <p>
+          Today the Foundation operates eight programs and one active
+          investigation, maintains the only continuous public record of
+          solar appearances, and briefs anyone who will sit still. The
+          Sun has never acknowledged the relationship. We continue
+          regardless, because that is what stewardship means when the
+          beneficiary cannot say thank you.
+        </p>
+      </div>
+    </section>
+
+    <section class="pillars">
+      <div class="pillars-inner">
+        <h2>How we are organized.</h2>
+        <div class="pillar-grid">
+          <div class="pillar">
+            <p class="mono pillar-label">GOVERNANCE</p>
+            <h3>A board that meets</h3>
+            <p>
+              A Chair, a Vice Chair, a Treasurer, a Secretary,
+              independent trustees, a Youth Observer, and one Nonvoting
+              Solar Representative whose seat has never been filled. The
+              seat remains at the table.
+            </p>
+            <a class="mono pillar-link" href="/about/board">The Board of Trustees →</a>
+          </div>
+          <div class="pillar">
+            <p class="mono pillar-label">LEADERSHIP</p>
+            <h3>Eight offices</h3>
+            <p>
+              From Hydrogen Logistics to Nighttime Opposition Research,
+              each office owns a portfolio, a budget, and a standing
+              obligation to report on it quarterly whether or not
+              anything has changed.
+            </p>
+            <a class="mono pillar-link" href="/about/leadership">Executive leadership →</a>
+          </div>
+          <div class="pillar">
+            <p class="mono pillar-label">ACCOUNTABILITY</p>
+            <h3>Everything disclosed</h3>
+            <p>
+              The Foundation publishes its methodology, its findings, its
+              partners, and its finances. It has never issued a
+              correction, a record it attributes to the care taken before
+              publication.
+            </p>
+            <a class="mono pillar-link" href="/about/ethics">Ethics and accountability →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="paths" data-surface="editorial">
       <div class="paths-inner">
         <h2>Know the institution.</h2>
@@ -92,6 +163,41 @@ import { SITE } from '../../data/site';
 
   .fact-grid dt { font-size: 0.6rem; letter-spacing: 0.16em; color: var(--text-faint); }
   .fact-grid dd { margin: 0.3rem 0 0; font-size: var(--text-sm); font-weight: 600; color: var(--gold-300); letter-spacing: 0.04em; }
+
+  .story-inner,
+  .pillars-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--space-4) var(--space-6);
+  }
+
+  .story h2,
+  .pillars h2 { font-size: var(--text-2xl); }
+  .story p { color: var(--text-muted); max-width: 68ch; line-height: 1.75; }
+
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+  }
+
+  @media (min-width: 900px) { .pillar-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .pillar {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-label { font-size: 0.6rem; letter-spacing: 0.16em; color: var(--gold-300); margin: 0 0 var(--space-2); }
+  .pillar h3 { font-size: var(--text-lg); margin: 0 0 var(--space-2); }
+  .pillar p { color: var(--text-muted); font-size: var(--text-sm); flex: 1; margin: 0 0 var(--space-3); }
+  .pillar-link { font-size: 0.62rem; letter-spacing: 0.1em; color: var(--gold-300); text-decoration: none; }
+  .pillar-link:hover { text-decoration: underline; }
 
   .paths { background: var(--paper); }
   .paths-inner { max-width: var(--page-max); margin: 0 auto; padding: var(--space-6) var(--space-4); }

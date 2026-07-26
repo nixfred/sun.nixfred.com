@@ -89,8 +89,16 @@ import Shell from '../../layouts/Shell.astro';
     margin: 0 auto;
     padding: 0 var(--space-4) var(--space-6);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    grid-template-columns: repeat(1, 1fr);
     gap: var(--space-5) var(--space-5);
+  }
+
+  @media (min-width: 700px) {
+    .pillars { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1180px) {
+    .pillars { grid-template-columns: repeat(4, 1fr); }
   }
 
   .pillar { border-top: 2px solid var(--gold-500); padding-top: var(--space-3); }

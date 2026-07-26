@@ -35,6 +35,86 @@ const HEADLINES = [
       ))}
     </dl>
 
+    <section class="record">
+      <div class="record-inner">
+        <h2>The record, year by year.</h2>
+        <p class="record-lede">
+          The Foundation began keeping formal appearance records in 2019.
+          Every year since, the Sun has appeared on every day it was
+          scheduled to appear. The Foundation does not claim sole credit
+          for this. It claims the record.
+        </p>
+        <table class="ledger">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Appearances</th>
+              <th>Missed</th>
+              <th>Initiatives</th>
+              <th>Finding</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="mono">2019</td><td class="mono">365</td><td class="mono">0</td><td class="mono">4</td><td>Monitoring established. Baseline set at every morning.</td></tr>
+            <tr><td class="mono">2020</td><td class="mono">366</td><td class="mono">0</td><td class="mono">7</td><td>Leap year absorbed without incident or additional funding.</td></tr>
+            <tr><td class="mono">2021</td><td class="mono">365</td><td class="mono">0</td><td class="mono">11</td><td>Framework ratified. Sun notified. No reply received.</td></tr>
+            <tr><td class="mono">2022</td><td class="mono">365</td><td class="mono">0</td><td class="mono">15</td><td>First corporate partner signs. Daylight continues at no charge.</td></tr>
+            <tr><td class="mono">2023</td><td class="mono">365</td><td class="mono">0</td><td class="mono">19</td><td>Overcast contingency protocol drafted and never needed.</td></tr>
+            <tr><td class="mono">2024</td><td class="mono">366</td><td class="mono">0</td><td class="mono">22</td><td>Second leap year. Second flawless performance.</td></tr>
+            <tr><td class="mono">2025</td><td class="mono">365</td><td class="mono">0</td><td class="mono">25</td><td>Bucket render program reaches its third approved render.</td></tr>
+            <tr><td class="mono">2026</td><td class="mono">365</td><td class="mono">0</td><td class="mono">27</td><td>Streak intact. Vigilance sustained. Review scheduled.</td></tr>
+          </tbody>
+        </table>
+        <p class="ledger-note mono">
+          MISSED APPEARANCES SINCE INCEPTION: 0 · A FIGURE THE FOUNDATION
+          INTENDS TO DEFEND
+        </p>
+      </div>
+    </section>
+
+    <section class="measures">
+      <div class="measures-inner">
+        <h2>What we measure, and why we measure it.</h2>
+        <div class="measure-grid">
+          <div class="measure">
+            <h3>Appearance</h3>
+            <p>
+              Whether the Sun rose. Confirmed visually each morning,
+              logged, initialed, and archived. It is the only metric the
+              public can independently audit, which is why we lead with
+              it.
+            </p>
+          </div>
+          <div class="measure">
+            <h3>Activity</h3>
+            <p>
+              Meetings convened, briefings delivered, frameworks
+              ratified. The Foundation regards documented activity as the
+              leading indicator of eventual outcome, and has structured
+              its reporting accordingly.
+            </p>
+          </div>
+          <div class="measure">
+            <h3>Awareness</h3>
+            <p>
+              How many people have been informed that the Sun is
+              finite. Measured by campaign reach and, where reach cannot
+              be measured, by conviction.
+            </p>
+          </div>
+          <div class="measure">
+            <h3>Readiness</h3>
+            <p>
+              Flashlights inventoried, contingency protocols drafted,
+              executives briefed before dusk. Readiness does not alter
+              the solar lifecycle and has never been presented as though
+              it does.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="paths" data-surface="editorial">
       <div class="paths-inner">
         <h2>The full accounting.</h2>
@@ -79,6 +159,67 @@ const HEADLINES = [
   }
 
   .h-label { font-size: var(--text-sm); color: var(--text-muted); margin-top: var(--space-2); max-width: 24ch; }
+
+  .record-inner,
+  .measures-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--space-4) var(--space-6);
+  }
+
+  h2 { font-size: var(--text-2xl); }
+  .record-lede { color: var(--text-muted); max-width: 62ch; }
+
+  .ledger {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-4) 0 var(--space-3);
+    font-size: var(--text-sm);
+  }
+
+  .ledger th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-300);
+    border-bottom: 2px solid var(--gold-500);
+    padding: 0 var(--space-3) var(--space-2) 0;
+  }
+
+  .ledger td {
+    border-bottom: 1px solid var(--line);
+    padding: 0.6rem var(--space-3) 0.6rem 0;
+    color: var(--text-muted);
+    vertical-align: top;
+  }
+
+  .ledger td:first-child,
+  .ledger td:nth-child(2),
+  .ledger td:nth-child(3),
+  .ledger td:nth-child(4) { color: var(--text); white-space: nowrap; }
+
+  .ledger-note { font-size: 0.62rem; letter-spacing: 0.12em; color: var(--text-faint); }
+
+  .measure-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+  }
+
+  @media (min-width: 700px) { .measure-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1040px) { .measure-grid { grid-template-columns: repeat(4, 1fr); } }
+
+  .measure { border-top: 2px solid var(--gold-500); padding-top: var(--space-3); }
+  .measure h3 { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+  .measure p { color: var(--text-muted); font-size: var(--text-sm); margin: 0; }
+
+  /* Tables must scroll inside themselves on phones, never the page. */
+  @media (max-width: 640px) {
+    .ledger { display: block; overflow-x: auto; white-space: nowrap; }
+  }
 
   .paths { background: var(--paper); }
 

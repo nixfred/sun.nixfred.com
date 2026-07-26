@@ -37,6 +37,93 @@ const reports = (await getCollection('reports')).sort((a, b) => b.data.year - a.
       </div>
     </section>
 
+    <section class="method">
+      <div class="method-inner">
+        <h2>How the research operation works.</h2>
+        <ol class="method-steps">
+          <li>
+            <span class="mono step-num">01</span>
+            <div>
+              <h3>Review the literature</h3>
+              <p>
+                Our analysts read the peer reviewed work of actual
+                astronomers, which is freely available and has been for
+                decades. The Foundation contributes no original
+                observations and has never claimed to.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="mono step-num">02</span>
+            <div>
+              <h3>Confirm it remains alarming</h3>
+              <p>
+                Each finding is assessed against the previous
+                assessment. To date every reassessment has agreed with
+                the one before it, a consistency the Council regards as
+                methodological strength.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="mono step-num">03</span>
+            <div>
+              <h3>Publish the confirmation</h3>
+              <p>
+                Findings are issued as numbered documents, read inline on
+                this site, and retained in full. Nothing is paywalled,
+                because nothing here is worth withholding from a public
+                that has to live under the same star.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="mono step-num">04</span>
+            <div>
+              <h3>Schedule the follow up</h3>
+              <p>
+                Every publication generates at least one meeting. The
+                Foundation considers the meeting the point at which
+                research becomes action, and has never required further
+                evidence of that.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="standards">
+      <div class="standards-inner">
+        <h2>What we will and will not say.</h2>
+        <div class="standards-grid">
+          <div class="standard will">
+            <p class="mono standard-label">THE FOUNDATION WILL SAY</p>
+            <ul>
+              <li>The Sun is consuming finite fuel.</li>
+              <li>About five billion years of main sequence hydrogen remain.</li>
+              <li>The Sun rose 365 times last year.</li>
+              <li>Doing nothing will not save the Sun.</li>
+            </ul>
+          </div>
+          <div class="standard wont">
+            <p class="mono standard-label">THE FOUNDATION WILL NOT SAY</p>
+            <ul>
+              <li>That any contribution extends the Sun's life.</li>
+              <li>That a bucket has been built, filled, or lifted.</li>
+              <li>That the Sun has responded to our outreach.</li>
+              <li>That 4.8 billion years is a scientific measurement.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="standards-note">
+          The second column is longer than most organizations would
+          publish. The Foundation prints it anyway, because a research
+          program is defined as much by its restraint as by its findings.
+        </p>
+      </div>
+    </section>
+
     <section class="paths" data-surface="editorial">
       <div class="paths-inner">
         <h2>Enter the record.</h2>
@@ -76,8 +163,12 @@ const reports = (await getCollection('reports')).sort((a, b) => b.data.year - a.
 
   .report-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(1, 1fr);
     gap: var(--space-4);
+  }
+
+  @media (min-width: 760px) {
+    .report-row { grid-template-columns: repeat(3, 1fr); }
   }
 
   .report-tile {
@@ -99,6 +190,41 @@ const reports = (await getCollection('reports')).sort((a, b) => b.data.year - a.
   .tile-type { font-size: 0.62rem; letter-spacing: 0.14em; color: var(--gold-300); }
   .tile-title { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700; flex: 1; }
   .tile-pages { font-size: 0.62rem; color: var(--text-faint); letter-spacing: 0.1em; }
+
+  .method-inner,
+  .standards-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--space-4) var(--space-6);
+  }
+
+  .method h2, .standards h2 { font-size: var(--text-2xl); }
+
+  .method-steps { list-style: none; margin: var(--space-4) 0 0; padding: 0; display: grid; gap: var(--space-4); }
+
+  @media (min-width: 900px) { .method-steps { grid-template-columns: repeat(2, 1fr); } }
+
+  .method-steps li { display: flex; gap: var(--space-3); align-items: flex-start; }
+  .step-num { font-size: var(--text-sm); color: var(--gold-300); padding-top: 0.2rem; }
+  .method-steps h3 { font-size: var(--text-lg); margin: 0 0 var(--space-2); }
+  .method-steps p { color: var(--text-muted); font-size: var(--text-sm); margin: 0; }
+
+  .standards-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-4); margin-top: var(--space-4); }
+  @media (min-width: 760px) { .standards-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .standard {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+  }
+
+  .standard.will { border-left: 3px solid var(--gold-500); }
+  .standard.wont { border-left: 3px solid var(--alert-red); }
+  .standard-label { font-size: 0.6rem; letter-spacing: 0.14em; color: var(--text-faint); margin: 0 0 var(--space-3); }
+  .standard ul { margin: 0; padding-left: 1.1rem; color: var(--text-muted); font-size: var(--text-sm); }
+  .standard li { margin-bottom: 0.5rem; }
+  .standards-note { color: var(--text-faint); font-size: var(--text-sm); font-style: italic; max-width: 64ch; margin-top: var(--space-4); }
 
   .paths { background: var(--paper); }
   .paths-inner { max-width: var(--page-max); margin: 0 auto; padding: var(--space-6) var(--space-4); }

@@ -2,7 +2,7 @@
 title: "The Cost of Inaction"
 eyebrow: "The Crisis"
 description: "A briefing that prices complacency to the ton, using the only figures the Sun has ever released."
-stats: [{value: "51.8 trillion tons", label: "Hydrogen consumed during one day of continued study", note: "The figure is exact because the Sun, unlike its critics, is consistent."}, {value: "4.7 quadrillion tons", label: "Consumed during one standard 90 day comment period", note: "The most recent comment period produced 11 comments."}, {value: "14", label: "Stakeholder meetings convened this cycle", note: "Each opened on time, minuted in full, and adjourned without incident."}]
+stats: [{value: "51.8 trillion", label: "Tons of hydrogen consumed during one day of continued study", note: "The figure is exact because the Sun, unlike its critics, is consistent."}, {value: "4.7 quadrillion", label: "Tons consumed during one standard 90 day comment period", note: "The most recent comment period produced 11 comments."}, {value: "14", label: "Stakeholder meetings convened this cycle", note: "Each opened on time, minuted in full, and adjourned without incident."}]
 pullquote: "We have already wasted approximately 4.6 billion years."
 ---
 

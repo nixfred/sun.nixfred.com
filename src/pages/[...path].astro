@@ -151,31 +151,46 @@ const siblings = section?.items ?? [];
 
   h1 { font-size: var(--text-3xl); max-width: 20ch; }
 
+  /* Rows must align ACROSS the columns. A value that wraps to three
+     lines used to push its own label and note down while its
+     neighbours stayed put, an 79px baseline spread that read as
+     collided text. Subgrid makes value, label and note share row
+     tracks across every stat. */
   .doc-stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    grid-template-rows: auto auto auto;
     gap: var(--space-4);
     margin: var(--space-5) 0;
   }
 
   .doc-stat {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    row-gap: var(--space-1);
     border-top: 2px solid var(--gold-500);
     padding-top: var(--space-2);
   }
 
+  /* Browsers without subgrid still get sane stats, just self aligned. */
+  @supports not (grid-template-rows: subgrid) {
+    .doc-stat { grid-row: auto; grid-template-rows: auto auto auto; }
+  }
+
   .stat-value {
-    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
     font-weight: 600;
     color: var(--gold-300);
     line-height: 1.1;
     margin: 0;
-    order: 1;
+    grid-row: 1;
+    align-self: end;
+    text-wrap: balance;
   }
 
-  .stat-label { font-size: var(--text-sm); font-weight: 600; margin-top: var(--space-1); order: 2; }
-  .stat-note { font-size: var(--text-xs); color: var(--text-faint); margin: var(--space-1) 0 0; order: 3; max-width: none; }
+  .stat-label { font-size: var(--text-sm); font-weight: 600; margin: 0; grid-row: 2; }
+  .stat-note { font-size: var(--text-xs); color: var(--text-faint); margin: 0; grid-row: 3; max-width: none; }
 
   .prose :global(h2) { font-size: var(--text-xl); margin-top: var(--space-5); }
   .prose :global(p) { color: var(--text-muted); line-height: 1.75; }

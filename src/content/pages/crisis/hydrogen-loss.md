@@ -2,7 +2,7 @@
 title: "Hydrogen Loss"
 eyebrow: "The Crisis"
 description: "A briefing on the Sun's conversion of 600 million tons of hydrogen every second, an unsupervised drawdown of the only strategic reserve that matters."
-stats: [{value: "600 million tons", label: "Hydrogen consumed every second", note: "The rate holds around the clock, including observed holidays."}, {value: "4 million tons", label: "Solar mass ceasing to exist each second", note: "An accounting treatment the Foundation would not have approved."}, {value: "0", label: "Resupply deliveries since 4,600,000,000 BC", note: "The receiving logs have been reviewed. There are no receiving logs."}]
+stats: [{value: "600 million", label: "Tons of hydrogen consumed every second", note: "The rate holds around the clock, including observed holidays."}, {value: "4 million", label: "Tons of solar mass ceasing to exist each second", note: "An accounting treatment the Foundation would not have approved."}, {value: "0", label: "Resupply deliveries since 4,600,000,000 BC", note: "The receiving logs have been reviewed. There are no receiving logs."}]
 pullquote: "No institution on Earth would be permitted to spend at this rate, and the Sun does not answer to an institution on Earth."
 ---
 

@@ -9,8 +9,8 @@ stats:
   - value: "10 percent"
     label: "Luminosity increase per billion years"
     note: "The brightening was never submitted for review."
-  - value: "About 5 billion"
-    label: "Years remaining on the main sequence"
+  - value: "5 billion"
+    label: "Years remaining on the main sequence, approximately"
     note: "The Foundation plans to 4.8 as a matter of fiscal prudence."
 pullquote: "The Sun converts four million tons of itself into light every second, and in 4.6 billion years it has never once asked for help."
 ---

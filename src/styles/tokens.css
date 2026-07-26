@@ -60,6 +60,7 @@
   --space-7: 4.8rem;
 
   /* Layout */
+  --header-h: 72px; /* the pinned header; every sticky offset derives from this */
   --measure: 68ch;
   --page-max: 1200px;
   --page-wide: 1400px;

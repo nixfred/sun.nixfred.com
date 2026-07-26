@@ -60,12 +60,14 @@ const fmt = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', ye
 </script>
 
 <style>
+  /* Rides the bottom edge of the pinned header instead of hiding
+     behind it. */
   .progress {
     position: sticky;
-    top: 0;
+    top: var(--header-h);
     height: 3px;
     background: transparent;
-    z-index: 60;
+    z-index: 90;
   }
 
   .progress-fill {
